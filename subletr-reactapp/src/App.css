@@ -1,0 +1,44 @@
+.container {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+}
+
+.listing {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.header {
+  background-color: #29a74d;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-btn {
+  background-color: white;
+  color: #299e3e;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+
