@@ -40,3 +40,10 @@
   cursor: pointer;
   outline: none;
 }
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px; /* This adds spacing between each card */
+}
+
