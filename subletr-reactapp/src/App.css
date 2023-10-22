@@ -47,3 +47,10 @@
   gap: 10px; /* This adds spacing between each card */
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
