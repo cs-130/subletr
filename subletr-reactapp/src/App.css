@@ -22,10 +22,9 @@
 .header {
   background-color: #25a55a;
   color: white;
-  padding: 20px;
   text-align: center;
   font-size: 36px;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,3 +46,19 @@
   gap: 10px; /* This adds spacing between each card */
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-top: -25px;
+}
+
+.header {
+  background-color: #fff;
+}

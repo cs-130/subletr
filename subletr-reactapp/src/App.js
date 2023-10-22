@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Listing from './components/listing.js';
+import { Pagination } from '@mui/material';
+import { Box, Typography, Button, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import Header from './components/header1'
+
+
+
+
+
+
+
 function App() {
   const [listings, setListings] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const listingsPerPage = 10; 
 
   useEffect(() => {
     generateRandomListings();
@@ -57,20 +70,24 @@ function App() {
     setListings(randomListings);
   };
 
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  const currentListings = listings.slice(
+    (currentPage - 1) * listingsPerPage,
+    currentPage * listingsPerPage
+  );
+
+
   return (
-    <div className="container">
-      <div className="header">
-        Subletr
-        <button className="profile-btn">Profile</button>
-      </div>
-  
-      <div className="search-bar">
-        <input type="text" placeholder="Search sublets..." />
-        <button>Search</button>
-      </div>
-  
+    <div className="container">   
+
+      <Header/>
+
+
       <div className="listings-grid">
-        {listings.map((listing, index) => (
+        {currentListings.map((listing, index) => (
           <Listing
             key={index}
             title={listing.description}
@@ -79,9 +96,17 @@ function App() {
           />
         ))}
       </div>
+
+      <div className="pagination">
+        <Pagination
+          count={Math.ceil(listings.length / listingsPerPage)}
+          page={currentPage}
+          onChange={handlePageChange}
+          shape="rounded"
+        />
+      </div>
     </div>
   );
-  
 }
 
 export default App;
