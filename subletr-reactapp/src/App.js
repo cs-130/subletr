@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Listing from './components/listing.js';
-import { Pagination } from '@mui/material';
-import { Box, Typography, Button, IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 import Header from './components/header1'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage';
-
+import CreateListing from './pages/CreateListing/CreateListing';
 
 
 
@@ -18,6 +14,10 @@ function App() {
     {
       path: "/",
       element: <HomePage/>
+    },
+    {
+      path: "/listings/create",
+      element: <CreateListing />,
     },
   ]);
 

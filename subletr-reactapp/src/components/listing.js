@@ -16,7 +16,7 @@ function Listing({
   location = "Westwood, CA", 
   dateRange = "Dec 15 - Jan 15", 
   price, 
-  details = "Details Not Available", 
+  description = "Details Not Available", 
   accommodationType = AccommodationType.SHARED_ACCOMMODATION}) 
 {
   // State to track whether the listing is liked
@@ -60,7 +60,7 @@ function Listing({
             {price}
         </Typography>
         <Typography variant="body2" color="text.secondary" style={{ marginTop: '10px' }}>
-          {details}
+          {description}
         </Typography>
         <Typography variant="body2" color="text.secondary" style={{ marginTop: '0px' }}>
           {accommodationType}

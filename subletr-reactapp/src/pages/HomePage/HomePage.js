@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import '../../App.css';
 import Listing from '../../components/listing.js';
 import { Pagination } from '@mui/material';
-
+import { Box, TextField } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export default function HomePage() {
+
     const [listings, setListings] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const listingsPerPage = 10; 
@@ -51,7 +54,8 @@ export default function HomePage() {
         ];    
             
         const randomListings = Array.from({ length: 30 }).map(() => {
-        const randomDescription = sampleDescriptions[Math.floor(Math.random() * sampleDescriptions.length)];
+            const randomDescription = sampleDescriptions[Math.floor(Math.random() * sampleDescriptions.length)];
+            console.log(randomDescription)
         const randomPrice = Math.floor(Math.random() * (200 - 50 + 1) + 50);
         return {
             description: randomDescription,
@@ -74,12 +78,27 @@ export default function HomePage() {
 
     return (
         <div className="container">   
+            <Box width="300px" margin="auto">
+                <TextField
+                    variant="outlined"
+                    placeholder="Search sublets..."
+                    size="small"
+                    fullWidth
+                    InputProps={{
+                        startAdornment: (
+                        <InputAdornment position="start" style={{ marginRight: '8px' }}>
+                            <SearchIcon color="action" />
+                        </InputAdornment>
+                        ),
+                    }}
+                />
+            </Box>
             <div className="listings-grid">
                 {currentListings.map((listing, index) => (
                 <Listing
                     key={index}
                     title={listing.description}
-                    description="2 guests · 1 bedroom · 1 bed · 1 bath"
+                    description={listing.description}
                     price={`$${listing.price}/night`}
                 />
                 ))}
