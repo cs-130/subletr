@@ -6,7 +6,7 @@ import { Box, Typography, Button, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Header from './components/header1'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 
 
 

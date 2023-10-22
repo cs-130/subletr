@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../App.css';
-import Listing from '../components/listing.js';
+import '../../App.css';
+import Listing from '../../components/listing.js';
 import { Pagination } from '@mui/material';
-import { Box, Typography, Button, IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import Header from '../components/header1'
 
 
 export default function HomePage() {
