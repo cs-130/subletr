@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Listing from './components/listing.js';
 import { Pagination } from '@mui/material';
+import { Box, Typography, Button, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import Header from './components/header1'
+
+
+
+
 
 
 
@@ -75,15 +82,9 @@ function App() {
 
   return (
     <div className="container">   
-      <div className="header">
-        Subletr
-        <button className="profile-btn">Profile</button>
-      </div>
-  
-      <div className="search-bar">
-        <input type="text" placeholder="Search sublets..." />
-        <button>Search</button>
-      </div>
+
+      <Header/>
+
 
       <div className="listings-grid">
         {currentListings.map((listing, index) => (
