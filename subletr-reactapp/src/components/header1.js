@@ -17,21 +17,6 @@ function HeaderComponent() {
 
         <Box display="flex" flexDirection="column" alignItems="flex-end">
           <Breadcrumbs />
-          <Box mt={5} width="100%">
-            <TextField
-                variant="outlined"
-                placeholder="Search sublets..."
-                size="small"
-                fullWidth
-                InputProps={{
-                    startAdornment: (
-                    <InputAdornment position="start" style={{ marginRight: '8px' }}>
-                        <SearchIcon color="action" />
-                    </InputAdornment>
-                    ),
-                }}
-            />
-          </Box>
         </Box>
         
         <Box display="flex" alignItems="center" gap={2}>
