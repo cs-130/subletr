@@ -62,3 +62,43 @@
 .header {
   background-color: #fff;
 }
+
+.filter-htext {
+  color: rgb(69, 69, 69);
+}
+
+.filter-hbtext {
+  color: rgb(34, 34, 34);
+}
+
+.filter-text {
+  color: rgb(104, 104, 104);
+}
+
+.filter-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: green;
+  color: white;
+}
+
+.filter-button:hover {
+  background-color: darkgreen;
+}
+
+.filter-button:not(:last-child) {
+  margin-right: 16px; 
+}
+
+.filter-container {
+  background-color: #fbfffb; 
+  border-radius: 10px; 
+  padding: 16px; 
+  margin-top: 16px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #06bc2828;
+}
+
+.slider {
+  margin-top: 16px;
+}

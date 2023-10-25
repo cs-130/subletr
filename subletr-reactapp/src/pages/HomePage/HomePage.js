@@ -78,21 +78,6 @@ export default function HomePage() {
 
     return (
         <div className="container">   
-            <Box width="300px" margin="auto">
-                <TextField
-                    variant="outlined"
-                    placeholder="Search sublets..."
-                    size="small"
-                    fullWidth
-                    InputProps={{
-                        startAdornment: (
-                        <InputAdornment position="start" style={{ marginRight: '8px' }}>
-                            <SearchIcon color="action" />
-                        </InputAdornment>
-                        ),
-                    }}
-                />
-            </Box>
             <div className="listings-grid">
                 {currentListings.map((listing, index) => (
                 <Listing
