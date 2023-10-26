@@ -27,7 +27,7 @@ function Listing({
   };
 
   return (
-    <Card style={{ maxWidth: 345, margin: '20px', position: 'relative', height: 300, elevation: 0, boxShadow: 'none', borderRadius: '15px'}}>
+    <Card style={{ width: '350px', margin: '20px', position: 'relative', height: 300, elevation: 0, boxShadow: 'none', borderRadius: '15px'}}>
       <CardMedia
         component="img"
         height="200"
