@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/header1'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import CreateListing from './pages/CreateListing/CreateListing';
 
@@ -10,23 +10,19 @@ import CreateListing from './pages/CreateListing/CreateListing';
 
 function App() {
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <HomePage/>
-    },
-    {
-      path: "/listings/create",
-      element: <CreateListing />,
-    },
-  ]);
 
 
   return (
     <div className="container">
-    {/* <Switch> */}
-      <Header/>
-      <RouterProvider router={router}/>
+      {/* <Switch> */}
+      <Router>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/listings" element={<HomePage />} />
+          <Route path="/listings/create" element={<CreateListing />} />
+        </Routes>
+      </Router>
 
       
     {/* </Switch>    */}

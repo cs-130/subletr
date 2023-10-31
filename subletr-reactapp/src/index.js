@@ -1,8 +1,8 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-
+import { ListingsProvider } from './context/ListingsProvider';
 // Custom theme
 const theme = createTheme({
   palette: {
@@ -12,9 +12,12 @@ const theme = createTheme({
   },
 });
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
   <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>,
-  document.getElementById('root')
+    <ListingsProvider>
+      <App />
+    </ListingsProvider>
+  </ThemeProvider>
 );

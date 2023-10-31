@@ -4,41 +4,41 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
+import { useNavigate } from 'react-router-dom'
 
-function handleClick(event) {
-  event.preventDefault();
-  console.info('You clicked a breadcrumb.');
-}
 
 export default function IconBreadcrumbs() {
+  const navigate = useNavigate()
   return (
-    <div role="presentation" onClick={handleClick}>
+    <div role="presentation">
       <Breadcrumbs aria-label="breadcrumb">
         <Link
           underline="hover"
-          sx={{ display: 'flex', alignItems: 'center' }}
+          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer'}}
           color="inherit"
-          href="/"
+          onClick={() => navigate("/")}
         >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           Home
         </Link>
         <Link
           underline="hover"
-          sx={{ display: 'flex', alignItems: 'center' }}
+          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
           color="inherit"
-          href="/listings"
+          onClick={() => navigate("/listings")}
         >
           <StarIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           Listings
         </Link>
-        <Typography
-          sx={{ display: 'flex', alignItems: 'center' }}
+        <Link
+          underline="hover"
+          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
           color="inherit"
+          onClick={() => navigate("/listings/create")}
         >
           <StarIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          List your place
-        </Typography>
+          Create a Listing
+        </Link>
       </Breadcrumbs>
     </div>
   );
