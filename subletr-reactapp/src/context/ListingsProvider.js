@@ -5,8 +5,7 @@ export const ListingsContext = createContext()
 export const ListingsProvider = ({ children }) => {
 
     const [listings, setListings] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
- 
+    const [listingsRowCount, setListingsRowCount] = useState(6);
 
     useEffect(() => {
         console.log("use effect")
@@ -15,29 +14,23 @@ export const ListingsProvider = ({ children }) => {
 
     const calculateListingsPerPage = () => {
         const screenWidth = window.innerWidth
-        const screenHeight = window.innerHeight
-        let widthCount = 0
-        let heightCount = 0
-        if (screenWidth >= 1226) {
-            widthCount = 3
+        if (screenWidth >= 1641) {
+            return 4
+        }
+        else if (screenWidth >= 1226) {
+            return 3
         } else if (screenWidth >= 816) {
-            widthCount = 2
+            return 2
         } else {
-            widthCount = 1
+            return 1
         }
-        if (screenHeight >= 700) {
-            heightCount = 2
-        } else {
-            heightCount = 1
-        }
-        return widthCount * heightCount
     }
 
-    const [listingsPerPage, setListingsPerPage] = useState(calculateListingsPerPage())
+    const [listingsWidthFactor, setListingsWidthFactor] = useState(calculateListingsPerPage())
 
     useEffect(() => {
         const handleResize = () => {
-          setListingsPerPage(calculateListingsPerPage());
+          setListingsWidthFactor(calculateListingsPerPage());
         };
     
         window.addEventListener('resize', handleResize);
@@ -102,9 +95,10 @@ export const ListingsProvider = ({ children }) => {
             value={{
                 listings,
                 setListings,
-                currentPage,
-                setCurrentPage,
-                listingsPerPage,
+                listingsRowCount,
+                setListingsRowCount,
+                listingsWidthFactor,
+                setListingsWidthFactor,
             }}
         >
             {children}

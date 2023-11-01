@@ -11,25 +11,20 @@ export default function HomePage() {
     const {
         listings,
         setListings,
-        currentPage,
-        setCurrentPage,
-        listingsPerPage,
+        listingsWidthFactor,
+        setListingsRowCount,
+        listingsRowCount,
     } = useContext(ListingsContext)
 
-    const handlePageChange = (event, value) => {
-        setCurrentPage(value);
-    };
-
-    const currentListings = listings.slice(
-        (currentPage - 1) * listingsPerPage,
-        currentPage * listingsPerPage
-    );
+    const handleViewMore = () => {
+        setListingsRowCount(listingsRowCount+3)
+    }
 
 
     return (
-        <div className="">   
+        <div className='page-height' style={{overflow: 'auto'}}>   
             <div className="listings-grid">
-                {currentListings.map((listing, index) => (
+                {listings.slice(0, listingsWidthFactor*listingsRowCount).map((listing, index) => (
                 <Listing
                     key={index}
                     title={listing.description}
@@ -38,15 +33,22 @@ export default function HomePage() {
                 />
                 ))}
             </div>
+            {listingsWidthFactor*listingsRowCount < listings.length && 
+                <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+                    <button className='view-more-button' onClick={() => handleViewMore()}>
+                        View More
+                    </button>
+                </div>
+            }
 
-            <div className="pagination">
+            {/* <div className="pagination">
                 <Pagination
                 count={Math.ceil(listings.length / listingsPerPage)}
                 page={currentPage}
                 onChange={handlePageChange}
                 shape="rounded"
                 />
-            </div>
+            </div> */}
         </div>
     )
 }
