@@ -27,7 +27,7 @@ function Listing({
   };
 
   return (
-    <Card style={{ width: '350px', margin: '20px', position: 'relative', height: 300, elevation: 0, boxShadow: 'none', borderRadius: '15px'}}>
+    <Card style={{ width: '20%', margin: '10px', position: 'relative', height: 300, elevation: 0, boxShadow: 'none', borderRadius: '15px'}}>
       <CardMedia
         component="img"
         height="200"
@@ -59,10 +59,10 @@ function Listing({
         <Typography variant="subtitle2" noWrap style={{ marginTop: '0px' }}>
             {price}
         </Typography>
-        <Typography variant="body2" color="text.secondary" style={{ marginTop: '10px' }}>
+        <Typography variant="body2" color="text.secondary" style={{ marginTop: '5px' }}>
           {description}
         </Typography>
-        <Typography variant="body2" color="text.secondary" style={{ marginTop: '0px' }}>
+        <Typography variant="body2" color="black" style={{ marginTop: '0px' }}>
           {accommodationType}
         </Typography>
       </CardContent>
