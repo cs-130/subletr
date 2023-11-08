@@ -7,7 +7,7 @@ export default function CreateListing() {
 
 
     return (
-        <div className="container">   
+        <div className="page-height">   
             Create Listing
         </div>
     )

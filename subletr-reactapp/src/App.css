@@ -1,6 +1,6 @@
 .container {
   font-family: 'Arial', sans-serif;
-  height: 100%;
+  height: calc(100vh - 16px);
   width: 100%;
 }
 
@@ -42,12 +42,12 @@
 }
 
 .listings-grid {
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
+  justify-content: center;
   /* grid-template-columns: repeat(5, 1fr); */
   gap: 20px; /* This adds spacing between each card */
+  margin-bottom: 50px;
 }
 
 .pagination {
@@ -94,6 +94,11 @@
   margin-right: 16px; 
 }
 
+.page-height {
+  height: calc(100% - 100px);
+  overflow: hidden;
+}
+
 .filter-container {
   background-color: #fbfffb; 
   border-radius: 10px; 
@@ -105,4 +110,35 @@
 
 .slider {
   margin-top: 16px;
+}
+
+.view-more-button {
+  font-size: 16px;
+  background-color: rgb(229 231 235);
+  border: none;
+  padding-right: 14px;
+  padding-left: 14px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: 'Arial', sans-serif;
+}
+
+.view-more-button:hover {
+  background-color: rgb(209 213 219);
+}
+
+
+::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CCC; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background: white; /* Color of the scrollbar track */
 }
