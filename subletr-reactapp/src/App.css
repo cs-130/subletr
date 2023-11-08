@@ -125,6 +125,33 @@
   font-family: 'Arial', sans-serif;
 }
 
+.wrapper-image{
+  height: 38%;
+  margin: auto;
+}
+
+.heading-wrapper {
+  height: 10%;
+  margin: auto;
+}
+
+.wrapper-chips {
+  height: 10%;
+  width: 100%;
+  margin-top: .45rem;
+}
+
+.listing-wrapper {
+  width: 60%;
+  margin: auto;
+
+}
+
+.bottom-listing {
+  margin-top: 1rem;
+}
+
+
 .view-more-button:hover {
   background-color: rgb(209 213 219);
 }

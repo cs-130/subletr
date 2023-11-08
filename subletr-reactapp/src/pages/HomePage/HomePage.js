@@ -6,6 +6,8 @@ import { Box, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 import { ListingsContext } from '../../context/ListingsProvider';
+import '../../App.css';
+
 
 export default function HomePage() {
     const {
