@@ -48,7 +48,7 @@
   /* grid-template-columns: repeat(5, 1fr); */
   gap: 5px; /* This adds spacing between each card */
   margin-bottom: 10px;
-  width: 75%;
+  width: 95%;
   margin: auto;
 }
 
