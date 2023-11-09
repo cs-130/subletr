@@ -48,6 +48,7 @@ export default function DetailedListing() {
             Orci sagittis eu volutpat odio facilisis. Id donec ultrices tincidunt arcu non sodales neque sodales. Ipsum dolor sit amet consectetur adipiscing elit pellentesque. Condimentum lacinia quis vel eros donec ac odio. "
             startDate="December 3rd"
             endDate="July 5th"
+            owner="Jason"
         />
         </div>
     

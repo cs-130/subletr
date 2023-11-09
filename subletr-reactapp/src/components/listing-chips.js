@@ -9,7 +9,7 @@ const ChipArray = ({ items, onProfileClick }) => {
     <Box display="flex" justifyContent="space-between" alignItems="center">
       <Stack direction="row">
         {items.map((item, index) => (
-          <Chip key={index} label={item.label} />
+          <Chip sx={{margin: '5px'}} key={index} label={item.label} />
         ))}
       </Stack>
       <Link component="button" variant="body2" onClick={onProfileClick}>

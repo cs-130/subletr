@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Paper, Typography, Button } from '@mui/material';
 
-const TwoColumnLayout = ({ biography, startDate, endDate }) => {
+const TwoColumnLayout = ({ biography, startDate, endDate, owner }) => {
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={7}>
@@ -13,7 +13,7 @@ const TwoColumnLayout = ({ biography, startDate, endDate }) => {
         </Typography>
       </Grid>
       <Grid item xs={12} md={5} sx={{marginTop: '3rem'}}>
-        <Paper style={{ padding: '16px', textAlign: 'center' }}>
+        <Paper style={{ backgroundColor: '#f5fff5', padding: '16px', textAlign: 'center' }}>
           <Typography variant="h6" gutterBottom>
             This stay is available from {startDate} to {endDate} without renewal!
           </Typography>
@@ -24,7 +24,7 @@ const TwoColumnLayout = ({ biography, startDate, endDate }) => {
             or
           </Typography>
           <Button variant="contained" color="primary" style={{ margin: '8px' }}>
-            Chat with Jason
+            Chat with {owner}
           </Button>
         </Paper>
       </Grid>
