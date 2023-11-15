@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+.createListingContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.leftContainer {
+  width: 80%;
+  height: 100%;
+  background-color: rgb(255, 255, 255); /* Just for visibility */
+}
+
+.rightContainer {
+  width: 20%;
+  height: 100%;
+
+  background-color: rgb(223, 223, 223); /* Just for visibility */
+}
+
+.progressBar {
+    background-color: darkgreen;  
+}
+
+.inputboxGeneral {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+    background: white;
+
+}
+
+.selectGeneral {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+    background: white;
+}
+
+.inputs {
+    width: 50%;
+    float: right;
+    margin-top: 10%;
+    padding-right: 10%;
+}
