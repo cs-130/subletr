@@ -19,7 +19,7 @@ export default function IconBreadcrumbs() {
           onClick={() => navigate("/")}
         >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          Home
+          Messages
         </Link>
         <Link
           underline="hover"
@@ -34,7 +34,7 @@ export default function IconBreadcrumbs() {
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
           color="inherit"
-          onClick={() => navigate("/listings/create")}
+          onClick={() => navigate("/listings/create/1")}
         >
           <StarIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           Create a Listing
