@@ -1,9 +1,10 @@
 const { generateToken, verifyToken } = require("../utils/jwt");
-const config = require("../config/index");
+const config = require("../config/variables");
 const Customer = require("../models/Customer");
 
 const handleAuthentication = async (req, res, customer) => {
   try {
+    console.log("handle auth: ", customer);
     // Generate our own token from our google customer
     const token = generateToken({
       id: customer._id.toHexString(),
@@ -22,7 +23,7 @@ const handleAuthentication = async (req, res, customer) => {
         domain: process.env.NODE_ENV === "production" ? `fribe.com` : null,
         // crossDomain: true,
       })
-      .redirect(`${config.CLIENT_URL}/home`);
+      .redirect(`${config.CLIENT_URL}/`);
   } catch (err) {
     console.error(err.message);
     throw new Error(err);

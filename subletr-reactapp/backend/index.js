@@ -15,6 +15,8 @@ const { application } = require("express");
 const app = express();
 dotenv.config();
 
+require("./config/passport")(passport);
+
 app.use(
   cors({
     // Replace with the frontend port and put that in the .env file.
@@ -23,6 +25,8 @@ app.use(
   })
 );
 
+app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -39,6 +43,12 @@ app.use(
     },
   })
 );
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/auth", require("./routes/auth.js"));
 
 app.listen(variables.BACKEND_PORT, () => {
   console.log(`Server is running on port ${variables.BACKEND_PORT}`);
