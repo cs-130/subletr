@@ -52,6 +52,12 @@
     padding-right: 10%;
 }
 
-.navigationButtons {
-
+.dates{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+    background: white;
 }
