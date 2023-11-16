@@ -22,8 +22,8 @@ router.get("/google/callback", (req, res) => {
       failWithError: true,
       failureRedirect: "/auth/google/failure",
     },
-    async (err, user) => {
-      return AuthController.handleAuthentication(req, res, user);
+    async (err, customer) => {
+      return AuthController.handleAuthentication(req, res, customer);
     }
   )(req, res);
 });
@@ -37,9 +37,9 @@ router.get("/logout", (req, res) => {
     .json({ message: "success" });
 });
 
-// Update any field for user
-router.put("/update-user", ensureAuth, AuthController.updateUser);
+// Update any field for customer
+router.put("/update-customer", ensureAuth, AuthController.updateCustomer);
 
-router.get("/is-user-logged-in", AuthController.isUserLoggedIn);
+router.get("/is-customer-logged-in", AuthController.isCustomerLoggedIn);
 
 module.exports = router;
