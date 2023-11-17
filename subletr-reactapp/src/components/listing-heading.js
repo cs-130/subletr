@@ -18,7 +18,7 @@ const ListingHeading = ({ title, rating, reviewCount, rent, reviewLink }) => {
           View all {reviewCount} reviews
         </Link>
         <Typography variant="subtitle1" color="textSecondary">
-        {rent} / month
+        {rent}$ / month
       </Typography>
       </Box>
     </Box>

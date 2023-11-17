@@ -47,7 +47,7 @@
   justify-content: center;
   /* grid-template-columns: repeat(5, 1fr); */
   gap: 5px; /* This adds spacing between each card */
-  margin-bottom: 10px;
+  padding-bottom: 24px;
   width: 95%;
   margin: auto;
 }
@@ -97,7 +97,7 @@
 }
 
 .page-height {
-  height: calc(100% - 142px);
+  height: calc(100% - 100px);
   overflow: hidden;
 }
 

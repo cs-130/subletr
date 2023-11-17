@@ -5,8 +5,19 @@ import ListingHeading from '../../components/listing-heading.js'
 import '../../App.css'
 import ChipArray from '../../components/listing-chips.js';
 import BottomElement from '../../components/bottom-detailed-listing.js'
+import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { ListingsContext } from '../../context/ListingsProvider.js';
 
 export default function DetailedListing() {
+    const {
+        listings,
+    } = useContext(ListingsContext)
+
+    const {listing_id} = useParams()
+
+    let listing_data = listings.find(item => item.id == listing_id)
+
     const quotes = [
         { text: "Amazing place to stay for short term lease...", author: "Jane Doe" },
         { text: "Amazing place to stay for short term lease...", author: "Jane Doe" }
@@ -26,10 +37,10 @@ export default function DetailedListing() {
     <div className='listing-wrapper'>
             <div className='heading-wrapper'>
                 <ListingHeading
-                title="Unique master bedroom in Westwood Villa"
+                title={listing_data.description}
                 rating={4.8}
                 reviewCount={28}
-                rent="$2,500"
+                rent={listing_data.price}
                 reviewLink="#reviews" 
             />        
       </div>
@@ -56,5 +67,8 @@ export default function DetailedListing() {
 
     )
 }
+
+
+
 
 
