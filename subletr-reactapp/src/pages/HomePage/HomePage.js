@@ -31,7 +31,7 @@ export default function HomePage() {
                     key={index}
                     title={listing.description}
                     description={listing.description}
-                    price={`$${listing.price}/night`}
+                    price={`$${listing.price}/month`}
                 />
                 ))}
             </div>
