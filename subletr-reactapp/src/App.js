@@ -28,7 +28,7 @@ function App() {
     <ProgressProvider>
     <div className="container">
       <Router>
-        <CurrentHeader /> {/* Use the CurrentHeader function */}
+        <HeaderNoSearch /> {/* Use the CurrentHeader function */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/listings" element={<HomePage />} />
@@ -39,7 +39,7 @@ function App() {
           <Route path="/listings/create/5" element={<CreateListing5 />} />
 
 
-          <Route path="/testing" element={<DetailedListing />} />
+          <Route path="/:listing_id" element={<DetailedListing />} />
         </Routes>
       </Router>
     </div>
