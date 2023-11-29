@@ -13,4 +13,17 @@ const getAllListings = async (req, res) => {
   }
 };
 
-module.exports = { getAllListings };
+const createListing = async (req, res) => {
+  try {
+    console.log("entered create listing", req.body);
+    let newListing = new Listing({ ...req.body });
+    await newListing.save();
+    return res.json({ message: "success" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: `error in creating listing ${err}` });
+  }
+};
+
+module.exports = { getAllListings, createListing };
