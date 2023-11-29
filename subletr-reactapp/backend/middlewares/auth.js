@@ -21,7 +21,7 @@ module.exports = {
       return res
         .statues(401)
         .json({ error: `Cookie not found. id = ${id}, cookie: ${cookie}` });
-    } else if (!user) {
+    } else if (!customer) {
       return res
         .status(401)
         .json({ error: "Unauthorized customer while ensuring auth." });
