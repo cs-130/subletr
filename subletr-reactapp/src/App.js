@@ -9,6 +9,7 @@ import CreateListing2 from './pages/CreateListing/CreateListing2';
 import CreateListing3 from './pages/CreateListing/CreateListing3';
 import CreateListing4 from './pages/CreateListing/CreateListing4';
 import CreateListing5 from './pages/CreateListing/CreateListing5';
+import Profile from './pages/Profile/profile';
 
 import DetailedListing from './pages/DetailedListing/detailed-listing';
 import { ProgressProvider } from './pages/CreateListing/context'
@@ -18,7 +19,7 @@ function App() {
   const CurrentHeader = () => {
     const location = useLocation();
     const path = location.pathname;
-    if (path.startsWith('/listings/create/') || path === '/testing') {
+    if (path.startsWith('/listings/create/') || path === '/testing' || path === '/profile') {
       return <HeaderNoSearch />;
     }
     return <Header />;
@@ -37,6 +38,9 @@ function App() {
           <Route path="/listings/create/3" element={<CreateListing3 />} />
           <Route path="/listings/create/4" element={<CreateListing4 />} />
           <Route path="/listings/create/5" element={<CreateListing5 />} />
+          <Route path="/profile/" element={<Profile />} />
+
+
 
 
           <Route path="/:listing_id" element={<DetailedListing />} />
