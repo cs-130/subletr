@@ -24,17 +24,37 @@ const Form = () => {
         setActiveStep((prevStep) => prevStep - 1);
     };
 
-    const handleSubmitFinal = () => {
+    const handleSubmitFinal = async () => {
         console.log("submit");
 
         alert(JSON.stringify(formik.values, null, 2));
+
+        // call openai backend route
+        try {
+            console.log(
+              JSON.stringify({ prompt: formik.values.userDescription })
+            );
+
+            const response = await fetch("http://localhost:5000/openai/generate", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ prompt: formik.values.userDescription }),
+            });
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const formik = useFormik({
       initialValues: {
         availSpots: "",
         accomodationType: "",
-        rent: 0,
+        rent: "",
         currentOccupancy: "",
         startDate: Date.now(),
         endDate: Date.now() + 1,
@@ -57,11 +77,11 @@ const Form = () => {
           "Accomodation Type is required"
         ),
         rent: Yup.number().integer().min(1),
-        address: Yup.string().min(1).required("Address is required"),
-        startDate: Yup.date().max(
-          Yup.ref("endDate"),
-          "Start Date must be before End Date"
-        ),
+        address: Yup.string().required("Address is required"),
+        // startDate: Yup.date().max(
+        //   Yup.ref("endDate"),
+        //   "Start Date must be before End Date"
+        // ),
         // endDate: Yup.date().min(
         //   Yup.ref("startDate"),
         //   "End Date must be after Start Date"

@@ -62,8 +62,8 @@ const MoreInfo = (props) => {
           />
         </Grid>
       </LocalizationProvider>
-      <Grid item xs={12}>
-        {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+      {/* <Grid item xs={12}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateRangePicker
             name="dateRange"
             disablePast
@@ -75,8 +75,8 @@ const MoreInfo = (props) => {
               console.log(value[0]);
             }}
           />
-        </LocalizationProvider> */}
-      </Grid>
+        </LocalizationProvider>
+      </Grid> */}
       <Grid item xs={12}>
         <TextField
           name="rent"

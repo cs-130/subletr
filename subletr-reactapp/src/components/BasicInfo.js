@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import parse from "autosuggest-highlight/parse";
 import { debounce } from "@mui/material/utils";
 
-const GOOGLE_MAPS_API_KEY = "AIzaSyBEkHzr80JNvMuF4k2VNgeHiu0W2yLUvDs";
+const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 const autocompleteService = { current: null };
 
