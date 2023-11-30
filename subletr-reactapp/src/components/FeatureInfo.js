@@ -6,6 +6,7 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/material/styles";
+import { useState } from "react";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -24,6 +25,30 @@ const VisuallyHiddenInput = styled("input")({
 
 const FeatureInfo = (props) => {
   const { formik } = props;
+  const [showDescription, setShowDescription] = useState(false);
+
+  const generateFlashyDescription = async () => {
+    // call openai backend route
+    try {
+      console.log(JSON.stringify({ prompt: formik.values.userDescription }));
+
+      const response = await fetch("http://localhost:5000/openai/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: formik.values.userDescription }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      setShowDescription(true);
+      formik.setFieldValue("generatedDescription", data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <Grid container spacing={2}>
@@ -72,11 +97,33 @@ const FeatureInfo = (props) => {
           fullWidth
           rows={4}
           inputProps={{ maxLength: 200 }}
-          helperText={`${(formik.values.userDescription.length)}/${300}`}
+          helperText={`${formik.values.userDescription.length}/${300}`}
           onChange={formik.handleChange}
           value={formik.values.userDescription}
           // defaultValue="Default Value"
         />
+        <Button
+          variant="contained"
+          onClick={async () => {
+            const response = await generateFlashyDescription();
+            formik.setFieldValue("userDescription", response);
+          }}
+        >
+          Generate Better Description
+        </Button>
+        {showDescription && (
+          <TextField
+            label="Generated Description"
+            value={formik.values.generatedDescription}
+            // onChange={(event) => setGeneratedDescription(event.target.value)}
+            multiline
+            rows={4}
+            InputProps={{
+              readOnly: true,
+            }}
+            variant="outlined"
+          />
+        )}
       </Grid>
     </Grid>
   );

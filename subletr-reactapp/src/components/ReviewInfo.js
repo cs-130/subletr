@@ -51,6 +51,12 @@ const ReviewInfo = ({ formik }) => {
             secondary={values.amenities.join(", ")}
           />
         </ListItem>
+        <ListItem>
+          <ListItemText
+            primary="Description"
+            secondary={values.generatedDescription !== "" ? values.generatedDescription : values.userDescription}
+          />
+        </ListItem>
       </List>
     </>
   );

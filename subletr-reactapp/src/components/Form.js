@@ -26,28 +26,7 @@ const Form = () => {
 
     const handleSubmitFinal = async () => {
         console.log("submit");
-
         alert(JSON.stringify(formik.values, null, 2));
-
-        // call openai backend route
-        try {
-            console.log(
-              JSON.stringify({ prompt: formik.values.userDescription })
-            );
-
-            const response = await fetch("http://localhost:5000/openai/generate", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ prompt: formik.values.userDescription }),
-            });
-
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error(error);
-        }
     };
 
     const formik = useFormik({
@@ -59,6 +38,7 @@ const Form = () => {
         startDate: Date.now(),
         endDate: Date.now() + 1,
         userDescription: "",
+        generatedDescription: "",
         address: "",
         bio: "",
         phoneNumbers: [],
@@ -86,7 +66,7 @@ const Form = () => {
         //   Yup.ref("startDate"),
         //   "End Date must be after Start Date"
         // ),
-        userDescription: Yup.string().max(300),
+        // userDescription: Yup.string().max(300),
       }),
       onSubmit: () => {
         if (activeStep === steps.length - 1) {
