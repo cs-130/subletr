@@ -1,0 +1,65 @@
+/* Profile.css */
+
+.profile-container {
+    display: flex; /* Enables flexbox layout */
+    min-height: 90vh; /* Full height of the viewport */
+    background-color: rgb(255, 255, 255); /* Optional: for visibility */
+}
+
+.left-nav {
+    background-color: #e5ede7; /* For visibility */
+    width: 15%; /* 15% of the container's width */
+    padding: 20px; /* Spacing inside the element */
+    margin-right: 1vh;
+    filter: drop-shadow(4px 4px rgb(151, 145, 145));
+
+}
+
+.main-body {
+    background-color: rgb(255, 255, 255); /* For visibility */
+    flex-grow: 1; /* Takes the remaining space */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stacks children vertically */
+    padding: 20px; /* Spacing inside the element */
+}
+
+.top-div, .bottom-div {
+    background-color: #e5ede7; /* For visibility */
+    padding: 20px; /* Spacing inside the element */
+    margin-top: 1vh; /* Space between elements */
+    margin-bottom: 3vh;
+    height: 40%;
+    filter: drop-shadow(4px 4px rgb(151, 145, 145));
+
+}
+
+.bottom-div {
+    margin-bottom: 0; /* No margin at the bottom of the last element */
+}
+
+
+.header1 {
+    font-size: 24px; /* Large text */
+    color: black; /* White text color */
+}
+
+.inputboxGeneral {
+    width: 30%;
+    background-color: white;
+    margin: 1vh;
+
+}
+
+.inputboxLong {
+
+    width: 61%;
+    background-color: white;
+    margin: 10px;
+}
+
+.biography {
+    width: 100%;
+    background-color: white;
+    margin: 10px;
+}
+
