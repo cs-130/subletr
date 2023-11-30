@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react"
+import { v4 as uuid } from 'uuid';
 
 export const ListingsContext = createContext()
 
@@ -83,7 +84,8 @@ export const ListingsProvider = ({ children }) => {
         const randomPrice = Math.floor(Math.random() * (200 - 50 + 1) + 50);
         return {
             description: randomDescription,
-            price: randomPrice
+            price: randomPrice,
+            id: uuid()
         };
         });
 

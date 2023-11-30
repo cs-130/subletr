@@ -33,7 +33,15 @@ function HeaderComponent() {
 
 
         <Box display="flex" alignItems="center" gap={2}>
-          <Button variant="outlined" sx={{ borderColor: 'green', color: 'green' }}>Profile</Button>
+          <Button
+            variant="outlined"
+            sx={{ borderColor: "green", color: "green" }}
+            onClick={() =>
+              (window.location.href = `http://localhost:5000/auth/google`)
+            }
+          >
+            Profile
+          </Button>
           <IconButton>
             <MenuIcon />
           </IconButton>

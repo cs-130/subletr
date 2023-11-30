@@ -26,7 +26,7 @@ export default function CreateListing() {
     };
 
     return (
-        <div className="createListingContainer">
+        <div className="page-height" style={{display: 'flex'}}>
             <div className="leftContainer">
                 <ProgressBar />
                 <div className='content'>

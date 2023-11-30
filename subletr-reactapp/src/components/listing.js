@@ -17,7 +17,9 @@ function Listing({
   dateRange = "Dec 15 - Jan 15", 
   price, 
   description = "Details Not Available", 
-  accommodationType = AccommodationType.SHARED_ACCOMMODATION}) 
+  accommodationType = AccommodationType.SHARED_ACCOMMODATION,
+  onClick}) 
+  
 {
   // State to track whether the listing is liked
   const [isLiked, setIsLiked] = useState(false);
@@ -27,7 +29,7 @@ function Listing({
   };
 
   return (
-    <Card style={{ width: '20%', margin: '10px', position: 'relative', height: 300, elevation: 0, boxShadow: 'none', borderRadius: '15px'}}>
+    <Card style={{ width: '20%', margin: '10px', position: 'relative', height: 300, elevation: 0, boxShadow: 'none', borderRadius: '15px'}} onClick={() => onClick()}>
       <CardMedia
         component="img"
         height="200"
