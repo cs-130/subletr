@@ -14,8 +14,9 @@ import MoreInfo from "./MoreInfo";
 import BasicInfo from "./BasicInfo";
 import FeatureInfo from "./FeatureInfo";
 import ReviewInfo from "./ReviewInfo";
+import ContactInfo from "./ContactInfo";
 
-const steps = ["Basic Info", "Dates & Rent", "Amenities & Photos", "Review and Submit"];
+const steps = ["Basic Info", "Dates & Rent", "Amenities & Photos", "Contact Info", "Review and Submit"];
 
 const Form = () => {
     const [activeStep, setActiveStep] = useState(0);
@@ -41,7 +42,7 @@ const Form = () => {
         generatedDescription: "",
         address: "",
         bio: "",
-        phoneNumbers: [],
+        phoneNumber: "",
         amenities: [],
       },
       validationSchema: Yup.object().shape({
@@ -58,6 +59,10 @@ const Form = () => {
         ),
         rent: Yup.number().integer().min(1),
         address: Yup.string().required("Address is required"),
+        phoneNumber: Yup.string().matches(
+          /^\d{3}-\d{3}-\d{4}$/,
+          "Phone number must be in the format XXX-XXX-XXXX"
+        ),
         // startDate: Yup.date().max(
         //   Yup.ref("endDate"),
         //   "Start Date must be before End Date"
@@ -87,6 +92,8 @@ const Form = () => {
           case 2:
             return <FeatureInfo formik={formik} />;
           case 3:
+            return <ContactInfo formik={formik} />;
+          case 4:
             return <ReviewInfo formik={formik} />;
           default:
             return <div>404: Not Found</div>;

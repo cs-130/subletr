@@ -102,13 +102,7 @@ const FeatureInfo = (props) => {
           value={formik.values.userDescription}
           // defaultValue="Default Value"
         />
-        <Button
-          variant="contained"
-          onClick={async () => {
-            const response = await generateFlashyDescription();
-            formik.setFieldValue("userDescription", response);
-          }}
-        >
+        <Button variant="contained" onClick={generateFlashyDescription}>
           Generate Better Description
         </Button>
         {showDescription && (

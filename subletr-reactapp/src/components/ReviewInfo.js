@@ -54,7 +54,23 @@ const ReviewInfo = ({ formik }) => {
         <ListItem>
           <ListItemText
             primary="Description"
-            secondary={values.generatedDescription !== "" ? values.generatedDescription : values.userDescription}
+            secondary={
+              values.generatedDescription !== ""
+                ? values.generatedDescription
+                : values.userDescription
+            }
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemText
+            primary="Bio"
+            secondary={values.bio}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemText
+            primary="Phone Number"
+            secondary={values.phoneNumber}
           />
         </ListItem>
       </List>
