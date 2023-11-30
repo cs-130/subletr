@@ -10,12 +10,48 @@ import InputBox from './inputBox';
 import DropdownBox from './selectBox';
 import BlankBox from './blankBox.js';
 
+
+const thumbsContainer = {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 16
+  };
+  
+  const thumb = {
+    display: 'inline-flex',
+    borderRadius: 2,
+    border: '1px solid #eaeaea',
+    marginBottom: 8,
+    marginRight: 8,
+    width: 100,
+    height: 100,
+    padding: 4,
+    boxSizing: 'border-box'
+  };
+  
+  const thumbInner = {
+    display: 'flex',
+    minWidth: 0,
+    overflow: 'hidden'
+  };
+  
+  const img = {
+    display: 'block',
+    width: 'auto',
+    height: '100%'
+  };
+
+
 export default function CreateListing() {
     const { setProgress } = useProgress();
     const navigate = useNavigate(); 
     const [startDate, setStartDate] = useState(new Date()); 
     const [endDate, setEndDate] = useState(new Date()); 
 
+    
+    const [images, setImages] = useState([])
+    
     const handleSetEndDate = (date) => {
         if (date > startDate) {
             setEndDate(date)
@@ -45,9 +81,26 @@ export default function CreateListing() {
         navigate('/listings/create/1');
     };
 
-    const handleFileUpload = (file) => {
-        console.log(file)
+    const handleFileUpload = (e) => {
+        console.log(e.target.files)
+        if (e.target.files.length)
+            setImages(prev => [...prev, ...Array.from(e.target.files).map((file) => { return { ...file, preview: URL.createObjectURL(file) } })]);
+
     }
+
+    console.log(images)
+
+    const thumbs = images.map(file => (
+        <div style={thumb} key={file.name}>
+          <div style={thumbInner}>
+            <img
+              src={file.preview}
+              style={img}
+              onLoad={() => { URL.revokeObjectURL(file.preview) }}
+            />
+          </div>
+        </div>
+      ));
 
     return (
         <div className="page-height" style={{display: 'flex'}}>
@@ -69,11 +122,14 @@ export default function CreateListing() {
                                             <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                                             <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                         </div>
-                                        <input id="dropzone-file" type="file" style={{display: "none"}} multiple={true} max={2} onChange={(file) => handleFileUpload(file)}/>
+                                        <input id="dropzone-file" type="file" style={{display: "none"}} multiple={true} accept="image/*" onChange={(file) => handleFileUpload(file)}/>
                                     </label>
                                 </div> 
                             }
                         />
+                        <aside style={thumbsContainer}>
+                            {thumbs}
+                        </aside>
                         {/* Date Picker input */}
                         <div style={{ marginBottom: '50px' }}>
                             <label style={{ fontFamily: 'Roboto, sans-serif', fontSize: '24px'}}>
