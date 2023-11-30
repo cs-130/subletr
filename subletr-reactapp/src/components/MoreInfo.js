@@ -1,4 +1,4 @@
-import { Grid, TextField, InputAdornment } from "@mui/material";
+import { Grid, TextField, InputAdornment, FormHelperText } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -13,8 +13,13 @@ const MoreInfo = (props) => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Grid item xs={12}>
+          <FormHelperText
+            error={formik.errors.startDate && formik.touched.startDate}
+          >
+            Start Date
+          </FormHelperText>
           <DatePicker
             id="startDate"
             name="startDate"
@@ -31,10 +36,13 @@ const MoreInfo = (props) => {
             //   },
             // }}
           />
-        </LocalizationProvider>
-      </Grid>
-      <Grid item xs={12}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        </Grid>
+        <Grid item xs={12}>
+          <FormHelperText
+            error={formik.errors.endDate && formik.touched.endDate}
+          >
+            End Date
+          </FormHelperText>
           <DatePicker
             id="endDate"
             name="endDate"
@@ -52,8 +60,8 @@ const MoreInfo = (props) => {
             //   },
             // }}
           />
-        </LocalizationProvider>
-      </Grid>
+        </Grid>
+      </LocalizationProvider>
       <Grid item xs={12}>
         {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateRangePicker

@@ -39,10 +39,10 @@ function App() {
           <Route path="/listings/create/5" element={<CreateListing5 />} />
 
 
-          <Route path="/testing" element={<DetailedListing />} />
-        </Routes>
-      </Router>
-    </div>
+            <Route path="/testing" element={<DetailedListing />} />
+          </Routes>
+        </Router>
+      </div>
     </ProgressProvider>
   );
 }

@@ -60,7 +60,7 @@ const FeatureInfo = (props) => {
           variant="contained"
           startIcon={<CloudUploadIcon />}
         >
-          Upload file
+          Upload file(s)
           <VisuallyHiddenInput type="file" />
         </Button>
       </Grid>

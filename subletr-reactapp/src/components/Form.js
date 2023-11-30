@@ -17,53 +17,24 @@ import ReviewInfo from "./ReviewInfo";
 
 const steps = ["Basic Info", "Dates & Rent", "Amenities & Photos", "Review and Submit"];
 
-const stepOneValidationSchema = Yup.object().shape({
-    availSpots: Yup.number()
-        .min(1)
-        .integer()
-        .required("Bed count is required"),
-    currentOccupancy: Yup.number()
-        .min(0)
-        .integer()
-        .required("Current Occupancy is required"),
-    accomodationType: Yup.string().required(
-        "Accomodation Type is required"
-    ),
-    address: Yup.string().min(1).required("Address is required"),
-});
-
-const stepTwoValidationSchema = Yup.object().shape({
-  rent: Yup.number().integer().min(1),
-  // startDate: Yup.date().max(
-  //   Yup.ref("endDate"),
-  //   "Start Date must be before End Date"
-  // ),
-  // endDate: Yup.date().min(
-  //   Yup.ref("startDate"),
-  //   "End Date must be after Start Date"
-  // ),
-});
-
-const stepTheeValidationSchema = Yup.object().shape({
-  userDescription: Yup.string().max(300).required("Description is required"),
-});
-
-const validationSchema = [stepOneValidationSchema, stepTwoValidationSchema, stepTheeValidationSchema];
-
 const Form = () => {
     const [activeStep, setActiveStep] = useState(0);
 
     const handleBack = () => {
         setActiveStep((prevStep) => prevStep - 1);
-        formik.setFieldValue("_currentStep", activeStep);
+    };
+
+    const handleSubmitFinal = () => {
+        console.log("submit");
+
+        alert(JSON.stringify(formik.values, null, 2));
     };
 
     const formik = useFormik({
       initialValues: {
-        _currentStep: 0,
         availSpots: "",
         accomodationType: "",
-        rent: "",
+        rent: 0,
         currentOccupancy: "",
         startDate: Date.now(),
         endDate: Date.now() + 1,
@@ -73,32 +44,30 @@ const Form = () => {
         phoneNumbers: [],
         amenities: [],
       },
-      validationSchema: () => validationSchema[activeStep],
-      
-    //   Yup.object().shape({
-    //     availSpots: Yup.number()
-    //       .min(1)
-    //       .integer()
-    //       .required("Bed count is required"),
-    //     currentOccupancy: Yup.number()
-    //       .min(0)
-    //       .integer()
-    //       .required("Current Occupancy is required"),
-    //     accomodationType: Yup.string().required(
-    //       "Accomodation Type is required"
-    //     ),
-    //     // rent: Yup.number().integer().min(1),
-    //     address: Yup.string().min(1).required("Address is required"),
-    //     // startDate: Yup.date().max(
-    //     //   Yup.ref("endDate"),
-    //     //   "Start Date must be before End Date"
-    //     // ),
-    //     // endDate: Yup.date().min(
-    //     //   Yup.ref("startDate"),
-    //     //   "End Date must be after Start Date"
-    //     // ),
-    //     userDescription: Yup.string().max(300),
-    //   }),
+      validationSchema: Yup.object().shape({
+        availSpots: Yup.number()
+          .min(1)
+          .integer()
+          .required("Bed count is required"),
+        currentOccupancy: Yup.number()
+          .min(0)
+          .integer()
+          .required("Current Occupancy is required"),
+        accomodationType: Yup.string().required(
+          "Accomodation Type is required"
+        ),
+        rent: Yup.number().integer().min(1),
+        address: Yup.string().min(1).required("Address is required"),
+        startDate: Yup.date().max(
+          Yup.ref("endDate"),
+          "Start Date must be before End Date"
+        ),
+        // endDate: Yup.date().min(
+        //   Yup.ref("startDate"),
+        //   "End Date must be after Start Date"
+        // ),
+        userDescription: Yup.string().max(300),
+      }),
       onSubmit: () => {
         if (activeStep === steps.length - 1) {
           console.log("last step");
@@ -152,7 +121,7 @@ const Form = () => {
               Back
             </Button>
             {activeStep === steps.length - 1 ? (
-              <Button>Submit</Button>
+              <Button onClick={handleSubmitFinal}>Submit</Button>
             ) : (
               <Button onClick={formik.handleSubmit}>Next</Button>
             )}
