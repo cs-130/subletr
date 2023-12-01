@@ -20,7 +20,7 @@ require("./config/passport")(passport);
 app.use(
   cors({
     // Replace with the frontend port and put that in the .env file.
-    origin: ["https://localhost:3000"],
+    origin: ["http://localhost:3000"],
     credentials: true,
   })
 );
@@ -49,6 +49,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", require("./routes/auth.js"));
+app.use("/openai", require("./routes/openai.js"));
 app.use("/listings", require("./routes/listings"));
 
 app.listen(variables.BACKEND_PORT, () => {
