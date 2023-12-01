@@ -10,7 +10,7 @@ import CreateListing3 from './pages/CreateListing/CreateListing3';
 import CreateListing4 from './pages/CreateListing/CreateListing4';
 import CreateListing5 from './pages/CreateListing/CreateListing5';
 import Profile from './pages/Profile/profile';
-
+import Messages from './pages/Messages/Messages';
 import DetailedListing from './pages/DetailedListing/detailed-listing';
 import { ProgressProvider } from './pages/CreateListing/context'
 
@@ -40,7 +40,7 @@ function App() {
           <Route path="/listings/create/5" element={<CreateListing5 />} />
           <Route path="/profile/" element={<Profile />} />
 
-
+          <Route path="/messages/" element={<Messages />} />
 
 
           <Route path="/:listing_id" element={<DetailedListing />} />
