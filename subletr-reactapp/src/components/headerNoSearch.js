@@ -16,6 +16,7 @@ function HeaderComponent() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const {
     userId,
+    logUserOut,
   } = useContext(UserContext)
   const toggleFilter = () => { // Toggle filter visibility
     setIsFilterVisible(prevState => !prevState);
@@ -37,7 +38,17 @@ function HeaderComponent() {
 
 
         <Box display="flex" alignItems="center" gap={2}>
-          { !userId && 
+          { userId ?
+            <Button
+              variant="outlined"
+              sx={{ borderColor: "green", color: "green" }}
+              onClick={() =>
+                logUserOut()
+              }
+            >
+              Logout
+            </Button>
+            :
             <Button
               variant="outlined"
               sx={{ borderColor: "green", color: "green" }}
@@ -45,7 +56,7 @@ function HeaderComponent() {
                 (window.location.href = `http://localhost:5000/auth/google`)
               }
             >
-              Profile
+              Login
             </Button>
           }
           <IconButton>
