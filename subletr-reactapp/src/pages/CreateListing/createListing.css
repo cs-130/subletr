@@ -64,14 +64,35 @@
 }
 
 .inputboxGeneral {
-    width: 100%;
     padding: 10px;
     margin-top: 10px;
-    border-radius: 10px;
-    border: 1px solid black;
-    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(192, 192, 192);
     background: white;
 
+}
+
+.inputboxGeneral:focus {
+  outline-color: rgb(81, 131, 251);
+  /* outline-color: blue; */
+
+  outline-width: 1px;
+  /* outline: solid; */
+}
+
+.input-price {
+  position: relative;
+}
+
+.input-price input {
+  padding-right: 50px;
+}
+
+.input-price:before {
+  position: absolute;
+  top: 20px;
+  content:"USD per Month";
+  right: 5px;
 }
 
 .selectGeneral {
@@ -97,8 +118,16 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    border-radius: 10px;
-    border: 1px solid black;
+    border-radius: 5px;
+    border: 1px solid rgb(192, 192, 192);
     outline: none;
     background: white;
+}
+
+.dates:focus {
+  outline-color: rgb(81, 131, 251);
+  /* outline-color: blue; */
+
+  outline-width: 1px;
+  /* outline: solid; */
 }

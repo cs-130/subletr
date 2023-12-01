@@ -1,18 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from react-router-dom
 import Button from '@mui/material/Button'; // Import Button component from Material-UI
 import './createListing.css';
-import { useProgress } from './context.js';
 import ProgressBar from './progressBar.js'; 
 import InputBox from './inputBox';
 import DropdownBox from './selectBox';
+import { CreateListingContext } from '../../context/CreateListingProvider.js';
+import Select from 'react-select';
 
 export default function CreateListing() {
-    const { setProgress } = useProgress();
+    const {
+        setProgress,
+        accomidationOptions,
+        accomidationSelected,
+        setAccomidationSelected,
+        subletCountOptions,
+        subletCountSelected,
+        setSubletCountSelected,
+        address,
+        setAddress,
+    } = useContext(CreateListingContext);
     const navigate = useNavigate(); // Hook for navigation
 
     useEffect(() => {
-        setProgress(20);
+        setProgress(33);
     }, [setProgress]);
 
     const handleNext = () => {
@@ -31,40 +42,35 @@ export default function CreateListing() {
                 <ProgressBar />
                 <div className='content'>
                     <div className='inputs'>
-                        <DropdownBox 
-                            className="selectGeneral"
-                            label="Select Option"
-                            labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '24px' }}
-                            options={[
-                                { label: 'Shared Accomodation', value: '1' },
-                                { label: 'Shared Room', value: '2' },
-                                { label: 'Whole Accomodation', value: '3' },
-                            ]}
-                        />
-                        <DropdownBox 
-                            className="selectGeneral"
-                            label="How many people are you looking to subletting to?"
-                            labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '24px' }}
-                            options={[
-                                { label: '1', value: '1' },
-                                { label: '2', value: '2' },
-                                { label: '3', value: '3' },
-                                { label: '4', value: '4' },
-                                { label: '5', value: '5' },
-                                { label: '6', value: '6' },
-                                { label: '>=7', value: '7' },
-                            ]}
-                        />
+                        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '50px'  }}>
+                            <label style={{ fontFamily: 'Roboto, sans-serif', fontSize: '24px', marginBottom: '8px' }}>Room Type</label>
+                            <Select
+                                value={accomidationSelected}
+                                onChange={(e) => setAccomidationSelected(e)}
+                                options={accomidationOptions}
+                                styles={{}}
+                            />
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '50px'  }}>
+                            <label style={{ fontFamily: 'Roboto, sans-serif', fontSize: '24px', marginBottom: '8px' }}>Number of subletters</label>
+                            <Select
+                                value={subletCountSelected}
+                                onChange={(e) => setSubletCountSelected(e)}
+                                options={subletCountOptions}
+                                styles={{}}
+                            />
+                        </div>
                         <InputBox 
                             className="inputbox" 
-                            label="What is the current occupancy?" 
+                            label="Accommodation Address" 
                             labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '24px' }}
+                            onChange={(e) => setAddress(e.target.value)}
                         />
 
                         {/* Navigation buttons */}
                         <div className='navigationButtons'>
                             <Button variant="contained" color="primary" onClick={handleBack}>
-                                Back
+                                Cancel
                             </Button>
                             <Button variant="contained" color="primary" onClick={handleNext} style={{ marginLeft: '8px' }}>
                                 Next

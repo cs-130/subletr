@@ -19,13 +19,13 @@ function Profile() {
         <header className='header1'>Personal Information</header>
         <div className='top-div'>
 
-            <TextField sx={{margin: '5px'}} className="inputboxGeneral" label="First Name" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
-            <TextField sx={{margin: '5px'}}className="inputboxGeneral" label="Middle Inital" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
-            <TextField sx={{margin: '5px'}}className="inputboxGeneral" label="Last Name" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
-            <TextField sx={{margin: '5px'}}className="inputboxLong" label="Address" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
-            <TextField sx={{margin: '5px'}}className="inputboxGeneral" label="Zip Code" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
-            <TextField sx={{margin: '5px'}}className="inputboxGeneral" label="State" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
-            <TextField sx={{margin: '5px'}}className="inputboxLong" label="School (Optional)" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
+            <TextField sx={{margin: '5px'}} className="profileInputboxGeneral" label="First Name" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
+            <TextField sx={{margin: '5px'}}className="profileInputboxGeneral" label="Middle Inital" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
+            <TextField sx={{margin: '5px'}}className="profileInputboxGeneral" label="Last Name" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
+            <TextField sx={{margin: '5px'}}className="profileInputboxGeneral" label="Address" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
+            <TextField sx={{margin: '5px'}}className="profileInputboxGeneral" label="Zip Code" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
+            <TextField sx={{margin: '5px'}}className="profileInputboxGeneral" label="State" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
+            <TextField sx={{margin: '5px'}}className="profileInputboxGeneral" label="School (Optional)" labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px' }}></TextField>
 
 
             <Box sx={{marginTop: '5vh', display: 'flex'}}>

@@ -12,7 +12,6 @@ import CreateListing5 from './pages/CreateListing/CreateListing5';
 import Profile from './pages/Profile/profile';
 
 import DetailedListing from './pages/DetailedListing/detailed-listing';
-import { ProgressProvider } from './pages/CreateListing/context'
 
 function App() {
   // Function to determine which header to use
@@ -26,7 +25,6 @@ function App() {
   };
 
   return (
-    <ProgressProvider>
     <div className="container">
       <Router>
         <HeaderNoSearch /> {/* Use the CurrentHeader function */}
@@ -47,7 +45,6 @@ function App() {
         </Routes>
       </Router>
     </div>
-    </ProgressProvider>
   );
 }
 

@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import Button from '@mui/material/Button'; 
 import DatePicker from 'react-datepicker'; 
 import 'react-datepicker/dist/react-datepicker.css'; 
 import './createListing.css';
-import { useProgress } from './context.js';
 import ProgressBar from './progressBar.js'; 
 import InputBox from './inputBox';
 import DropdownBox from './selectBox';
 import BlankBox from './blankBox.js';
-
+import { CreateListingContext } from '../../context/CreateListingProvider.js';
 
 const thumbsContainer = {
     display: 'flex',
@@ -24,8 +23,8 @@ const thumbsContainer = {
     border: '1px solid #eaeaea',
     marginBottom: 8,
     marginRight: 8,
-    width: 100,
-    height: 100,
+    width: 250,
+    height: 250,
     padding: 4,
     boxSizing: 'border-box'
   };
@@ -44,13 +43,17 @@ const thumbsContainer = {
 
 
 export default function CreateListing() {
-    const { setProgress } = useProgress();
     const navigate = useNavigate(); 
-    const [startDate, setStartDate] = useState(new Date()); 
-    const [endDate, setEndDate] = useState(new Date()); 
 
-    
-    const [images, setImages] = useState([])
+    const {
+        images,
+        setImages,
+        setProgress,
+        startDate,
+        setStartDate,
+        endDate,
+        setEndDate,
+    } = useContext(CreateListingContext)
     
     const handleSetEndDate = (date) => {
         if (date > startDate) {
@@ -68,7 +71,7 @@ export default function CreateListing() {
     }
 
     useEffect(() => {
-        setProgress(40);
+        setProgress(66);
     }, [setProgress]);
 
     const handleNext = () => {
@@ -84,8 +87,8 @@ export default function CreateListing() {
     const handleFileUpload = (e) => {
         console.log(e.target.files)
         if (e.target.files.length)
-            setImages(prev => [...prev, ...Array.from(e.target.files).map((file) => { return { ...file, preview: URL.createObjectURL(file) } })]);
-
+            // setImages(prev => [...prev, ...Array.from(e.target.files).map((file) => { return { ...file, preview: URL.createObjectURL(file) } })]);
+            setImages(prev => [...prev, ...Array.from(e.target.files)])
     }
 
     console.log(images)
@@ -94,7 +97,7 @@ export default function CreateListing() {
         <div style={thumb} key={file.name}>
           <div style={thumbInner}>
             <img
-              src={file.preview}
+              src={URL.createObjectURL(file)}
               style={img}
               onLoad={() => { URL.revokeObjectURL(file.preview) }}
             />
@@ -142,7 +145,7 @@ export default function CreateListing() {
                                     onChange={(date) => handleSetStartDate(date)}
                                     className="dates"
                                 />
-                                <div style={{marginTop: 'auto', marginBottom: 'auto'}}>
+                                <div style={{marginTop: '20px'}}>
                                     until
                                 </div> 
                                 <DatePicker

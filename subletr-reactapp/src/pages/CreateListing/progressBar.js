@@ -1,8 +1,10 @@
-import React from 'react';
-import { useProgress } from './context';
+import React, { useContext } from 'react';
+import { CreateListingContext } from '../../context/CreateListingProvider';
 
 const ProgressBar = () => {
-  const { progress } = useProgress();
+  const {
+    progress,
+  } = useContext(CreateListingContext);
 
   const progressBarStyle = {
     width: `${progress}%`,

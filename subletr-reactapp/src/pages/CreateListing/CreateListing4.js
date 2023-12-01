@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import Button from '@mui/material/Button'; 
 import 'react-datepicker/dist/react-datepicker.css'; 
 import './createListing.css';
-import { useProgress } from './context.js';
+import { CreateListingContext } from '../../context/CreateListingProvider.js';
 import ProgressBar from './progressBar.js'; 
 import InputBox from './inputBox';
 
 export default function CreateListing() {
-    const { setProgress } = useProgress();
+    const {
+        setProgress,
+    } = useContext(CreateListingContext);
     const navigate = useNavigate(); 
 
     useEffect(() => {
