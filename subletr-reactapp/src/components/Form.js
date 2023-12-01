@@ -44,6 +44,7 @@ const Form = () => {
         bio: "",
         phoneNumber: "",
         amenities: [],
+        images: [],
       },
       validationSchema: Yup.object().shape({
         availSpots: Yup.number()

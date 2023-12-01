@@ -3,6 +3,7 @@
 
 .createListingContainer {
   display: flex;
+  justify-content: center;
   height: 80%;
   width: 100%;
 }
