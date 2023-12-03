@@ -37,8 +37,8 @@ function App() {
       <Router>
         <HeaderNoSearch /> {/* Use the CurrentHeader function */}
         <Routes>
-          <Route path="/" element={<Profile />} />
-          <Route path="/listings" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/listings" element={<Profile />} />
           <Route path="/listings/create/1" element={<CreateListing />} />
           <Route path="/listings/create/2" element={<CreateListing2 />} />
           <Route path="/listings/create/3" element={<CreateListing3 />} />
