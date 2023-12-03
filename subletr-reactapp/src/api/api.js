@@ -15,3 +15,14 @@ export const logoutCustomer = async () => {
     return false;
   }
 };
+
+export const getUserListings = async (userId) => {
+  try {
+    const res = await axios.get(`/listings/${userId}`, { withCredentials: true });
+    if (res.status == 200) return true;
+    return false;
+  } catch (err) {
+    console.log("Unable to logout user", err);
+    return false;
+  }
+}
