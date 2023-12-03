@@ -12,9 +12,9 @@ import Form from '../../components/Form.js'
 export default function CreateListing() {
     return (
       <div className="createListingContainer">
-        <div className="center">
+        {/* <div className="center"> */}
           <Form/>
-        </div>
+        {/* </div> */}
       </div>
     );
 }
