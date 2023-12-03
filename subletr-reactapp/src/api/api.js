@@ -19,8 +19,27 @@ export const logoutCustomer = async () => {
 export const getUserListings = async (userId) => {
   try {
     const res = await axios.get(`/listings/${userId}`, { withCredentials: true });
-    if (res.status == 200) return true;
+    return res.data
+  } catch (err) {
+    console.log("Unable to logout user", err);
     return false;
+  }
+}
+
+export const getViewedListings = async (userId) => {
+  try {
+    const res = await axios.get(`/listings/${userId}/viewed`, { withCredentials: true });
+    return res.data
+  } catch (err) {
+    console.log("Unable to logout user", err);
+    return false;
+  }
+}
+
+export const getListingsHistory = async (userId) => {
+  try {
+    const res = await axios.get(`/listings/${userId}/rental`, { withCredentials: true });
+    return res.data
   } catch (err) {
     console.log("Unable to logout user", err);
     return false;
@@ -30,6 +49,16 @@ export const getUserListings = async (userId) => {
 export const isLoggedIn = async () => {
   try {
     const res = await axios.get("/auth/is-customer-logged-in", { withCredentials: true });
+    return res.data
+  } catch (err) {
+    console.log("Error getting login status", err);
+    return false;
+  }
+};
+
+export const createListing = async (data) => {
+  try {
+    const res = await axios.post("/listings/create-listing", {listingData: data}, { withCredentials: true});
     return res.data
   } catch (err) {
     console.log("Error getting login status", err);

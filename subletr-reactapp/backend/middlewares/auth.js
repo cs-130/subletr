@@ -7,6 +7,7 @@ module.exports = {
     // Get the cookie for authorization
     // In this case, cookie name is jwt_auth
     const cookie = req.cookies["jwt_auth"];
+    console.log('REQ:\n', req, 'done')
 
     // Extract the id from the token saved in the cookies
     const id = verifyToken({
@@ -19,7 +20,7 @@ module.exports = {
     const customer = await Customer.findById(id);
     if (!cookie) {
       return res
-        .statues(401)
+        .status(401)
         .json({ error: `Cookie not found. id = ${id}, cookie: ${cookie}` });
     } else if (!customer) {
       return res
