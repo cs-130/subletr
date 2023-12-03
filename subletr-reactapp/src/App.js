@@ -37,14 +37,14 @@ function App() {
       <Router>
         <HeaderNoSearch /> {/* Use the CurrentHeader function */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Profile />} />
           <Route path="/listings" element={<HomePage />} />
           <Route path="/listings/create/1" element={<CreateListing />} />
           <Route path="/listings/create/2" element={<CreateListing2 />} />
           <Route path="/listings/create/3" element={<CreateListing3 />} />
           <Route path="/listings/create/4" element={<CreateListing4 />} />
           <Route path="/listings/create/5" element={<CreateListing5 />} />
-          <Route path="/profile/" element={<Profile />} />
+          {/* <Route path="/profile/" element={<Profile />} /> */}
 
 
 

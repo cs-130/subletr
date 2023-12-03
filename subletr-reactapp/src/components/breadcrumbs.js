@@ -19,7 +19,7 @@ export default function IconBreadcrumbs() {
           onClick={() => navigate("/")}
         >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          Messages
+          Home
         </Link>
         <Link
           underline="hover"

@@ -8,6 +8,11 @@ router.get("/get-all-listings", ensureAuth, ListingController.getAllListings);
 
 router.post("/create-listing", ensureAuth, ListingController.createListing);
 
-router.post("/:userId", ensureAuth, ListingController.getUserListings)
+router.get("/:userId", ensureAuth, ListingController.getUserListings)
+
+router.get("/:userId/viewed", ensureAuth, ListingController.getViewedListings)
+
+router.get("/:userId/rental", ensureAuth, ListingController.getRentalHistory)
+
 
 module.exports = router;
