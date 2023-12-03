@@ -1,5 +1,6 @@
 const Customer = require("../models/Customer");
 const Listing = require("../models/Listing");
+const { sendAwsEmail } = require("../utils/notifications");
 const ListingViewLog = require("../models/ListingViewLog");
 const RentalHistory = require("../models/RentalHistory")
 
@@ -42,6 +43,48 @@ const createListing = async (req, res) => {
   }
 };
 
+const acceptListing = async (req, res) => {
+  try {
+    const { acceptorId, ownerId } = req.body;
+
+    const acceptor = await Customer.findById(acceptorId);
+    const owner = await Customer.findById(ownerId);
+    sendAwsEmail(
+      "hritik1402@g.ucla.edu",
+      acceptor.email,
+      "Subletr: You accepted a listing",
+      `Dear ${acceptor.fullName}, <br/> <br/>
+      
+      You have accepted a listing of ${owner.fullName}. <br/>
+      
+      Please chat with them. More info to follow. <br/><br/>
+
+      Warm Regards, <br/>
+      The Subletr Team <br/>
+      `
+    );
+
+    sendAwsEmail(
+      "hritik1402@g.ucla.edu",
+      owner.email,
+      "Subletr: Your listing was accepted",
+      `Dear ${owner.fullName}, <br/> <br/>
+      
+      Your listing was accepted by ${acceptor.fullName}. <br/>
+      
+      Please chat with them. More info to follow. <br/><br/>
+
+      Warm Regards, <br/>
+      The Subletr Team <br/>
+      `
+    );
+
+    return res.status(200).json({ message: "Listing accepted" });
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};
+
 const getUserListings = async (req, res) => {
   try {
     const allListings = await Listing.find({userId: req.params.userId}).lean();
@@ -75,4 +118,4 @@ const getRentalHistory = async (req, res) => {
   }
 };
 
-module.exports = { getAllListings, createListing, getUserListings, getViewedListings, getRentalHistory };
+module.exports = { acceptListing, getAllListings, createListing, getUserListings, getViewedListings, getRentalHistory };
