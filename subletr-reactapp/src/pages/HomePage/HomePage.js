@@ -79,13 +79,10 @@ export default function HomePage() {
             </div>
             <div className="listings-grid">
                 {listings.slice(0, listingsWidthFactor * listingsRowCount).map((listing, index) => (
-                    
                     <Listing
                         key={index}
-                        title={listing.description}
-                        description={listing.description}
-                        price={`$${listing.price}/month`}
-                        onClick={() => handleListingClick(listing.id)}
+                        data={listing}
+                        onClick={() => handleListingClick(listing._id)}
                     />
                 ))}
             </div>

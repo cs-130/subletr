@@ -26,6 +26,16 @@ export const getUserListings = async (userId) => {
   }
 }
 
+export const getListings = async () => {
+  try {
+    const res = await axios.get('/listings/', { withCredentials: true });
+    return res.data
+  } catch (err) {
+    console.log("Unable to logout user", err);
+    return false;
+  }
+}
+
 export const getViewedListings = async (userId) => {
   try {
     const res = await axios.get(`/listings/${userId}/viewed`, { withCredentials: true });
@@ -65,3 +75,5 @@ export const createListing = async (data, userId) => {
     return false;
   }
 };
+
+

@@ -10,15 +10,15 @@ const ListingHeading = ({ title, rating, reviewCount, rent, reviewLink }) => {
         {title}
       </Typography>
       <Box display="flex" alignItems="center" gap='.5rem'>
-        <StarRateIcon color="secondary" />
+        {/* <StarRateIcon color="secondary" />
         <Typography variant="subtitle1" component="span" style={{ marginRight: '8px' }}>
           {rating}
-        </Typography>
-        <Link href={reviewLink} underline="hover">
+        </Typography> */}
+        {/* <Link href={reviewLink} underline="hover">
           View all {reviewCount} reviews
-        </Link>
+        </Link> */}
         <Typography variant="subtitle1" color="textSecondary">
-        {rent}$ / month
+        ${rent} / month
       </Typography>
       </Box>
     </Box>

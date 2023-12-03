@@ -14,9 +14,11 @@ export default function DetailedListing() {
         listings,
     } = useContext(ListingsContext)
 
-    const {listing_id} = useParams()
+    const { listing_id } = useParams()
+    
+    let listing_data = listings.find(item => item._id == listing_id)
 
-    let listing_data = listings.find(item => item.id == listing_id)
+    console.log(listing_data)
 
     const quotes = [
         { text: "Amazing place to stay for short term lease...", author: "Jane Doe" },
@@ -38,10 +40,10 @@ export default function DetailedListing() {
             <div className='heading-wrapper'>
                 <ListingHeading
                 title={listing_data.description}
-                rating={4.8}
-                reviewCount={28}
-                rent={listing_data.price}
-                reviewLink="#reviews" 
+                // rating={4.8}
+                // reviewCount={28}
+                rent={listing_data.rent}
+                // reviewLink="#reviews" 
             />        
       </div>
 
@@ -50,15 +52,14 @@ export default function DetailedListing() {
         </div>
 
         <div className="wrapper-chips">
-            <ChipArray items={chipData} onProfileClick={() => { console.log('Profile link clicked!')}}/>
+            <ChipArray items={listing_data.amenities} onProfileClick={() => { console.log('Profile link clicked!')}}/>
         </div>    
 
         <div className='bottom-listing'>
         <BottomElement
-            biography="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt eget nullam non nisi est. Sit amet facilisis magna etiam tempor orci eu. Faucibus ornare suspendisse sed nisi lacus. Mollis aliquam ut porttitor leo. Nunc sed velit dignissim sodales. Condimentum vitae sapien pellentesque habitant morbi tristique. Neque laoreet suspendisse interdum consectetur. Non quam lacus suspendisse faucibus interdum. Lorem sed risus ultricies tristique nulla aliquet enim. Justo eget magna fermentum iaculis.
-            Orci sagittis eu volutpat odio facilisis. Id donec ultrices tincidunt arcu non sodales neque sodales. Ipsum dolor sit amet consectetur adipiscing elit pellentesque. Condimentum lacinia quis vel eros donec ac odio. "
-            startDate="December 3rd"
-            endDate="July 5th"
+            biography={listing_data.bio}
+            startDate={listing_data.startDate}
+            endDate={listing_data.endDate}
             owner="Jason"
         />
         </div>

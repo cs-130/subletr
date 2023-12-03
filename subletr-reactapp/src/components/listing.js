@@ -11,16 +11,10 @@ const AccommodationType = {
   WHOLE_ACCOMMODATION: "Whole Accommodation"
 };
 
-function Listing({ 
-  imageUrl, 
-  location = "Westwood, CA", 
-  dateRange = "Dec 15 - Jan 15", 
-  price, 
-  description = "Details Not Available", 
-  accommodationType = AccommodationType.SHARED_ACCOMMODATION,
-  onClick}) 
+function Listing({data, onClick}) 
   
 {
+  console.log(data)
   // State to track whether the listing is liked
   const [isLiked, setIsLiked] = useState(false);
 
@@ -33,8 +27,9 @@ function Listing({
       <CardMedia
         component="img"
         height="200"
-        image={imageUrl || defaultImage}
-        alt={location}
+        // image={URL.createObjectURL(data.listingPictures[0]) || defaultImage}
+        image={defaultImage}
+        // alt={location}
       />
     <IconButton 
         style={{ 
@@ -52,20 +47,20 @@ function Listing({
       <CardContent style={{ padding: 10 }}>
         <Box display="flex" justifyContent="space-between">
           <Typography variant="body2" noWrap>
-            {location}
+            {data.address}
           </Typography>
           <Typography variant="body2" noWrap>
-            {dateRange}
+            {data.startDate}
           </Typography>
         </Box>
         <Typography variant="subtitle2" noWrap style={{ marginTop: '0px' }}>
-            {price}
+            ${data.rent} USD/Month
         </Typography>
         <Typography variant="body2" color="text.secondary" style={{ marginTop: '5px' }}>
-          {description}
+          {data.description}
         </Typography>
         <Typography variant="body2" color="black" style={{ marginTop: '0px' }}>
-          {accommodationType}
+          {data.accommodationType}
         </Typography>
       </CardContent>
     </Card>
