@@ -19,7 +19,7 @@ module.exports = {
     const customer = await Customer.findById(id);
     if (!cookie) {
       return res
-        .statues(401)
+        .status(401)
         .json({ error: `Cookie not found. id = ${id}, cookie: ${cookie}` });
     } else if (!customer) {
       return res
