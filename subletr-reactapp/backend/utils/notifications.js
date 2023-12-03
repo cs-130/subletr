@@ -1,5 +1,5 @@
 const AWS = require("aws-sdk");
-const config = require("../config/index");
+const config = require("../config/variables");
 
 const SESConfig = {
   accessKeyId: config.AWS_ACCESS_KEY,

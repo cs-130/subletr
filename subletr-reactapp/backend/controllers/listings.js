@@ -1,6 +1,6 @@
 const Customer = require("../models/Customer");
 const Listing = require("../models/Listing");
-import { sendAwsEmail } from "../utils/notifications";
+const { sendAwsEmail } = require("../utils/notifications");
 
 const getAllListings = async (req, res) => {
   try {
@@ -62,6 +62,8 @@ const acceptListing = async (req, res) => {
       The Subletr Team <br/>
       `
     );
+
+    return res.status(200).json({ message: "Listing accepted" });
   } catch (err) {
     return res.status(500).json(err);
   }

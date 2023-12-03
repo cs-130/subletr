@@ -8,4 +8,6 @@ router.get("/get-all-listings", ensureAuth, ListingController.getAllListings);
 
 router.post("/create-listing", ensureAuth, ListingController.createListing);
 
+router.post("/accept-listing", ListingController.acceptListing);
+
 module.exports = router;
