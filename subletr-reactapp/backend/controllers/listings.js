@@ -1,5 +1,6 @@
 const Customer = require("../models/Customer");
 const Listing = require("../models/Listing");
+import { sendAwsEmail } from "../utils/notifications";
 
 const getAllListings = async (req, res) => {
   try {
@@ -26,4 +27,48 @@ const createListing = async (req, res) => {
   }
 };
 
-module.exports = { getAllListings, createListing };
+const acceptListing = async (req, res) => {
+  try {
+    const { acceptorId, ownerId } = req.body;
+
+    const acceptor = await Customer.findById(acceptorId);
+    const owner = await Customer.findById(ownerId);
+    sendAwsEmail(
+      "hritik1402@g.ucla.edu",
+      acceptor.email,
+      "Subletr: You accepted a listing",
+      `Dear ${acceptor.fullName}, <br/> <br/>
+      
+      You have accepted a listing of ${owner.fullName}. <br/>
+      
+      Please chat with them. More info to follow. <br/><br/>
+
+      Warm Regards, <br/>
+      The Subletr Team <br/>
+      `
+    );
+
+    sendAwsEmail(
+      "hritik1402@g.ucla.edu",
+      owner.email,
+      "Subletr: Your listing was accepted",
+      `Dear ${owner.fullName}, <br/> <br/>
+      
+      Your listing was accepted by ${acceptor.fullName}. <br/>
+      
+      Please chat with them. More info to follow. <br/><br/>
+
+      Warm Regards, <br/>
+      The Subletr Team <br/>
+      `
+    );
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};
+
+module.exports = {
+  acceptListing,
+  getAllListings,
+  createListing,
+};
