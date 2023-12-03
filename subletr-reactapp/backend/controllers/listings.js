@@ -44,7 +44,6 @@ const createListing = async (req, res) => {
 
 const getUserListings = async (req, res) => {
   try {
-    const test = await Listing.find().lean();
     const allListings = await Listing.find({userId: req.params.userId}).lean();
     return res.json(allListings);
   } catch (err) {
