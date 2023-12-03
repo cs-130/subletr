@@ -8,7 +8,9 @@ export default function ChatBox()  {
             <div className="messages-wrapper">
                 <Message />
             </div>
-        <SendMessage />
+            <div className="send-message">
+                <SendMessage />
+            </div>
         </main>
     );
 };
