@@ -33,9 +33,7 @@ export default function DetailedListing() {
         { label: 'Master Bathroom' },
         { label: '...and 4 others' }
       ];
-    
-    return (
-
+    return ( listing_data ?
     <div className='listing-wrapper'>
             <div className='heading-wrapper'>
                 <ListingHeading
@@ -65,7 +63,9 @@ export default function DetailedListing() {
         </div>
     
     </div>
-
+        :
+        <div>
+        </div>
     )
 }
 
