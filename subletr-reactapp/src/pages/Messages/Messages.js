@@ -1,9 +1,10 @@
-//import { io } from "socket.io-client";
+import { io } from "socket.io-client";
 import React from 'react';
 import '../../App.css'
 import ChatBox from "./components/ChatBox";
+import ChatList from "./components/ChatList";
 
-export default function Message() {
+export default function Messages() {
     const URL = "http://localhost:3001";
     //const socket = io(URL, { autoConnect: false });
 
@@ -12,8 +13,13 @@ export default function Message() {
     //});
 
     return (
-        <div className='messages'>
+        <div className='messages-container'>
+            <div className='chatbox'>
                 <ChatBox  />
+            </div>
+            <div className='chat-sidepanel'>
+                <ChatList  />
+            </div>
         </div>
         )
 }

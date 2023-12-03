@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SendMessage = () => {
+export default function SendMessage() {
     const [message, setMessage] = useState("");
     const sendMessage = async (event) => {
         event.preventDefault();
@@ -35,5 +35,3 @@ const SendMessage = () => {
         </form>
     );
 };
-
-export default SendMessage;

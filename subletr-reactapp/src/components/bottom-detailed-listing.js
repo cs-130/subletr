@@ -23,7 +23,7 @@ const TwoColumnLayout = ({ biography, startDate, endDate, owner }) => {
           <Typography variant="caption">
             or
           </Typography>
-          <Button variant="contained" color="primary" style={{ margin: '8px' }}>
+          <Button variant="contained" color="primary" style={{ margin: '8px' }} href="/messages">
             Chat with {owner}
           </Button>
         </Paper>
