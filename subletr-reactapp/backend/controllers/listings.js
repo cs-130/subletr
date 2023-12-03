@@ -26,4 +26,16 @@ const createListing = async (req, res) => {
   }
 };
 
-module.exports = { getAllListings, createListing };
+const getUserListings = async (req, res) => {
+  try {
+    console.log("entered get user listings: ", req.userId, req);
+    const allListings = await Listing.find({letterId: req.userId}).lean();
+    return res.json(allListings);
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: `error in fetching all listings: ${err}` });
+  }
+};
+
+module.exports = { getAllListings, createListing, getUserListings };
