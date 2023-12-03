@@ -20,8 +20,8 @@ export const UserProvider = ({ children }) => {
     }, [userId])
 
     const createListing = async (data) => {
-        const response = await callCreateListing(data)
-        console.log(response)
+        const response = await callCreateListing(data, userId)
+        return response.message
     }
 
     const getMyListings = async () => {

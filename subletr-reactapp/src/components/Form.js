@@ -16,11 +16,13 @@ import FeatureInfo from "./FeatureInfo";
 import ReviewInfo from "./ReviewInfo";
 import ContactInfo from "./ContactInfo";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const steps = ["Basic Info", "Dates & Rent", "Amenities & Photos", "Contact Info", "Review and Submit"];
 
 const Form = () => {
     const [activeStep, setActiveStep] = useState(0);
+    const Navigate = useNavigate()
     const {
       createListing,
     } = useContext(UserContext)
@@ -31,7 +33,10 @@ const Form = () => {
 
     const handleSubmitFinal = async () => {
         console.log("submit");
-        createListing(formik.values);
+        let response = await createListing(formik.values);
+        if (response == 'success')
+          Navigate("/profile")
+        
     };
 
     const formik = useFormik({

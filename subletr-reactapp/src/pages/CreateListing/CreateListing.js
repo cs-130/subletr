@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from react-router-dom
-import Button from '@mui/material/Button'; // Import Button component from Material-UI
+import React, { useEffect, useContext } from 'react';
 import './createListing.css';
-import { useProgress } from './context.js';
-import ProgressBar from './progressBar.js'; 
-import InputBox from './inputBox';
-import DropdownBox from './selectBox';
-
 import Form from '../../components/Form.js'
+import { UserContext } from '../../context/UserContext.js';
 
 export default function CreateListing() {
+
+  const {
+    userId
+  } = useContext(UserContext)
+
+  useEffect(() => {
+    if (!userId) 
+        window.location.href = `http://localhost:5000/auth/google`
+  }, [])
+
     return (
       <div className="createListingContainer">
         {/* <div className="center"> */}

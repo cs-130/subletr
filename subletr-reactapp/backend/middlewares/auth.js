@@ -7,7 +7,6 @@ module.exports = {
     // Get the cookie for authorization
     // In this case, cookie name is jwt_auth
     const cookie = req.cookies["jwt_auth"];
-    console.log('REQ:\n', req, 'done')
 
     // Extract the id from the token saved in the cookies
     const id = verifyToken({
