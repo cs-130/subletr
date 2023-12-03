@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import './App.css';
 import Header from './components/header1';
 import HeaderNoSearch from './components/headerNoSearch'; // Import the new header component
@@ -10,12 +10,14 @@ import CreateListing3 from './pages/CreateListing/CreateListing3';
 import CreateListing4 from './pages/CreateListing/CreateListing4';
 import CreateListing5 from './pages/CreateListing/CreateListing5';
 import Profile from './pages/Profile/profile';
-
+import { UserContext } from './context/UserContext';
+import { ProgressProvider } from './pages/CreateListing/context';
 import DetailedListing from './pages/DetailedListing/detailed-listing';
-import { ProgressProvider } from './pages/CreateListing/context'
 
 function App() {
-  // Function to determine which header to use
+  const {
+    isUserLoggedIn
+  } = useContext(UserContext)
   const CurrentHeader = () => {
     const location = useLocation();
     const path = location.pathname;
@@ -24,6 +26,10 @@ function App() {
     }
     return <Header />;
   };
+
+  useEffect(() => {
+    isUserLoggedIn()
+  }, [])
 
   return (
     <ProgressProvider>
