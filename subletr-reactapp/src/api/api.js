@@ -26,3 +26,13 @@ export const getUserListings = async (userId) => {
     return false;
   }
 }
+
+export const isLoggedIn = async () => {
+  try {
+    const res = await axios.get("/auth/is-customer-logged-in", { withCredentials: true });
+    return res.data
+  } catch (err) {
+    console.log("Error getting login status", err);
+    return false;
+  }
+};

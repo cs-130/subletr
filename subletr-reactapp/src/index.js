@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ListingsProvider } from './context/ListingsProvider';
+import { UserProvider } from './context/UserContext';
 // Custom theme
 const theme = createTheme({
   palette: {
@@ -16,8 +17,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <ThemeProvider theme={theme}>
-    <ListingsProvider>
-      <App />
-    </ListingsProvider>
+    <UserProvider>
+      <ListingsProvider>
+        <App />
+      </ListingsProvider>
+    </UserProvider>
   </ThemeProvider>
 );
