@@ -13,7 +13,10 @@ const listingSchema = new mongoose.Schema({
   description: { type: String, default: "" },
   startDate: { type: Date, default: "" },
   endDate: { type: Date, default: "" },
-  userId: {type: String, default: ""}
+  userId: { type: String, default: "" },
+  // false for when someone has leased this place.
+  // true for when the property is available for subleasing
+  isAvailable: { type: Boolean, default: true },
 });
 
 module.exports = mongoose.model("listing", listingSchema);

@@ -1,5 +1,7 @@
 const config = require("../config/variables");
 const stripe = require("stripe")(config.STRIPE_SECRET_KEY);
+const ActiveLeases = require("../models/ActiveLeases");
+const Listing = require("../models/Listing");
 
 const { default: mongoose } = require("mongoose");
 
@@ -31,7 +33,18 @@ const createWebhook = async (req, res) => {
           data.subscription_details.metadata;
         console.log(renterId, ownerId, listingId, connectedAccountId);
 
-        
+        const listing = await Listing.findById(listingId);
+        listing.isAvailable = false;
+        await listing.save();
+
+        const newLease = new ActiveLeases({
+          renterId: renterId,
+          ownerId: ownerId,
+          listingId: listingId,
+          startDate: new Date(),
+        });
+        await newLease.save();
+
         break;
       }
       case "test_helpers.test_clock.advancing": {
