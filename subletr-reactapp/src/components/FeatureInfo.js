@@ -102,16 +102,14 @@ const FeatureInfo = (props) => {
 
 
   const handleFileUpload = async (e) => {
-    // console.log(e.target.files)
     if (e.target.files.length) {
-      const base64 = await convertToBase64(e.target.files[0]);
-      // formik.setFieldValue("images", [...formik.values.images, ...Array.from(e.target.files)])
-      formik.setFieldValue("images", [...formik.values.images, base64])
-      // console.log(base64)
-
+      const imgData = []
+      for (let img of e.target.files) {
+        const base64 = await convertToBase64(img);
+        imgData.push(base64)
+      }
+      formik.setFieldValue("images", [...formik.values.images, ...imgData])
     }
-        // setImages(prev => [...prev, ...Array.from(e.target.files).map((file) => { return { ...file, preview: URL.createObjectURL(file) } })]);
-    // console.log([...formik.values.images, ...Array.from(e.target.files)])
   }
 
 
@@ -123,10 +121,8 @@ const FeatureInfo = (props) => {
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
         <img
-          // src={URL.createObjectURL(file)}
           src={file}
           style={img}
-          // onLoad={() => { URL.revokeObjectURL(file.preview) }}
         />
         <div className="image-close" onClick={() => handleImageDelete(i)}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -159,6 +155,7 @@ const FeatureInfo = (props) => {
               {option}
             </li>
           )}
+          value={formik.values.amenities}
           style={{ width: 500 }}
           renderInput={(params) => <TextField {...params} label="Checkboxes" />}
           error={formik.errors.amenities}

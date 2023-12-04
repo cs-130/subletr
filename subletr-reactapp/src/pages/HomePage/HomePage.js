@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import '../../App.css';
 import Listing from '../../components/listing.js';
 import { Pagination } from '@mui/material';
@@ -18,12 +18,12 @@ export default function HomePage() {
         listingsWidthFactor,
         setListingsRowCount,
         listingsRowCount,
+        getAllListings,
     } = useContext(ListingsContext)
 
     const [isFilterVisible, setIsFilterVisible] = useState(false);
 
     const toggleFilter = () => {
-        // Toggle filter visibility
         setIsFilterVisible((prevState) => !prevState);
     };
 
@@ -36,6 +36,10 @@ export default function HomePage() {
     const handleListingClick = (listing_id) => {
         navigate(`/${listing_id}`)
     }
+
+    useEffect(() => {
+        getAllListings()
+    }, [])
 
 
     return (
@@ -77,14 +81,15 @@ export default function HomePage() {
                 </Box>
             </div>
             <div className="listings-grid">
-                {listings.length && listings.slice(0, listingsWidthFactor * listingsRowCount).map((listing, index) => (
+                {listings.length ? listings.slice(0, listingsWidthFactor * listingsRowCount).map((listing, index) => (
                     <Listing
                         key={index}
                         data={listing}
                         onClick={() => handleListingClick(listing._id)}
                         
                     />
-                ))}
+                )) :
+                <div></div>}
             </div>
             {listingsWidthFactor*listingsRowCount < listings.length && 
                 <div style={{ textAlign: 'center', marginBottom: '48px' }}>

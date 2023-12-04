@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import './profile.css'
 import { TextField, Button, Box, Avatar } from '@mui/material';
 import Listing from '../../components/listing';
@@ -14,9 +14,14 @@ function Profile() {
     getMyListings,
     getViewedListings,
     getRentalHistory,
+    page,
+    setPage,
   } = useContext(UserContext)
 
-  const [page, setPage] = useState(0)
+
+  useEffect(() => {
+    getMyListings()
+  }, [])
 
   const handleMenuClick = (i) => {
     setPage(i)

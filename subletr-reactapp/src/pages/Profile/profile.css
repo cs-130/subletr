@@ -1,5 +1,22 @@
 /* Profile.css */
 
+.image-close {
+    position: absolute;
+    z-index: 99;
+    top: 8px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.image-close:hover {
+    background-color: rgb(200, 200, 200);
+}
+
 .profile-container {
     display: flex; /* Enables flexbox layout */
     /* min-height: 90vh;  */
@@ -10,7 +27,7 @@
 .left-nav {
     /* background-color: #e5ede7; For visibility */
     border-right: 1px solid;
-    width: 15%; /* 15% of the container's width */
+    min-width: 15%; /* 15% of the container's width */
     padding: 20px; /* Spacing inside the element */
     margin-right: 24px;
     /* filter: drop-shadow(4px 4px rgb(151, 145, 145)); */

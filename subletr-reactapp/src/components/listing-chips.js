@@ -12,9 +12,6 @@ const ChipArray = ({ items, onProfileClick }) => {
           <Chip sx={{margin: '5px'}} key={index} label={item} />
         ))}
       </Stack>
-      <Link component="button" variant="body2" onClick={onProfileClick}>
-        Check out people staying here
-      </Link>
     </Box>
   );
 };
