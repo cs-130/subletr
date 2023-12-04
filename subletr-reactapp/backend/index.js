@@ -7,6 +7,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
+const { Server } = require("socket.io");
 
 // Configurations
 const variables = require("./config/variables");
@@ -20,6 +21,7 @@ require("./config/passport")(passport);
 
 app.use(
   bodyParser.json({
+    limit: "10mb",
     verify: (req, res, buf) => {
       // Can change to:
       // if (req.originalUrl === "/webhook")
@@ -36,9 +38,9 @@ app.use(
   })
 );
 
-app.use(express.json({limit: '2mb'}));
+app.use(express.json({limit: '10mb'}));
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: "10mb", parameterLimit: 50000 }));
 app.use(express.static("public"));
 
 ConnectToMongo();
@@ -64,7 +66,13 @@ app.use("/openai", require("./routes/openai.js"));
 app.use("/listings", require("./routes/listings"));
 app.use("/stripe", require("./routes/stripe"));
 app.use("/webhook", require("./routes/webhook"));
+app.use("/messages", require("./routes/messages"))
 
-app.listen(variables.BACKEND_PORT, () => {
+const httpServer = app.listen(variables.BACKEND_PORT, () => {
   console.log(`Server is running on port ${variables.BACKEND_PORT}`);
+});
+
+const io = new Server(httpServer);
+io.on('connection', (socket) => {
+  console.log('a user connected to chat');
 });

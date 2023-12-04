@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   MainContainer,
   ChatContainer,
@@ -13,6 +13,8 @@ import {
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import avatarIcon from "./john.jpg";
 import avatarIcon2 from "./anon.jpg";
+import socket from './components/Socket';
+import { UserContext } from '../../context/UserContext';
 
 
 // Fake conversation data
@@ -94,6 +96,14 @@ const fakeConversationData = [
   ];
 
 function ChatPage() {
+    const {
+        sendMessage,
+        getConversations,
+        getMessages,
+        conversationIds,
+        messages
+      } = useContext(UserContext)
+    socket.connect();
   // State to track the active conversation
   const [activeConversation, setActiveConversation] = useState(null);
 
@@ -101,9 +111,26 @@ function ChatPage() {
   const handleConversationClick = (conversationId) => {
     setActiveConversation(conversationId);
   };
-
+  // Find active conversations
+  const activeConversations = conversationIds;
   // Find the messages for the active conversation
   const activeMessages = fakeConversationData.find(c => c.id === activeConversation)?.messages || [];
+
+  // Function to send message
+  const [message, setMessage] = useState("");
+    const sendMessageOnClick = async (event) => {
+        event.preventDefault();
+        if (message.trim() === "") {
+            return;
+        }
+        await sendMessage({
+            text: message,
+            conversationId: 0,
+            name: "Justin",
+            time: Date.now(),
+        });
+        setMessage("");
+      };
 
   return (
     <div style={{ position: "relative", height: "90%" }}>
@@ -128,7 +155,23 @@ function ChatPage() {
               <Message key={index} model={{ message: message.text, direction: message.direction }} />
             ))}
           </MessageList>
-          <MessageInput placeholder="Type message here" />
+          <MessageInput placeholder="Type message here" >
+            <form onSubmit={(event) => sendMessageOnClick(event)} className="send-message">
+                <label htmlFor="messageInput" hidden>
+                    Enter Message
+                </label>
+                <input
+                    id="messageInput"
+                    name="messageInput"
+                    type="text"
+                    className="form-input__input"
+                    placeholder="type message..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
+                <button type="submit">Send</button>
+                </form>
+          </MessageInput>
         </ChatContainer>
       </MainContainer>
     </div>
