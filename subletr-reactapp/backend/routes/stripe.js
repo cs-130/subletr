@@ -6,6 +6,7 @@ const { ensureAuth } = require("../middlewares/auth");
 
 router.post(
   "/create-rent-subscription",
+  ensureAuth,
   StripeController.createRentSubscription
 );
 
