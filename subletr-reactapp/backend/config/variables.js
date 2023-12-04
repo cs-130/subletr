@@ -15,6 +15,9 @@ const config = {
   GOOGLE_OAUTH_API_KEY: process.env.GOOGLE_OAUTH_API_KEY,
   SESSION_DURATION: process.env.SESSION_DURATION,
   JWT_SECRET: process.env.JWT_SECRET,
+  AWS_ACCESS_KEY: process.env.AWS_ACCESS_KEY,
+  AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+  AWS_REGION: process.env.AWS_REGION,
 };
 
 module.exports = config;

@@ -8,6 +8,8 @@ router.get("/", ensureAuth, ListingController.getAllListings);
 
 router.post("/create-listing", ensureAuth, ListingController.createListing);
 
+router.post("/accept-listing", ListingController.acceptListing);
+
 router.get("/:userId", ensureAuth, ListingController.getUserListings)
 
 router.get("/:userId/favorited", ensureAuth, ListingController.getFavoritedListings)

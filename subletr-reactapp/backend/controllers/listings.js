@@ -1,6 +1,7 @@
 const { time } = require("console");
 const Customer = require("../models/Customer");
 const Listing = require("../models/Listing");
+const { sendAwsEmail } = require("../utils/notifications");
 const ListingViewLog = require("../models/ListingViewLog");
 const RentalHistory = require("../models/RentalHistory")
 
@@ -39,6 +40,48 @@ const createListing = async (req, res) => {
     return res
       .status(500)
       .json({ message: `error in creating listing ${err}` });
+  }
+};
+
+const acceptListing = async (req, res) => {
+  try {
+    const { acceptorId, ownerId } = req.body;
+
+    const acceptor = await Customer.findById(acceptorId);
+    const owner = await Customer.findById(ownerId);
+    sendAwsEmail(
+      "hritik1402@g.ucla.edu",
+      acceptor.email,
+      "Subletr: You accepted a listing",
+      `Dear ${acceptor.fullName}, <br/> <br/>
+      
+      You have accepted a listing of ${owner.fullName}. <br/>
+      
+      Please chat with them. More info to follow. <br/><br/>
+
+      Warm Regards, <br/>
+      The Subletr Team <br/>
+      `
+    );
+
+    sendAwsEmail(
+      "hritik1402@g.ucla.edu",
+      owner.email,
+      "Subletr: Your listing was accepted",
+      `Dear ${owner.fullName}, <br/> <br/>
+      
+      Your listing was accepted by ${acceptor.fullName}. <br/>
+      
+      Please chat with them. More info to follow. <br/><br/>
+
+      Warm Regards, <br/>
+      The Subletr Team <br/>
+      `
+    );
+
+    return res.status(200).json({ message: "Listing accepted" });
+  } catch (err) {
+    return res.status(500).json(err);
   }
 };
 
