@@ -29,6 +29,7 @@ const createWebhook = async (req, res) => {
         break;
       }
       case "invoice.paid": {
+        console.log("invoice paid webhook entered");
         const { renterId, ownerId, listingId, connectedAccountId } =
           data.subscription_details.metadata;
 
