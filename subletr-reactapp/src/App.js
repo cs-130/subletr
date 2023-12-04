@@ -13,6 +13,7 @@ import Messaging from './pages/Messaging/messaging'
 import Profile from './pages/Profile/profile';
 import { UserContext } from './context/UserContext';
 import { ProgressProvider } from './pages/CreateListing/context';
+import Messages from './pages/Messages/Messages';
 import DetailedListing from './pages/DetailedListing/detailed-listing';
 import './themes/default/main.scss';
 
@@ -51,7 +52,7 @@ function App() {
           <Route path="/messaging" element={<Messaging />} />
 
 
-
+          <Route path="/messages/" element={<Messages />} />
 
 
           <Route path="/:listing_id" element={<DetailedListing />} />
