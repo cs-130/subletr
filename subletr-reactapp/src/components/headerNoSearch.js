@@ -59,9 +59,6 @@ function HeaderComponent() {
               Login
             </Button>
           }
-          <IconButton>
-            <MenuIcon />
-          </IconButton>
         </Box>
       </Box>
       {isFilterVisible && <FilterComponent />}

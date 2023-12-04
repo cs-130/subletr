@@ -44,7 +44,6 @@ const Form = () => {
         availSpots: "",
         accomodationType: "",
         rent: "",
-        currentOccupancy: "",
         startDate: Date.now(),
         endDate: Date.now() + 1,
         userDescription: "",
@@ -60,10 +59,6 @@ const Form = () => {
           .min(1)
           .integer()
           .required("Bed count is required"),
-        currentOccupancy: Yup.number()
-          .min(0)
-          .integer()
-          .required("Current Occupancy is required"),
         accomodationType: Yup.string().required(
           "Accomodation Type is required"
         ),

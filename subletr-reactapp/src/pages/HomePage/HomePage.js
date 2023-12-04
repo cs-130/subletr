@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import '../../App.css';
 import Listing from '../../components/listing.js';
 import { Pagination } from '@mui/material';
@@ -18,6 +18,7 @@ export default function HomePage() {
         listingsWidthFactor,
         setListingsRowCount,
         listingsRowCount,
+        getAllListings,
     } = useContext(ListingsContext)
 
     const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -28,7 +29,6 @@ export default function HomePage() {
     const [spots, setSpots] = useState(1)
 
     const toggleFilter = () => {
-        // Toggle filter visibility
         setIsFilterVisible((prevState) => !prevState);
     };
 
@@ -70,6 +70,10 @@ export default function HomePage() {
 
         return display;
     }
+    
+    useEffect(() => {
+        getAllListings()
+    }, [])
 
 
     return (
@@ -117,7 +121,8 @@ export default function HomePage() {
                         data={listing}
                         onClick={() => handleListingClick(listing._id)}
                     />
-                ))}
+                )) :
+                <div></div>}
             </div>
             {listingsWidthFactor*listingsRowCount < listings.length && 
                 <div style={{ textAlign: 'center', marginBottom: '48px' }}>

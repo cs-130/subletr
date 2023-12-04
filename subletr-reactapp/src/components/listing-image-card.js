@@ -38,7 +38,7 @@ const MainImage = styled('img')({
 
 const SmallImage = styled('img')({
   width: '100%', // full width of parent
-  height: '40%',
+  height: '50%',
   objectFit: 'cover',
   borderRadius: '15px',
 
@@ -79,17 +79,8 @@ const ImageQuoteCarousel = ({ quotes, images }) => {
           {/* <SmallImage2 src={images[2]} alt="Tertiary" /> */}
         </Column>
         <Column>
-          {/* Second column for quotes and one image */}
-          {/* <Quote elevation={3}>
-            <Typography variant="body1">{quotes[0].text}</Typography>
-            <Typography variant="caption">{quotes[0].author}</Typography>
-          </Quote>
-          <Quote elevation={3}>
-            <Typography variant="body1">{quotes[1].text}</Typography>
-            <Typography variant="caption">{quotes[1].author}</Typography>
-          </Quote> */}
           {images.length > 3 ? (
-            <SmallImage src={images[2]} alt="Tertiary" />
+            <SmallImage src={images[3]} alt="Quaternary" />
           ) : null}
         </Column>
       </RightSection>

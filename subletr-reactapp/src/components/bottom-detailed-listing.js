@@ -5,6 +5,12 @@ const TwoColumnLayout = ({ description, biography, startDate, endDate, owner }) 
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={7}>
+      <Typography variant="h5" gutterBottom>
+          Description
+        </Typography>
+        <Typography style={{marginBottom: '20px'}}>
+          {description}
+        </Typography>
         <Typography variant="h5" gutterBottom>
           Description
         </Typography>
@@ -25,9 +31,7 @@ const TwoColumnLayout = ({ description, biography, startDate, endDate, owner }) 
           }}
         >
           <Typography variant="h6" gutterBottom>
-            This stay is available from{" "}
-            {new Date(startDate).toLocaleDateString("en-US")} to{" "}
-            {new Date(endDate).toLocaleDateString("en-US")} without renewal!
+            This stay is available from {new Date(startDate).toLocaleString('en-US', { month: 'short', year: 'numeric'})} to {new Date(endDate).toLocaleString('en-US', { month: 'short',  year: 'numeric'})} without renewal!
           </Typography>
           <Button variant="contained" color="primary" style={{ margin: "8px" }}>
             Reserve your spot!

@@ -4,30 +4,36 @@ import Listing from '../../components/listing';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from "react-router-dom";
 
-
 const MyListings = () => {
     const {
         userListings,
+        deleteListing,
     } = useContext(UserContext)
 
-    const navigate = useNavigate();
+    const Navigate = useNavigate()
 
-    const handleListingClick = (listing_id) => {
-      navigate(`/${listing_id}`);
-    };
+
+    const handleListingClick = (listingId) => {
+        Navigate(`/manage/${listingId}`)
+    }
+
+    const handleDelete = (listingId) => {
+        deleteListing(listingId)
+    }
 
     return (
         <>
             <header className='header1'>My Listings</header>
             <div className='top-div'>
-            <div className="listings-grid">
-                {userListings.length ? userListings.map((listing, index) => (
-                <Listing
-                    key={index}
-                    data={listing}
-                    onClick={() => handleListingClick(listing._id)}
-                    favoriteMode={1}
-                />
+            <div className="listings-grid" style={{position: 'relative'}}>
+                    {userListings.length ? userListings.map((listing, index) => (
+                    <Listing
+                        key={index}
+                        data={listing}
+                        onClick={() => handleListingClick(listing._id)}
+                        favoriteMode={1}
+                        handleDelete={() => handleDelete(listing._id)}
+                    />
                     ))
                 :
                 <div style={{marginTop: "10vh"}}>
