@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Card, CardContent, CardMedia, Typography, IconButton, Box } from '@mui/material';
 import defaultImage from '../images/default.jpg';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import { UserContext } from '../context/UserContext';
 
 const AccommodationType = {
   SHARED_ACCOMMODATION: "Shared Accommodation",
@@ -11,15 +11,23 @@ const AccommodationType = {
   WHOLE_ACCOMMODATION: "Whole Accommodation"
 };
 
-function Listing({data, onClick}) 
+function Listing({data, onClick, favoriteMode = 0}) 
   
 {
-  console.log(data)
+  const {
+    favoriteListing
+  } = useContext(UserContext)
   // State to track whether the listing is liked
   const [isLiked, setIsLiked] = useState(false);
 
-  const handleLikeToggle = () => {
-    setIsLiked(prevIsLiked => !prevIsLiked); // Toggle isLiked state
+  const handleLikeToggle = (e) => {
+    e.stopPropagation();
+    if (favoriteMode == 0) {
+      if (!isLiked) {
+        favoriteListing(data._id)
+      }
+      setIsLiked(prevIsLiked => !prevIsLiked); // Toggle isLiked state
+    }
   };
 
   return (
@@ -37,11 +45,17 @@ function Listing({data, onClick})
             top: 160, 
             right: 0
         }} 
-        onClick={handleLikeToggle}
+        
+        onClick={(e) => handleLikeToggle(e)}
     >
-        {isLiked ? 
-            <FavoriteIcon style={{ color: 'red' }} /> : 
+        {favoriteMode == 2 || isLiked ? 
+          <FavoriteIcon style={{ color: 'red' }} />
+          :
+          (favoriteMode == 1 ?
+            <div />
+            :
             <FavoriteBorderIcon style={{ color: 'white' }} />
+          )
         }
     </IconButton>
       <CardContent style={{ padding: 10 }}>

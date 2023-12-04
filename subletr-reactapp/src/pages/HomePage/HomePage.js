@@ -15,7 +15,6 @@ import FilterComponent from '../../components/filter.js';
 export default function HomePage() {
     const {
         listings,
-        setListings,
         listingsWidthFactor,
         setListingsRowCount,
         listingsRowCount,
@@ -83,6 +82,7 @@ export default function HomePage() {
                         key={index}
                         data={listing}
                         onClick={() => handleListingClick(listing._id)}
+                        
                     />
                 ))}
             </div>

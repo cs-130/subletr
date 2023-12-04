@@ -25,6 +25,7 @@ const MyListings = () => {
                     key={index}
                     data={listing}
                     onClick={() => handleListingClick(listing.id)}
+                    favoriteMode={1}
                 />
                     ))
                 :

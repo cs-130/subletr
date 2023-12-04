@@ -1,3 +1,4 @@
+const { time } = require("console");
 const Customer = require("../models/Customer");
 const Listing = require("../models/Listing");
 const ListingViewLog = require("../models/ListingViewLog");
@@ -18,7 +19,6 @@ const getAllListings = async (req, res) => {
 
 const createListing = async (req, res) => {
   try {
-    console.log("entered create listing", req.body);
     let newListing = new Listing({
       address: req.body.address,
       rent: req.body.rent,
@@ -53,10 +53,16 @@ const getUserListings = async (req, res) => {
   }
 };
 
-const getViewedListings = async (req, res) => {
+const getFavoritedListings = async (req, res) => {
   try {
-    const viewedListings = await ListingViewLog.find({userId: req.userId}).lean();
-    return res.json(viewedListings);
+    const favoritedListings = await ListingViewLog.find({ userId: req.params.userId }).lean();
+    const data = []
+    for (let listing of favoritedListings) {
+      let item = await Listing.findOne({ _id: listing.listingId })
+      if (item)
+        data.push(item)
+    }
+    return res.json(data);
   } catch (err) {
     return res
       .status(500)
@@ -66,7 +72,7 @@ const getViewedListings = async (req, res) => {
 
 const getRentalHistory = async (req, res) => {
   try {
-    const rentedListings = await RentalHistory.find({customerId: req.userId}).lean();
+    const rentedListings = await RentalHistory.find({customerId: req.params.userId}).lean();
     return res.json(rentedListings);
   } catch (err) {
     return res
@@ -75,4 +81,22 @@ const getRentalHistory = async (req, res) => {
   }
 };
 
-module.exports = { getAllListings, createListing, getUserListings, getViewedListings, getRentalHistory };
+const logListingFavorite = async (req, res) => {
+  try {
+    console.log("LOG!", req.body)
+    let favoriteLog = new ListingViewLog({
+      listingId: req.body.listingId,
+      userId: req.body.userId,
+      viewedData: new Date(),
+    })
+    await favoriteLog.save()
+    return {message: 'success'};
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: `error in fetching rented listings: ${err}` });
+  }
+};
+
+
+module.exports = { getAllListings, createListing, getUserListings, getFavoritedListings, getRentalHistory, logListingFavorite };

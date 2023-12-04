@@ -50,7 +50,7 @@ export default function DetailedListing() {
         </div>
 
         <div className="wrapper-chips">
-            <ChipArray items={listing_data.amenities} onProfileClick={() => { console.log('Profile link clicked!')}}/>
+            <ChipArray items={listing_data.amenities ? listing_data.amenities : []} onProfileClick={() => { console.log('Profile link clicked!')}}/>
         </div>    
 
         <div className='bottom-listing'>
