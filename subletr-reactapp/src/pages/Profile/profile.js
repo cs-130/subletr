@@ -6,7 +6,7 @@ import { UserContext } from '../../context/UserContext';
 import MyListings from './MyListings';
 import ViewedListings from './ViewedListings';
 import RentalHistory from './RentalHistory';
-import Messaging from "../../pages/Messaging/messaging";
+import Messages from "../Messages/Messages";
 
 function Profile() {
 
@@ -51,7 +51,7 @@ function Profile() {
       return <RentalHistory/>
     }
     if (page == 3) {
-      return <Messaging/>
+      return <Messages/>
     }
   }
 
