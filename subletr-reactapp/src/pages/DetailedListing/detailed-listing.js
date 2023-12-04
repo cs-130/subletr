@@ -12,6 +12,7 @@ import { ListingsContext } from '../../context/ListingsProvider.js';
 export default function DetailedListing() {
     const {
         listings,
+        initiateRent
     } = useContext(ListingsContext)
 
     const { listing_id } = useParams()
@@ -62,6 +63,7 @@ export default function DetailedListing() {
             startDate={listing_data.startDate}
             endDate={listing_data.endDate}
             owner="Jason"
+            onReserve={() => initiateRent(listing_id)}
           />
         </div>
       </div>
