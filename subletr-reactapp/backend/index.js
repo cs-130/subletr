@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const passport = require("passport");
 const session = require("express-session");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
 
@@ -16,6 +17,16 @@ const app = express();
 dotenv.config();
 
 require("./config/passport")(passport);
+
+app.use(
+  bodyParser.json({
+    verify: (req, res, buf) => {
+      // Can change to:
+      // if (req.originalUrl === "/webhook")
+      req.rawBody = buf;
+    },
+  })
+);
 
 app.use(
   cors({
