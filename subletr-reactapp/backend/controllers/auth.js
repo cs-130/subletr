@@ -58,7 +58,7 @@ const isCustomerLoggedIn = async (req, res) => {
   // Check if there exists a customer with the given id
   const customer = await Customer.findById(id);
   if (cookie && customer) {
-    return res.json({ loggedIn: true });
+    return res.json({ loggedIn: true, id: customer._id });
   }
   return res.json({ loggedIn: false });
 };
