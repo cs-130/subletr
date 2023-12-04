@@ -42,4 +42,8 @@ router.put("/update-customer", ensureAuth, AuthController.updateCustomer);
 
 router.get("/is-customer-logged-in", AuthController.isCustomerLoggedIn);
 
+router.get("/get-customer", ensureAuth, (req, res) => {
+  return res.json(req.customer);
+});
+
 module.exports = router;
