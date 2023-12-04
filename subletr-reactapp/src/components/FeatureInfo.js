@@ -252,7 +252,7 @@ const FeatureInfo = (props) => {
 
 export default FeatureInfo;
 
-const listingFeatures = [
+export const listingFeatures = [
   "Air Conditioning",
   "Balcony",
   "In Unit Laundry",
