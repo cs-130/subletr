@@ -16,7 +16,7 @@ describe("handleAuthenticationTest", () => {
     // Setup
     generateToken.mockReturnValue("mock_token");
     const customer = { _id: { toHexString: () => "mocked_id" } };
-    const req = {}; // Mock request object as needed
+    const req = {};
     const res = {
       cookie: jest.fn().mockReturnThis(),
       redirect: jest.fn(),
@@ -38,6 +38,4 @@ describe("handleAuthenticationTest", () => {
     );
     expect(res.redirect).toHaveBeenCalledWith("http://mockurl.com/");
   });
-
-  // Additional tests for error handling, edge cases, etc., can be added here
 });
