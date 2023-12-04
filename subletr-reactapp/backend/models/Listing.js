@@ -9,7 +9,7 @@ const listingSchema = new mongoose.Schema({
   userId: { type: String, default: "" },
   phoneNumber: { type: String, default: "" },
   amenities: { type: Array, default: [] },
-  bio: { type: String, default: [] },
+  bio: { type: String, default: "" },
   description: { type: String, default: "" },
   startDate: { type: Date, default: "" },
   endDate: { type: Date, default: "" },

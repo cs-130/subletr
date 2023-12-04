@@ -6,7 +6,6 @@ const Listing = require("../models/Listing");
 const { default: mongoose } = require("mongoose");
 
 const createWebhook = async (req, res) => {
-  console.log("reached crate ");
   const sig = req.headers["stripe-signature"];
   let event;
   try {
@@ -19,7 +18,6 @@ const createWebhook = async (req, res) => {
     switch (event.type) {
       case "customer.created": {
         // data.id has the customer id
-        console.log("Reached webhook - created customer");
         break;
       }
       case "customer.subscription.updated": {
@@ -31,7 +29,6 @@ const createWebhook = async (req, res) => {
       case "invoice.paid": {
         const { renterId, ownerId, listingId, connectedAccountId } =
           data.subscription_details.metadata;
-        console.log(renterId, ownerId, listingId, connectedAccountId);
 
         const listing = await Listing.findById(listingId);
         listing.isAvailable = false;
