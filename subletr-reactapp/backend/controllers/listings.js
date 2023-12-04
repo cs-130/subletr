@@ -142,4 +142,4 @@ const logListingFavorite = async (req, res) => {
 };
 
 
-module.exports = { getAllListings, createListing, getUserListings, getFavoritedListings, getRentalHistory, logListingFavorite };
+module.exports = { getAllListings, createListing, getUserListings, getFavoritedListings, getRentalHistory, logListingFavorite, acceptListing };
