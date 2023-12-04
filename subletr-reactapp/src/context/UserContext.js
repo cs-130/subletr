@@ -7,7 +7,7 @@ import { getViewedListings as callGetViewed } from "../api/api";
 import { getRentalHistory as callGetRental } from "../api/api";
 import { createListing as callCreateListing } from "../api/api";
 import { callFavoriteListing } from "../api/api";
-
+import { deletelisting as callDeletelisting } from "../api/api";
 export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
@@ -16,6 +16,7 @@ export const UserProvider = ({ children }) => {
     const [userListings, setUserListings] = useState([])
     const [viewedListings, setViewedListings] = useState([])
     const [rentalHistory, setRentalHistory] = useState([])
+    const [page, setPage] = useState(0)
 
 
     useEffect(() => {
@@ -66,6 +67,12 @@ export const UserProvider = ({ children }) => {
         }
     }
 
+    const deleteListing = async (listingId) => {
+        const response = await callDeletelisting(listingId)
+        if (response.message == 'success')
+            getMyListings(userId)
+    }
+
     return (
         <UserContext.Provider
             value={{
@@ -84,6 +91,9 @@ export const UserProvider = ({ children }) => {
                 getRentalHistory,
                 createListing,
                 favoriteListing,
+                page,
+                setPage,
+                deleteListing,
             }}
         >
             {children}

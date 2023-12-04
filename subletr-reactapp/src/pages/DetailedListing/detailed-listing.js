@@ -18,8 +18,6 @@ export default function DetailedListing() {
     
     let listing_data = listings.find(item => item._id == listing_id)
 
-    console.log(listing_data)
-
     const quotes = [
         { text: "Amazing place to stay for short term lease...", author: "Jane Doe" },
         { text: "Amazing place to stay for short term lease...", author: "Jane Doe" }
