@@ -4,6 +4,7 @@ const stripe = require("stripe")(config.STRIPE_SECRET_KEY);
 const { default: mongoose } = require("mongoose");
 
 const createWebhook = async (req, res) => {
+  console.log("reached crate ");
   const sig = req.headers["stripe-signature"];
   let event;
   try {
@@ -26,6 +27,11 @@ const createWebhook = async (req, res) => {
         break;
       }
       case "invoice.paid": {
+        const { renterId, ownerId, listingId, connectedAccountId } =
+          data.subscription_details.metadata;
+        console.log(renterId, ownerId, listingId, connectedAccountId);
+
+        
         break;
       }
       case "test_helpers.test_clock.advancing": {

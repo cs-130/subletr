@@ -51,7 +51,9 @@ const createRentSubscription = async (req, res) => {
         },
         metadata: {
           connectedAccountId: connectedAccountId,
-          // pass any listing information needed
+          listingId: req.body.listingId,
+          ownerId: listing.userId,
+          renterId: req.customer._id,
         },
       },
       success_url: `http://localhost:3000/?session_id={CHECKOUT_SESSION_ID}`,
