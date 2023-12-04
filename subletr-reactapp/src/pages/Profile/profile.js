@@ -11,6 +11,7 @@ import Messages from "../Messages/Messages";
 function Profile() {
 
   const {
+    userId,
     viewedListings,
     getMyListings,
     getViewedListings,
@@ -19,6 +20,10 @@ function Profile() {
     setPage,
   } = useContext(UserContext)
 
+  useEffect(() => {
+    if (!userId) 
+        window.location.href = `http://localhost:5000/auth/google`
+  }, [])
 
   useEffect(() => {
     getMyListings()
