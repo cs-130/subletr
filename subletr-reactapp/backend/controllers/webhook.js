@@ -1,9 +1,11 @@
 const config = require("../config/variables");
 const stripe = require("stripe")(config.STRIPE_SECRET_KEY);
+const { sendAwsEmail } = require("../utils/notifications");
 const ActiveLeases = require("../models/ActiveLeases");
 const Listing = require("../models/Listing");
 
 const { default: mongoose } = require("mongoose");
+const Customer = require("../models/Customer");
 
 const createWebhook = async (req, res) => {
   const sig = req.headers["stripe-signature"];
@@ -30,6 +32,8 @@ const createWebhook = async (req, res) => {
         const { renterId, ownerId, listingId, connectedAccountId } =
           data.subscription_details.metadata;
 
+        const renter = await Customer.findById(renterId).lean();
+        const owner = await Customer.findById(ownerId).lean();
         const listing = await Listing.findById(listingId);
         listing.isAvailable = false;
         await listing.save();
@@ -41,6 +45,36 @@ const createWebhook = async (req, res) => {
           startDate: new Date(),
         });
         await newLease.save();
+
+        sendAwsEmail(
+          "hritik1402@g.ucla.edu",
+          renter.email,
+          "Subletr: You accepted a listing",
+          `Dear ${renter.fullName}, <br/> <br/>
+            
+            You have accepted and paid for a listing of ${owner.fullName} at ${listing.address}. <br/>
+            
+            Congratulations! Your card will be charged ${listing.rent} USD subsequently every month.<br/><br/>
+      
+            Warm Regards, <br/>
+            The Subletr Team <br/>
+            `
+        );
+
+        sendAwsEmail(
+          "hritik1402@g.ucla.edu",
+          owner.email,
+          "Subletr: Your listing was accepted",
+          `Dear ${owner.fullName}, <br/> <br/>
+            
+            Your listing at ${listing.address} was accepted by ${owner.fullName}. <br/>
+            
+            You will receive monthly payments of ${listing.rent} USD moving forward.<br/><br/>
+      
+            Warm Regards, <br/>
+            The Subletr Team <br/>
+            `
+        );
 
         break;
       }
