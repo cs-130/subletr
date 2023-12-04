@@ -18,38 +18,46 @@ export const logoutCustomer = async () => {
 
 export const getUserListings = async (userId) => {
   try {
-    const res = await axios.get(`/listings/${userId}`, { withCredentials: true });
-    return res.data
+    const res = await axios.get(`/listings/${userId}`, {
+      withCredentials: true,
+    });
+    return res.data;
   } catch (err) {
     console.log("Unable to logout user", err);
     return false;
   }
-}
+};
 
 export const getViewedListings = async (userId) => {
   try {
-    const res = await axios.get(`/listings/${userId}/viewed`, { withCredentials: true });
-    return res.data
+    const res = await axios.get(`/listings/${userId}/viewed`, {
+      withCredentials: true,
+    });
+    return res.data;
   } catch (err) {
     console.log("Unable to logout user", err);
     return false;
   }
-}
+};
 
 export const getListingsHistory = async (userId) => {
   try {
-    const res = await axios.get(`/listings/${userId}/rental`, { withCredentials: true });
-    return res.data
+    const res = await axios.get(`/listings/${userId}/rental`, {
+      withCredentials: true,
+    });
+    return res.data;
   } catch (err) {
     console.log("Unable to logout user", err);
     return false;
   }
-}
+};
 
 export const isLoggedIn = async () => {
   try {
-    const res = await axios.get("/auth/is-customer-logged-in", { withCredentials: true });
-    return res.data
+    const res = await axios.get("/auth/is-customer-logged-in", {
+      withCredentials: true,
+    });
+    return res.data;
   } catch (err) {
     console.log("Error getting login status", err);
     return false;
@@ -58,10 +66,31 @@ export const isLoggedIn = async () => {
 
 export const createListing = async (data, userId) => {
   try {
-    const res = await axios.post("/listings/create-listing", {...data, userId: userId}, { withCredentials: true});
-    return res.data
+    const res = await axios.post(
+      "/listings/create-listing",
+      { ...data, userId: userId },
+      { withCredentials: true }
+    );
+    return res.data;
   } catch (err) {
     console.log("Error getting login status", err);
+    return false;
+  }
+};
+
+export const rentAndStartPayingForListing = async (listingId) => {
+  try {
+    const res = await axios.post(
+      "/stripe/create-rent-subscription",
+      {
+        listingId: listingId,
+      },
+      { withCredentials: true }
+    );
+    if (res.status === 200) return res.data;
+    return false;
+  } catch (err) {
+    console.log("Error in creating rent subscription", err);
     return false;
   }
 };
