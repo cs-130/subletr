@@ -9,10 +9,13 @@ import CreateListing2 from './pages/CreateListing/CreateListing2';
 import CreateListing3 from './pages/CreateListing/CreateListing3';
 import CreateListing4 from './pages/CreateListing/CreateListing4';
 import CreateListing5 from './pages/CreateListing/CreateListing5';
+import Messaging from './pages/Messaging/messaging'
 import Profile from './pages/Profile/profile';
 import { UserContext } from './context/UserContext';
 import { ProgressProvider } from './pages/CreateListing/context';
 import DetailedListing from './pages/DetailedListing/detailed-listing';
+import './themes/default/main.scss';
+
 
 function App() {
   const {
@@ -37,14 +40,16 @@ function App() {
       <Router>
         <HeaderNoSearch /> {/* Use the CurrentHeader function */}
         <Routes>
-          <Route path="/" element={<Profile />} />
-          <Route path="/listings" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/manage" element={<Profile />} />
           <Route path="/listings/create/1" element={<CreateListing />} />
           <Route path="/listings/create/2" element={<CreateListing2 />} />
           <Route path="/listings/create/3" element={<CreateListing3 />} />
           <Route path="/listings/create/4" element={<CreateListing4 />} />
           <Route path="/listings/create/5" element={<CreateListing5 />} />
           {/* <Route path="/profile/" element={<Profile />} /> */}
+          <Route path="/messaging" element={<Messaging />} />
+
 
 
 

@@ -17,16 +17,15 @@ const ViewedListings = () => {
 
     return (
         <>
-            <header className='header1'>Viewed Listings</header>
+            <header className='header1'>Favorited Listings</header>
             <div className='top-div'>
             <div className="listings-grid">
                 {viewedListings.length ? viewedListings.map((listing, index) => (
                 <Listing
                     key={index}
-                    title={listing.description}
-                    description={listing.description}
-                    price={`$${listing.price}/month`}
+                    data={listing}
                     onClick={() => handleListingClick(listing.id)}
+                    favoriteMode={2}
                 />
                     ))
                 :
