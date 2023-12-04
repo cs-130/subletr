@@ -11,11 +11,11 @@ const AccommodationType = {
   WHOLE_ACCOMMODATION: "Whole Accommodation"
 };
 
-function Listing({data, onClick, favoriteMode = 0}) 
+function Listing({data, onClick, favoriteMode = 0, handleDelete = null}) 
   
 {
   const {
-    favoriteListing
+    favoriteListing,
   } = useContext(UserContext)
   // State to track whether the listing is liked
   const [isLiked, setIsLiked] = useState(false);
@@ -39,6 +39,14 @@ function Listing({data, onClick, favoriteMode = 0})
         image={data.listingPictures && data.listingPictures.length ? data.listingPictures[0] : defaultImage}
         // alt={location}
       />
+      {
+        handleDelete && 
+        <div className="image-close" onClick={(e) => { e.stopPropagation(); handleDelete() }}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+      }
     <IconButton 
         style={{ 
             position: 'absolute', 
@@ -61,10 +69,10 @@ function Listing({data, onClick, favoriteMode = 0})
       <CardContent style={{ padding: 10 }}>
         <Box display="flex" justifyContent="space-between">
           <Typography variant="body2" noWrap>
-            {data.address}
+            {data.address.split(',')[0]}
           </Typography>
           <Typography variant="body2" noWrap>
-            {data.startDate}
+            {new Date(data.startDate).toLocaleString('en-US', { month: 'short', year: 'numeric'})} - {new Date(data.endDate).toLocaleString('en-US', { month: 'short', year: 'numeric'})}
           </Typography>
         </Box>
         <Typography variant="subtitle2" noWrap style={{ marginTop: '0px' }}>

@@ -27,7 +27,7 @@ function loadScript(src, position, id) {
 const BasicInfo = (props) => {
   const { formik } = props;
 
-  const [value, setValue] = React.useState(null);
+  const [value, setValue] = React.useState(formik.values.address);
   const [inputValue, setInputValue] = React.useState("");
   const [options, setOptions] = React.useState([]);
   const loaded = React.useRef(false);
@@ -123,21 +123,6 @@ const BasicInfo = (props) => {
           error={Boolean(formik.touched.availSpots && formik.errors.availSpots)}
           onChange={formik.handleChange}
           value={formik.values.availSpots}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          name="currentOccupancy"
-          label="Current Occupancy"
-          variant="outlined"
-          size="small"
-          type="number"
-          fullWidth
-          error={Boolean(
-            formik.errors.currentOccupancy && formik.touched.currentOccupancy
-          )}
-          onChange={formik.handleChange}
-          value={formik.values.currentOccupancy}
         />
       </Grid>
       <Grid item xs={12}>
