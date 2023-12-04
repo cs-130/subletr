@@ -1,10 +1,16 @@
 import React from 'react';
 import { Grid, Paper, Typography, Button } from '@mui/material';
 
-const TwoColumnLayout = ({ biography, startDate, endDate, owner }) => {
+const TwoColumnLayout = ({ biography, startDate, endDate, owner, description }) => {
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={7}>
+      <Typography variant="h5" gutterBottom>
+          Description
+        </Typography>
+        <Typography style={{marginBottom: '20px'}}>
+          {description}
+        </Typography>
         <Typography variant="h5" gutterBottom>
           Biography
         </Typography>

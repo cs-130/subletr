@@ -35,7 +35,7 @@ export default function DetailedListing() {
     <div className='listing-wrapper'>
             <div className='heading-wrapper'>
                 <ListingHeading
-                title={listing_data.description}
+                title={listing_data.address.split(',')[0] + ', ' + listing_data.address.split(',')[1]}
                 // rating={4.8}
                 // reviewCount={28}
                 rent={listing_data.rent}
@@ -53,6 +53,7 @@ export default function DetailedListing() {
 
         <div className='bottom-listing'>
         <BottomElement
+            description={listing_data.description}
             biography={listing_data.bio}
             startDate={listing_data.startDate}
             endDate={listing_data.endDate}
