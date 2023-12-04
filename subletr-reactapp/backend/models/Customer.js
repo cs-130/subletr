@@ -6,6 +6,7 @@ const customerSchema = new mongoose.Schema({
   phoneNumber: { type: String, default: "" },
   provider: { type: String },
   profilePicture: { type: String, default: "" },
+  conversationIds: { type: Array, default: [] }
 });
 
 module.exports = mongoose.model("customer", customerSchema);
