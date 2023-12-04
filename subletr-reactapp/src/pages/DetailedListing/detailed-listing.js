@@ -27,46 +27,49 @@ export default function DetailedListing() {
     
     const images = [defaultImage, defaultImage, defaultImage, defaultImage];
 
-    const chipData = [
-        { label: 'Kitchen'},
-        { label: 'Swimming Pool'},
-        { label: 'Master Bathroom' },
-        { label: '...and 4 others' }
-      ];
-    return ( listing_data ?
-    <div className='listing-wrapper'>
-            <div className='heading-wrapper'>
-                <ListingHeading
-                title={listing_data.description}
-                // rating={4.8}
-                // reviewCount={28}
-                rent={listing_data.rent}
-                // reviewLink="#reviews" 
-            />        
-      </div>
+    return listing_data ? (
+      <div className="listing-wrapper">
+        <div className="heading-wrapper">
+          <ListingHeading
+            title={listing_data.address}
+            // rating={4.8}
+            // reviewCount={28}
+            rent={listing_data.rent}
+            // reviewLink="#reviews"
+          />
+        </div>
 
-        <div className="wrapper-image">   
-            <ListingImageCard quotes={quotes} images={listing_data.listingPictures && listing_data.listingPictures.length ? listing_data.listingPictures : images}/>
+        <div className="wrapper-image">
+          <ListingImageCard
+            quotes={quotes}
+            images={
+              listing_data.listingPictures &&
+              listing_data.listingPictures.length
+                ? listing_data.listingPictures
+                : images
+            }
+          />
         </div>
 
         <div className="wrapper-chips">
-            <ChipArray items={listing_data.amenities ? listing_data.amenities : []} onProfileClick={() => { console.log('Profile link clicked!')}}/>
-        </div>    
+          <ChipArray
+            items={listing_data.amenities ? listing_data.amenities : []}
+          />
+        </div>
 
-        <div className='bottom-listing'>
-        <BottomElement
+        <div className="bottom-listing">
+          <BottomElement
+            description={listing_data.description}
             biography={listing_data.bio}
             startDate={listing_data.startDate}
             endDate={listing_data.endDate}
             owner="Jason"
-        />
+          />
         </div>
-    
-    </div>
-        :
-        <div>
-        </div>
-    )
+      </div>
+    ) : (
+      <div></div>
+    );
 }
 
 

@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext } from 'react';
 import './profile.css'
-import { TextField, Button, Box, Avatar } from '@mui/material';
 import Listing from '../../components/listing';
 import { UserContext } from '../../context/UserContext';
+import { useNavigate } from "react-router-dom";
 
 
 const MyListings = () => {
@@ -10,10 +10,11 @@ const MyListings = () => {
         userListings,
     } = useContext(UserContext)
 
+    const navigate = useNavigate();
 
-    const handleListingClick = () => {
-        console.log('click')
-    }
+    const handleListingClick = (listing_id) => {
+      navigate(`/${listing_id}`);
+    };
 
     return (
         <>
@@ -24,7 +25,7 @@ const MyListings = () => {
                 <Listing
                     key={index}
                     data={listing}
-                    onClick={() => handleListingClick(listing.id)}
+                    onClick={() => handleListingClick(listing._id)}
                     favoriteMode={1}
                 />
                     ))
