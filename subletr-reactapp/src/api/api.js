@@ -78,7 +78,8 @@ export const isLoggedIn = async () => {
 
 export const createListing = async (data, userId) => {
   try {
-    const res = await axios.post("/listings/create-listing", {...data, userId: userId}, { withCredentials: true});
+    const res = await axios.post("/listings/create-listing", { ...data, userId: userId }, { withCredentials: true });
+    console.log(data)
     return res.data
   } catch (err) {
     console.log("Error getting login status", err);

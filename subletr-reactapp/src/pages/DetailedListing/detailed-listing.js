@@ -46,7 +46,7 @@ export default function DetailedListing() {
       </div>
 
         <div className="wrapper-image">   
-            <ListingImageCard quotes={quotes} images={images}/>
+            <ListingImageCard quotes={quotes} images={listing_data.listingPictures && listing_data.listingPictures.length ? listing_data.listingPictures : images}/>
         </div>
 
         <div className="wrapper-chips">

@@ -25,7 +25,7 @@ export default function IconBreadcrumbs() {
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
           color="inherit"
-          onClick={() => navigate("/listings")}
+          onClick={() => navigate("/manage")}
         >
           <StarIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           Manage Listings

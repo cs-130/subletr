@@ -35,7 +35,7 @@ const Form = () => {
         console.log("submit");
         let response = await createListing(formik.values);
         if (response == 'success')
-          Navigate("/profile")
+          Navigate("/manage")
         
     };
 

@@ -36,7 +36,7 @@ function Listing({data, onClick, favoriteMode = 0})
         component="img"
         height="200"
         // image={URL.createObjectURL(data.listingPictures[0]) || defaultImage}
-        image={defaultImage}
+        image={data.listingPictures && data.listingPictures.length ? data.listingPictures[0] : defaultImage}
         // alt={location}
       />
     <IconButton 
