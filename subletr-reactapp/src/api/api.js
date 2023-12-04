@@ -129,6 +129,8 @@ export const editListing = async (listingId, listingData) => {
     return res.data
   } catch (err) {
     console.log("Error deleting listing", err);
+  }
+}
 
 export const callSendMessage = async (data, userId) => {
   try {
