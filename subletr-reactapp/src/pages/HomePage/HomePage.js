@@ -68,6 +68,10 @@ export default function HomePage() {
           display = listing.availSpots >= spots;
         }
 
+        if (display) {
+            display = listing.rent >= rentRange[0] && listing.rent <= rentRange[1]
+        }
+
         return display;
     }
     

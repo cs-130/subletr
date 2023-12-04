@@ -2,12 +2,15 @@ import React, { createContext, useState, useEffect } from "react"
 import { v4 as uuid } from 'uuid';
 import { getListings } from "../api/api";
 import { editListing as callEditListing } from "../api/api";
+import { rentAndStartPayingForListing } from "../api/api";
+
 export const ListingsContext = createContext()
 
 export const ListingsProvider = ({ children }) => {
 
     const [listings, setListings] = useState([]);
     const [listingsRowCount, setListingsRowCount] = useState(6);
+
 
     useEffect(() => {
         console.log("use effect")
@@ -38,6 +41,12 @@ export const ListingsProvider = ({ children }) => {
         return response
     }
 
+    const initiateRent = async (listingId) => {
+        const response = await rentAndStartPayingForListing(listingId)
+        if (response.url)
+            window.location.href = response.url
+    }
+
     const [listingsWidthFactor, setListingsWidthFactor] = useState(calculateListingsPerPage())
 
     useEffect(() => {
@@ -62,7 +71,8 @@ export const ListingsProvider = ({ children }) => {
                 listingsWidthFactor,
                 setListingsWidthFactor,
                 getAllListings,
-                editListing
+                editListing,
+                initiateRent,
             }}
         >
             {children}

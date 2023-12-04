@@ -12,6 +12,7 @@ import { ListingsContext } from '../../context/ListingsProvider.js';
 export default function DetailedListing() {
     const {
         listings,
+        initiateRent
     } = useContext(ListingsContext)
 
     const { listing_id } = useParams()
@@ -25,17 +26,21 @@ export default function DetailedListing() {
     
     const images = [defaultImage, defaultImage, defaultImage, defaultImage];
 
-    return ( listing_data ?
-    <div className='listing-wrapper'>
-            <div className='heading-wrapper'>
-                <ListingHeading
-                title={listing_data.address.split(',')[0] + ', ' + listing_data.address.split(',')[1]}
-                // rating={4.8}
-                // reviewCount={28}
-                rent={listing_data.rent}
-                // reviewLink="#reviews" 
-            />        
-      </div>
+    return listing_data ? (
+      <div className="listing-wrapper">
+        <div className="heading-wrapper">
+          <ListingHeading
+            title={
+              listing_data.address.split(",")[0] +
+              ", " +
+              listing_data.address.split(",")[1]
+            }
+            // rating={4.8}
+            // reviewCount={28}
+            rent={listing_data.rent}
+            // reviewLink="#reviews"
+          />
+        </div>
 
         <div className="wrapper-image">
           <ListingImageCard
@@ -62,11 +67,12 @@ export default function DetailedListing() {
             startDate={listing_data.startDate}
             endDate={listing_data.endDate}
             owner="Jason"
+            onReserve={() => initiateRent(listing_id)}
           />
         </div>
       </div>
-        :
-        <div></div>
+    ) : (
+      <div></div>
     );
 }
 

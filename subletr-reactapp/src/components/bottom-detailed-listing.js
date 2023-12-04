@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Paper, Typography, Button } from '@mui/material';
 
-const TwoColumnLayout = ({ description, biography, startDate, endDate, owner }) => {
+const TwoColumnLayout = ({ description, biography, startDate, endDate, owner, onReserve }) => {
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={7}>
@@ -23,7 +23,7 @@ const TwoColumnLayout = ({ description, biography, startDate, endDate, owner }) 
           <Typography variant="h6" >
             This stay is available from {new Date(startDate).toLocaleString('en-US', { month: 'short', year: 'numeric'})} to {new Date(endDate).toLocaleString('en-US', { month: 'short',  year: 'numeric'})} without renewal!
           </Typography>
-          <Button variant="contained" color="primary" style={{ margin: "8px" }}>
+          <Button variant="contained" color="primary" style={{ margin: "8px" }} onClick={() => onReserve()}>
             Reserve your spot!
           </Button>
           <Typography variant="caption">or</Typography>
