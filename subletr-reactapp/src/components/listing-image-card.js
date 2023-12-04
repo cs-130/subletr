@@ -69,12 +69,19 @@ const ImageQuoteCarousel = ({ quotes, images }) => {
       </MainImageSection>
       <RightSection>
         <Column>
-          <SmallImage src={images[1]} alt="Secondary" />
-          <SmallImage src={images[2]} alt="Tertiary" />
+          {/* First column for two images */}
+          {images.length > 1 ? (
+            <SmallImage src={images[1]} alt="Secondary" />
+          ) : null}
+          {images.length > 2 ? (
+            <SmallImage src={images[2]} alt="Tertiary" />
+          ) : null}
+          {/* <SmallImage2 src={images[2]} alt="Tertiary" /> */}
         </Column>
         <Column>
-          <MainImage src={images[3]} alt="Quaternary" />
-
+          {images.length > 3 ? (
+            <SmallImage src={images[3]} alt="Quaternary" />
+          ) : null}
         </Column>
       </RightSection>
     </Container>

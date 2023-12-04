@@ -23,6 +23,11 @@ export default function HomePage() {
 
     const [isFilterVisible, setIsFilterVisible] = useState(false);
 
+    const [accommodationType, setAccommodationType] = useState('All')
+    const [amenities, setAmenities] = useState([])
+    const [rentRange, setrentRange] = useState([0, 10000]);
+    const [spots, setSpots] = useState(1)
+
     const toggleFilter = () => {
         setIsFilterVisible((prevState) => !prevState);
     };
@@ -37,6 +42,35 @@ export default function HomePage() {
         navigate(`/${listing_id}`)
     }
 
+    const handleFilterChange = (accommodationType, amenities, spots, rentRange) => {
+        // filter based on the filter criteria
+        setAccommodationType(accommodationType)
+        setAmenities(amenities)
+        setSpots(spots);
+        setrentRange(rentRange);
+    }
+
+    const displayListing = (listing) => {
+        let display = false;
+        console.log(listing)
+        if (accommodationType === 'All' || accommodationType === listing.listingType) {
+            display = true
+        } else {
+            display = false
+        }
+        
+        if (display && amenities.length > 0) {
+            display = listing.amenities.some(r=> amenities.includes(r))
+        }
+
+        if (display && spots > 0) {
+          console.log(listing.availSpots);
+          display = listing.availSpots >= spots;
+        }
+
+        return display;
+    }
+    
     useEffect(() => {
         getAllListings()
     }, [])
@@ -77,16 +111,15 @@ export default function HomePage() {
                         ),
                     }}
                     />
-                    {isFilterVisible && <FilterComponent />}
+                    {isFilterVisible && <FilterComponent handleFilterChange={handleFilterChange} />}
                 </Box>
             </div>
             <div className="listings-grid">
-                {listings.length ? listings.slice(0, listingsWidthFactor * listingsRowCount).map((listing, index) => (
+                {listings.length && listings.slice(0, listingsWidthFactor * listingsRowCount).filter(displayListing).map((listing, index) => (
                     <Listing
                         key={index}
                         data={listing}
                         onClick={() => handleListingClick(listing._id)}
-                        
                     />
                 )) :
                 <div></div>}

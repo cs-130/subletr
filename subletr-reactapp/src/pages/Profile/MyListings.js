@@ -1,9 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext } from 'react';
 import './profile.css'
-import { TextField, Button, Box, Avatar } from '@mui/material';
 import Listing from '../../components/listing';
 import { UserContext } from '../../context/UserContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const MyListings = () => {
     const {
