@@ -1,12 +1,7 @@
 import { Grid, TextField, InputAdornment, FormHelperText } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
-
-const today = dayjs();
-const tomorrow = dayjs().add(1, "day");
 
 const MoreInfo = (props) => {
   const { formik } = props;
@@ -62,21 +57,6 @@ const MoreInfo = (props) => {
           />
         </Grid>
       </LocalizationProvider>
-      {/* <Grid item xs={12}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateRangePicker
-            name="dateRange"
-            disablePast
-            defaultValue={[today, tomorrow]}
-            minDate={tomorrow}
-            onChange={(value) => {
-              // formik.setFieldValue("endDate", new Date(value));
-              console.log(value);
-              console.log(value[0]);
-            }}
-          />
-        </LocalizationProvider>
-      </Grid> */}
       <Grid item xs={12}>
         <TextField
           name="rent"
@@ -100,13 +80,3 @@ const MoreInfo = (props) => {
 };
 
 export default MoreInfo;
-
-const listingFeatures = [
-  {name: "Air Conditioning", type: "amenity"},
-  {name: "Balcony", type: "amenity"},
-  {name: "In Unit Laundry", type: "amenity"},
-  {name: "Parking", type: "amenity"},
-  {name: "Furnished", type: "amenity"},
-  {name: "Pet Friendly", type: "amenity"},
-  {name: "Dishwasher", type: "amenity"}
-];

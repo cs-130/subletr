@@ -1,10 +1,13 @@
-import { Typography, List, ListItem, ListItemText } from "@mui/material";
+import { Typography, List, ListItem, ListItemText, Chip } from "@mui/material";
+// import ChipArray from "./listing-chips.js";
 
 const ReviewInfo = ({ formik }) => {
   const { values } = formik;
   return (
     <>
-      <Typography variant="overline">Account Details</Typography>
+      <Typography component={"span"} variant="overline">
+        Account Details
+      </Typography>
       <List>
         <ListItem>
           <ListItemText primary="Address" secondary={values.address} />
@@ -48,7 +51,9 @@ const ReviewInfo = ({ formik }) => {
         <ListItem>
           <ListItemText
             primary="Amenities"
-            secondary={values.amenities.join(", ")}
+            secondary={values.amenities.map((amenity, index) => (
+              <Chip sx={{ margin: "5px" }} key={index} label={amenity} />
+            ))}
           />
         </ListItem>
         <ListItem>
@@ -59,19 +64,14 @@ const ReviewInfo = ({ formik }) => {
                 ? values.generatedDescription
                 : values.userDescription
             }
+            sx={{ overflow: "hidden", textOverflow: "ellipsis" }}
           />
         </ListItem>
         <ListItem>
-          <ListItemText
-            primary="Bio"
-            secondary={values.bio}
-          />
+          <ListItemText primary="Bio" secondary={values.bio} />
         </ListItem>
         <ListItem>
-          <ListItemText
-            primary="Phone Number"
-            secondary={values.phoneNumber}
-          />
+          <ListItemText primary="Phone Number" secondary={values.phoneNumber} />
         </ListItem>
       </List>
     </>

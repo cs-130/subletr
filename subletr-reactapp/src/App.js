@@ -15,7 +15,7 @@ import { UserContext } from './context/UserContext';
 import { ProgressProvider } from './pages/CreateListing/context';
 import DetailedListing from './pages/DetailedListing/detailed-listing';
 import './themes/default/main.scss';
-
+import ManageListing from './pages/Profile/ManageListing';
 
 function App() {
   const {
@@ -41,7 +41,8 @@ function App() {
         <HeaderNoSearch /> {/* Use the CurrentHeader function */}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/manage" element={<Profile />} />
+          <Route exact path="/manage" element={<Profile />} />
+          <Route path="/manage/:listing_id" element={<ManageListing />} />
           <Route path="/listings/create/1" element={<CreateListing />} />
           <Route path="/listings/create/2" element={<CreateListing2 />} />
           <Route path="/listings/create/3" element={<CreateListing3 />} />

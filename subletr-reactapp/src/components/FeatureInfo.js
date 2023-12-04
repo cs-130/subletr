@@ -102,16 +102,14 @@ const FeatureInfo = (props) => {
 
 
   const handleFileUpload = async (e) => {
-    // console.log(e.target.files)
     if (e.target.files.length) {
-      const base64 = await convertToBase64(e.target.files[0]);
-      // formik.setFieldValue("images", [...formik.values.images, ...Array.from(e.target.files)])
-      formik.setFieldValue("images", [...formik.values.images, base64])
-      // console.log(base64)
-
+      const imgData = []
+      for (let img of e.target.files) {
+        const base64 = await convertToBase64(img);
+        imgData.push(base64)
+      }
+      formik.setFieldValue("images", [...formik.values.images, ...imgData])
     }
-        // setImages(prev => [...prev, ...Array.from(e.target.files).map((file) => { return { ...file, preview: URL.createObjectURL(file) } })]);
-    // console.log([...formik.values.images, ...Array.from(e.target.files)])
   }
 
 
@@ -123,10 +121,8 @@ const FeatureInfo = (props) => {
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
         <img
-          // src={URL.createObjectURL(file)}
           src={file}
           style={img}
-          // onLoad={() => { URL.revokeObjectURL(file.preview) }}
         />
         <div className="image-close" onClick={() => handleImageDelete(i)}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -159,6 +155,7 @@ const FeatureInfo = (props) => {
               {option}
             </li>
           )}
+          value={formik.values.amenities}
           style={{ width: 500 }}
           renderInput={(params) => <TextField {...params} label="Checkboxes" />}
           error={formik.errors.amenities}
@@ -168,28 +165,50 @@ const FeatureInfo = (props) => {
         />
       </Grid>
       <Grid item xs={12}>
-        <BlankBox 
-          className="" 
-          label="Upload four images of your place, please!" 
-          labelStyle={{ fontFamily: 'Roboto, sans-serif', fontSize: '24px' }}
+        <BlankBox
+          className=""
+          label="Upload four images of your place, please!"
+          labelStyle={{ fontFamily: "Roboto, sans-serif", fontSize: "24px" }}
           contents={
-              <div className="dropzone-parent">
-                  <label for="dropzone-file" className="dropzone-label">
-                      <div className="dropzone-div ">
-                          <svg className="dropzone-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                          </svg>
-                          <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                          <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                      </div>
-                      <input id="dropzone-file" type="file" style={{display: "none"}} multiple={true} accept="image/*" onChange={(file) => handleFileUpload(file)}/>
-                  </label>
-              </div> 
+            <div className="dropzone-parent">
+              <label for="dropzone-file" className="dropzone-label">
+                <div className="dropzone-div ">
+                  <svg
+                    className="dropzone-svg"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 16"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                    />
+                  </svg>
+                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    <span class="font-semibold">Click to upload</span> or drag
+                    and drop
+                  </p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    SVG, PNG, JPG or GIF (MAX. 800x400px)
+                  </p>
+                </div>
+                <input
+                  id="dropzone-file"
+                  type="file"
+                  style={{ display: "none" }}
+                  multiple={true}
+                  accept="image/*"
+                  onChange={(file) => handleFileUpload(file)}
+                />
+              </label>
+            </div>
           }
         />
-        <aside style={thumbsContainer}>
-            {thumbs}
-        </aside>
+        <aside style={thumbsContainer}>{thumbs}</aside>
       </Grid>
       <Grid item xs={12}>
         <TextField
@@ -207,12 +226,15 @@ const FeatureInfo = (props) => {
         <Button variant="contained" onClick={generateFlashyDescription}>
           Generate Better Description
         </Button>
+      </Grid>
+      <Grid item xs={12}>
         {showDescription && (
           <TextField
             label="Generated Description"
             value={formik.values.generatedDescription}
             // onChange={(event) => setGeneratedDescription(event.target.value)}
             multiline
+            fullWidth
             rows={4}
             InputProps={{
               readOnly: true,
@@ -227,7 +249,7 @@ const FeatureInfo = (props) => {
 
 export default FeatureInfo;
 
-const listingFeatures = [
+export const listingFeatures = [
   "Air Conditioning",
   "Balcony",
   "In Unit Laundry",
