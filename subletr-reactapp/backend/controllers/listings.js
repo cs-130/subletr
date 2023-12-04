@@ -4,6 +4,8 @@ const Listing = require("../models/Listing");
 const { sendAwsEmail } = require("../utils/notifications");
 const ListingViewLog = require("../models/ListingViewLog");
 const RentalHistory = require("../models/RentalHistory")
+const ActiveLeases = require("../models/ActiveLeases");
+
 const mongoose = require("mongoose");
 
 const getAllListings = async (req, res) => {
@@ -116,7 +118,7 @@ const getFavoritedListings = async (req, res) => {
 
 const getRentalHistory = async (req, res) => {
   try {
-    const rentedListings = await RentalHistory.find({customerId: req.params.userId}).lean();
+    const rentedListings = await ActiveLeases.find({renterId: req.params.userId}).lean();
     return res.json(rentedListings);
   } catch (err) {
     return res
