@@ -133,3 +133,16 @@ export const editListing = async (listingId, listingData) => {
     return false;
   }
 }
+
+export const getCustomerDocument = async () => {
+  try {
+    const res = await axios.get("/auth/get-customer", {
+      withCredentials: true,
+    });
+    if (res.status === 200) return res.data;
+    return false;
+  } catch (err) {
+    console.log("Error in getting customer doc", err);
+    return false;
+  }
+};
