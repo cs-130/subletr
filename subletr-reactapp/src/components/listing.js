@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Card, CardContent, CardMedia, Typography, IconButton, Box } from '@mui/material';
 import defaultImage from '../images/default.jpg';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import { UserContext } from '../context/UserContext';
 
 const AccommodationType = {
   SHARED_ACCOMMODATION: "Shared Accommodation",
@@ -11,21 +11,23 @@ const AccommodationType = {
   WHOLE_ACCOMMODATION: "Whole Accommodation"
 };
 
-function Listing({ 
-  imageUrl, 
-  location = "Westwood, CA", 
-  dateRange = "Dec 15 - Jan 15", 
-  price, 
-  description = "Details Not Available", 
-  accommodationType = AccommodationType.SHARED_ACCOMMODATION,
-  onClick}) 
+function Listing({data, onClick, favoriteMode = 0}) 
   
 {
+  const {
+    favoriteListing
+  } = useContext(UserContext)
   // State to track whether the listing is liked
   const [isLiked, setIsLiked] = useState(false);
 
-  const handleLikeToggle = () => {
-    setIsLiked(prevIsLiked => !prevIsLiked); // Toggle isLiked state
+  const handleLikeToggle = (e) => {
+    e.stopPropagation();
+    if (favoriteMode == 0) {
+      if (!isLiked) {
+        favoriteListing(data._id)
+      }
+      setIsLiked(prevIsLiked => !prevIsLiked); // Toggle isLiked state
+    }
   };
 
   return (
@@ -33,8 +35,9 @@ function Listing({
       <CardMedia
         component="img"
         height="200"
-        image={imageUrl || defaultImage}
-        alt={location}
+        // image={URL.createObjectURL(data.listingPictures[0]) || defaultImage}
+        image={data.listingPictures && data.listingPictures.length ? data.listingPictures[0] : defaultImage}
+        // alt={location}
       />
     <IconButton 
         style={{ 
@@ -42,30 +45,36 @@ function Listing({
             top: 160, 
             right: 0
         }} 
-        onClick={handleLikeToggle}
+        
+        onClick={(e) => handleLikeToggle(e)}
     >
-        {isLiked ? 
-            <FavoriteIcon style={{ color: 'red' }} /> : 
+        {favoriteMode == 2 || isLiked ? 
+          <FavoriteIcon style={{ color: 'red' }} />
+          :
+          (favoriteMode == 1 ?
+            <div />
+            :
             <FavoriteBorderIcon style={{ color: 'white' }} />
+          )
         }
     </IconButton>
       <CardContent style={{ padding: 10 }}>
         <Box display="flex" justifyContent="space-between">
           <Typography variant="body2" noWrap>
-            {location}
+            {data.address}
           </Typography>
           <Typography variant="body2" noWrap>
-            {dateRange}
+            {data.startDate}
           </Typography>
         </Box>
         <Typography variant="subtitle2" noWrap style={{ marginTop: '0px' }}>
-            {price}
+            ${data.rent} USD/Month
         </Typography>
         <Typography variant="body2" color="text.secondary" style={{ marginTop: '5px' }}>
-          {description}
+          {data.description}
         </Typography>
         <Typography variant="body2" color="black" style={{ marginTop: '0px' }}>
-          {accommodationType}
+          {data.accommodationType}
         </Typography>
       </CardContent>
     </Card>

@@ -19,16 +19,16 @@ export default function IconBreadcrumbs() {
           onClick={() => navigate("/messages")}
         >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          Messages
+          Listings
         </Link>
         <Link
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
           color="inherit"
-          onClick={() => navigate("/listings")}
+          onClick={() => navigate("/manage")}
         >
           <StarIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          Listings
+          Manage Listings
         </Link>
         <Link
           underline="hover"

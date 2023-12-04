@@ -2,16 +2,18 @@
 
 .profile-container {
     display: flex; /* Enables flexbox layout */
-    min-height: 90vh; /* Full height of the viewport */
+    /* min-height: 90vh;  */
+    height: calc(100% - 105px);
     background-color: rgb(255, 255, 255); /* Optional: for visibility */
 }
 
 .left-nav {
-    background-color: #e5ede7; /* For visibility */
+    /* background-color: #e5ede7; For visibility */
+    border-right: 1px solid;
     width: 15%; /* 15% of the container's width */
     padding: 20px; /* Spacing inside the element */
-    margin-right: 1vh;
-    filter: drop-shadow(4px 4px rgb(151, 145, 145));
+    margin-right: 24px;
+    /* filter: drop-shadow(4px 4px rgb(151, 145, 145)); */
 
 }
 
@@ -20,16 +22,16 @@
     flex-grow: 1; /* Takes the remaining space */
     display: flex; /* Enables flexbox layout */
     flex-direction: column; /* Stacks children vertically */
-    padding: 20px; /* Spacing inside the element */
+    /* padding: 20px;  */
 }
 
 .top-div, .bottom-div {
-    background-color: #e5ede7; /* For visibility */
+    /* background-color: #e5ede7; For visibility */
     padding: 20px; /* Spacing inside the element */
-    margin-top: 1vh; /* Space between elements */
-    margin-bottom: 3vh;
-    height: 40%;
-    filter: drop-shadow(4px 4px rgb(151, 145, 145));
+    /* margin-top: 1vh;  */
+    /* margin-bottom: 3vh; */
+    height: 100%;
+    /* filter: drop-shadow(4px 4px rgb(151, 145, 145)); */
 
 }
 
