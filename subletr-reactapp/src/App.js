@@ -9,7 +9,6 @@ import CreateListing2 from './pages/CreateListing/CreateListing2';
 import CreateListing3 from './pages/CreateListing/CreateListing3';
 import CreateListing4 from './pages/CreateListing/CreateListing4';
 import CreateListing5 from './pages/CreateListing/CreateListing5';
-import Messaging from './pages/Messaging/messaging'
 import Profile from './pages/Profile/profile';
 import { UserContext } from './context/UserContext';
 import { ProgressProvider } from './pages/CreateListing/context';
@@ -49,12 +48,7 @@ function App() {
           <Route path="/listings/create/4" element={<CreateListing4 />} />
           <Route path="/listings/create/5" element={<CreateListing5 />} />
           {/* <Route path="/profile/" element={<Profile />} /> */}
-          <Route path="/messaging" element={<Messaging />} />
-
-
           <Route path="/messages/" element={<Messages />} />
-
-
           <Route path="/:listing_id" element={<DetailedListing />} />
         </Routes>
       </Router>
