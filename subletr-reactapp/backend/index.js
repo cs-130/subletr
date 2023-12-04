@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const passport = require("passport");
 const session = require("express-session");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
 const { Server } = require("socket.io");
@@ -19,6 +20,16 @@ dotenv.config();
 require("./config/passport")(passport);
 
 app.use(
+  bodyParser.json({
+    verify: (req, res, buf) => {
+      // Can change to:
+      // if (req.originalUrl === "/webhook")
+      req.rawBody = buf;
+    },
+  })
+);
+
+app.use(
   cors({
     // Replace with the frontend port and put that in the .env file.
     origin: ["http://localhost:3000"],
@@ -26,7 +37,7 @@ app.use(
   })
 );
 
-app.use(express.json());
+app.use(express.json({limit: '2mb'}));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -52,6 +63,8 @@ app.use(passport.session());
 app.use("/auth", require("./routes/auth.js"));
 app.use("/openai", require("./routes/openai.js"));
 app.use("/listings", require("./routes/listings"));
+app.use("/stripe", require("./routes/stripe"));
+app.use("/webhook", require("./routes/webhook"));
 app.use("/messages", require("./routes/messages"))
 
 const httpServer = app.listen(variables.BACKEND_PORT, () => {

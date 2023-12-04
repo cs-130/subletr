@@ -4,7 +4,7 @@ const router = express.Router();
 const ListingController = require("../controllers/listings");
 const { ensureAuth } = require("../middlewares/auth");
 
-router.get("/", ensureAuth, ListingController.getAllListings);
+router.get("/", ListingController.getAllListings);
 
 router.post("/create-listing", ensureAuth, ListingController.createListing);
 
@@ -17,5 +17,9 @@ router.get("/:userId/favorited", ensureAuth, ListingController.getFavoritedListi
 router.get("/:userId/rental", ensureAuth, ListingController.getRentalHistory)
 
 router.post("/favorite", ensureAuth, ListingController.logListingFavorite)
+
+router.post("/delete", ensureAuth, ListingController.deleteListing)
+
+router.post("/edit", ensureAuth, ListingController.editListing)
 
 module.exports = router;

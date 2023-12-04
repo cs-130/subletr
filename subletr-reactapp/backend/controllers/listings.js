@@ -4,6 +4,7 @@ const Listing = require("../models/Listing");
 const { sendAwsEmail } = require("../utils/notifications");
 const ListingViewLog = require("../models/ListingViewLog");
 const RentalHistory = require("../models/RentalHistory")
+const mongoose = require("mongoose");
 
 const getAllListings = async (req, res) => {
   try {
@@ -126,14 +127,47 @@ const getRentalHistory = async (req, res) => {
 
 const logListingFavorite = async (req, res) => {
   try {
-    console.log("LOG!", req.body)
     let favoriteLog = new ListingViewLog({
       listingId: req.body.listingId,
       userId: req.body.userId,
       viewedData: new Date(),
     })
     await favoriteLog.save()
-    return {message: 'success'};
+    return res.status(200).json({ message: "success" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: `error in fetching rented listings: ${err}` });
+  }
+};
+
+const deleteListing = async (req, res) => {
+  try {
+    await Listing.deleteOne({_id: mongoose.Types.ObjectId(req.body.listing_id)})
+    return res.status(200).json({ message: "success" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: `error in fetching rented listings: ${err}` });
+  }
+};
+
+const editListing = async (req, res) => {
+  try {
+    await Listing.findOneAndUpdate({ _id: mongoose.Types.ObjectId(req.body.listing_id) }, {
+      address: req.body.address,
+      rent: req.body.rent,
+      availSpots: req.body.availSpots,
+      listingType: req.body.accomodationType,
+      listingPictures: req.body.images,
+      phoneNumber: req.body.phoneNumber,
+      amenities: req.body.amenities,
+      bio: req.body.bio,
+      description: req.body.generatedDescription ? req.body.generatedDescription : req.body.userDescription,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+    })
+    return res.status(200).json({ message: "success" });
   } catch (err) {
     return res
       .status(500)
@@ -142,4 +176,4 @@ const logListingFavorite = async (req, res) => {
 };
 
 
-module.exports = { getAllListings, createListing, getUserListings, getFavoritedListings, getRentalHistory, logListingFavorite, acceptListing };
+module.exports = { getAllListings, createListing, getUserListings, getFavoritedListings, getRentalHistory, logListingFavorite, acceptListing, deleteListing, editListing };
