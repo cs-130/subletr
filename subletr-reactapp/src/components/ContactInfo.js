@@ -1,12 +1,5 @@
 import * as React from "react";
-import { TextField, Grid, Autocomplete, Checkbox, Button } from "@mui/material";
-
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
-
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { styled } from "@mui/material/styles";
-import { useState } from "react";
+import { TextField, Grid } from "@mui/material";
 
 
 const FeatureInfo = (props) => {
