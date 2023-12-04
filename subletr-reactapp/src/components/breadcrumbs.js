@@ -39,6 +39,15 @@ export default function IconBreadcrumbs() {
           <StarIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           Create a Listing
         </Link>
+        <Link
+          underline="hover"
+          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+          color="inherit"
+          onClick={() => navigate("/messages")}
+        >
+          <StarIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+          Messages
+        </Link>
       </Breadcrumbs>
     </div>
   );

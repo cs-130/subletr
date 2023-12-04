@@ -123,13 +123,30 @@ export const deletelisting = async (listingId) => {
   }
 }
 
-
 export const editListing = async (listingId, listingData) => {
   try {
     const res = await axios.post("/listings/edit", { ...listingData, listing_id: listingId}, { withCredentials: true });
     return res.data
   } catch (err) {
     console.log("Error deleting listing", err);
+
+export const callSendMessage = async (data, userId) => {
+  try {
+    const res = await axios.post("/messages/send-message", { ...data, userId: userId }, { withCredentials: true });
+    console.log(data)
+    return res.data
+  } catch (err) {
+    console.log("Error sending message", err);
+    return false;
+  }
+};
+
+export const callGetConversations = async (userId) => {
+  try {
+    const res = await axios.get(`/messages/${userId}/get-conversations`, { withCredentials: true });
+    return res.data
+  } catch (err) {
+    console.log("Unable to get conversations", err);
     return false;
   }
 }
@@ -146,3 +163,13 @@ export const getCustomerDocument = async () => {
     return false;
   }
 };
+
+export const callGetMessages = async (conversationId) => {
+  try {
+    const res = await axios.get(`/messages/${conversationId}/get-messages`, { withCredentials: true });
+    return res.data
+  } catch (err) {
+    console.log("Unable to get messages", err);
+    return false;
+  }
+}

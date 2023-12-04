@@ -8,6 +8,10 @@ import { getRentalHistory as callGetRental } from "../api/api";
 import { createListing as callCreateListing } from "../api/api";
 import { callFavoriteListing } from "../api/api";
 import { deletelisting as callDeletelisting } from "../api/api";
+import { callSendMessage} from "../api/api";
+import { callGetConversations} from "../api/api";
+import { callGetMessages} from "../api/api";
+
 export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
@@ -17,6 +21,8 @@ export const UserProvider = ({ children }) => {
     const [viewedListings, setViewedListings] = useState([])
     const [rentalHistory, setRentalHistory] = useState([])
     const [page, setPage] = useState(0)
+    const [conversationIds, setConversationIds] = useState([])
+    const [messages, setMessages] = useState([])
 
 
     useEffect(() => {
@@ -73,6 +79,21 @@ export const UserProvider = ({ children }) => {
             getMyListings(userId)
     }
 
+    const sendMessage = async (data) => {
+        const response = await callSendMessage(data, userId)
+        return response.message
+    }
+
+    const getConversations = async () => {
+        const conversations = await callGetConversations(userId)
+        setConversationIds(conversations)
+    }
+
+    const getMessages = async (conversationId) => {
+        const messages = await callGetMessages(conversationId)
+        setMessages(messages)
+    }
+
     return (
         <UserContext.Provider
             value={{
@@ -94,6 +115,11 @@ export const UserProvider = ({ children }) => {
                 page,
                 setPage,
                 deleteListing,
+                sendMessage,
+                getConversations,
+                getMessages,
+                conversationIds,
+                messages
             }}
         >
             {children}

@@ -7,6 +7,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
+const { Server } = require("socket.io");
 
 // Configurations
 const variables = require("./config/variables");
@@ -64,7 +65,13 @@ app.use("/openai", require("./routes/openai.js"));
 app.use("/listings", require("./routes/listings"));
 app.use("/stripe", require("./routes/stripe"));
 app.use("/webhook", require("./routes/webhook"));
+app.use("/messages", require("./routes/messages"))
 
-app.listen(variables.BACKEND_PORT, () => {
+const httpServer = app.listen(variables.BACKEND_PORT, () => {
   console.log(`Server is running on port ${variables.BACKEND_PORT}`);
+});
+
+const io = new Server(httpServer);
+io.on('connection', (socket) => {
+  console.log('a user connected to chat');
 });

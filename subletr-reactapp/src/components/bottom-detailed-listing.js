@@ -27,7 +27,7 @@ const TwoColumnLayout = ({ description, biography, startDate, endDate, owner }) 
             Reserve your spot!
           </Button>
           <Typography variant="caption">or</Typography>
-          <Button variant="contained" color="primary" style={{ margin: "8px" }}>
+          <Button variant="contained" color="primary" style={{ margin: '8px' }} href="/messages">
             Chat with {owner}
           </Button>
         </Paper>
