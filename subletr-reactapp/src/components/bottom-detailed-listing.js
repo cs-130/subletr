@@ -8,13 +8,9 @@ const TwoColumnLayout = ({ description, biography, startDate, endDate, owner }) 
       <Typography variant="h5" gutterBottom>
           Description
         </Typography>
-        <Typography style={{marginBottom: '20px'}}>
+        <Typography>
           {description}
         </Typography>
-        <Typography variant="h5" gutterBottom>
-          Description
-        </Typography>
-        <Typography>{description}</Typography>
       </Grid>
       <Grid item xs={12} md={7}>
         <Typography variant="h5" gutterBottom>
