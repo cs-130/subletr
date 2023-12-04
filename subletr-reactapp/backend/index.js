@@ -51,6 +51,7 @@ app.use(passport.session());
 app.use("/auth", require("./routes/auth.js"));
 app.use("/openai", require("./routes/openai.js"));
 app.use("/listings", require("./routes/listings"));
+app.use("/stripe", require("./routes/stripe"));
 
 app.listen(variables.BACKEND_PORT, () => {
   console.log(`Server is running on port ${variables.BACKEND_PORT}`);
