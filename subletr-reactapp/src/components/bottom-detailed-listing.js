@@ -15,7 +15,7 @@ const TwoColumnLayout = ({ biography, startDate, endDate, owner }) => {
       <Grid item xs={12} md={5} sx={{marginTop: '3rem'}}>
         <Paper style={{ backgroundColor: '#f5fff5', padding: '16px', textAlign: 'center' }}>
           <Typography variant="h6" gutterBottom>
-            This stay is available from {startDate} to {endDate} without renewal!
+            This stay is available from {Date(startDate).toLocaleString('en-US', { month: 'short'})} to {Date(endDate).toLocaleString('en-US', { month: 'long',  year: 'numeric'})} without renewal!
           </Typography>
           <Button variant="contained" color="primary" style={{ margin: '8px' }}>
             Reserve your spot!

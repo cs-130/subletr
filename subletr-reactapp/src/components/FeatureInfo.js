@@ -86,12 +86,34 @@ const FeatureInfo = (props) => {
     }
   };
 
-  const handleFileUpload = (e) => {
-    console.log(e.target.files)
-    if (e.target.files.length)
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+    
+
+
+  const handleFileUpload = async (e) => {
+    // console.log(e.target.files)
+    if (e.target.files.length) {
+      const base64 = await convertToBase64(e.target.files[0]);
+      // formik.setFieldValue("images", [...formik.values.images, ...Array.from(e.target.files)])
+      formik.setFieldValue("images", [...formik.values.images, base64])
+      // console.log(base64)
+
+    }
         // setImages(prev => [...prev, ...Array.from(e.target.files).map((file) => { return { ...file, preview: URL.createObjectURL(file) } })]);
-        formik.setFieldValue("images", [...formik.values.images, ...Array.from(e.target.files)])
+    // console.log([...formik.values.images, ...Array.from(e.target.files)])
   }
+
 
   const handleImageDelete = (i) => {
     formik.setFieldValue("images", Array.from(formik.values.images).filter((item, index) => index != i))
@@ -101,9 +123,10 @@ const FeatureInfo = (props) => {
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
         <img
-          src={URL.createObjectURL(file)}
+          // src={URL.createObjectURL(file)}
+          src={file}
           style={img}
-          onLoad={() => { URL.revokeObjectURL(file.preview) }}
+          // onLoad={() => { URL.revokeObjectURL(file.preview) }}
         />
         <div className="image-close" onClick={() => handleImageDelete(i)}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

@@ -13,7 +13,7 @@ function Profile() {
     viewedListings,
     getMyListings,
     getViewedListings,
-    getRentalhistory,
+    getRentalHistory,
   } = useContext(UserContext)
 
   const [page, setPage] = useState(0)
@@ -28,7 +28,7 @@ function Profile() {
         getViewedListings()
         break
       case 2:
-        getRentalhistory()
+        getRentalHistory()
         break
     }
 
@@ -51,8 +51,8 @@ function Profile() {
       <div className='left-nav'> 
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* <Button variant="contained" sx={{ width: '110%', marginBottom: '1vh' }}>Profile</Button> */}
-          <Button variant="contained" sx={{ width: '110%', marginBottom: '1vh' }} onClick={() => {handleMenuClick(0)}}>Manage Listings</Button>
-          <Button variant="contained" sx={{ width: '110%', marginBottom: '1vh' }} onClick={() => {handleMenuClick(1)}}>Viewed Listings</Button>
+          <Button variant="contained" sx={{ width: '110%', marginBottom: '1vh' }} onClick={() => {handleMenuClick(0)}}>Manage My Listings</Button>
+          <Button variant="contained" sx={{ width: '110%', marginBottom: '1vh' }} onClick={() => {handleMenuClick(1)}}>Favorited Listings</Button>
           <Button variant="contained" sx={{ width: '110%',marginBottom: '1vh' }} onClick={() => {handleMenuClick(2)}}>Rental History</Button>
           {/* <Button variant="contained" sx={{ width: '110%'}}>Legal</Button>  */}
         </Box>
