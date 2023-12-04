@@ -20,6 +20,7 @@ require("./config/passport")(passport);
 
 app.use(
   bodyParser.json({
+    limit: "10mb",
     verify: (req, res, buf) => {
       // Can change to:
       // if (req.originalUrl === "/webhook")
@@ -36,9 +37,9 @@ app.use(
   })
 );
 
-app.use(express.json({limit: '2mb'}));
+app.use(express.json({limit: '10mb'}));
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: "10mb", parameterLimit: 50000 }));
 app.use(express.static("public"));
 
 ConnectToMongo();

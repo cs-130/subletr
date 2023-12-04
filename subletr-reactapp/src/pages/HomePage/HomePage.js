@@ -68,6 +68,10 @@ export default function HomePage() {
           display = listing.availSpots >= spots;
         }
 
+        if (display) {
+            display = listing.rent >= rentRange[0] && listing.rent <= rentRange[1]
+        }
+
         return display;
     }
     
@@ -115,7 +119,7 @@ export default function HomePage() {
                 </Box>
             </div>
             <div className="listings-grid">
-                {listings.length && listings.slice(0, listingsWidthFactor * listingsRowCount).filter(displayListing).map((listing, index) => (
+                {listings.length ? listings.slice(0, listingsWidthFactor * listingsRowCount).filter(displayListing).map((listing, index) => (
                     <Listing
                         key={index}
                         data={listing}

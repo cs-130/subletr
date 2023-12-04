@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 
 const getAllListings = async (req, res) => {
   try {
-    console.log("entered get all listings");
+    // console.log("entered get all listings");
     const allListings = await Listing.find().lean();
     return res.json(allListings);
   } catch (err) {
