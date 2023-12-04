@@ -6,6 +6,7 @@ const customerSchema = new mongoose.Schema({
   phoneNumber: { type: String, default: "" },
   provider: { type: String },
   profilePicture: { type: String, default: "" },
+  stripeCustomerId: { type: String, default: "" },
 });
 
 module.exports = mongoose.model("customer", customerSchema);
