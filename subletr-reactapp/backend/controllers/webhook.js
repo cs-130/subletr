@@ -14,7 +14,34 @@ const createWebhook = async (req, res) => {
     );
     const data = event.data.object;
     switch (event.type) {
+      case "customer.created": {
+        // data.id has the customer id
+        console.log("Reached webhook - created customer");
+        break;
+      }
+      case "customer.subscription.updated": {
+        break;
+      }
+      case "customer.subscription.deleted": {
+        break;
+      }
+      case "invoice.paid": {
+        break;
+      }
+      case "test_helpers.test_clock.advancing": {
+        console.log("Clock is advancing...");
+        break;
+      }
+      case "test_helpers.test_clock.ready": {
+        console.log("Clock has advanced to the specified time...");
+        break;
+      }
     }
     return res.sendStatus(200);
-  } catch (err) {}
+  } catch (err) {
+    console.log("error in webhook:", err);
+    return res.sendStatus(400);
+  }
 };
+
+module.exports = { createWebhook };
