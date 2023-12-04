@@ -65,8 +65,8 @@ export default function DetailedListing() {
           />
         </div>
       </div>
-    ) : (
-      <div></div>
+        :
+        <div></div>
     );
 }
 
