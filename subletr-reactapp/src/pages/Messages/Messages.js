@@ -109,8 +109,12 @@ function ChatPage() {
     if (!userId) 
         window.location.href = `http://localhost:5000/auth/google`
     }, [])
-
-    socket.connect();
+    if (userId)
+    {
+        socket.userId = userId;
+        socket.connect();
+        
+    }
   // State to track the active conversation
   const [activeConversation, setActiveConversation] = useState(null);
 

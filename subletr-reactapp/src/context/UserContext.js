@@ -65,6 +65,7 @@ export const UserProvider = ({ children }) => {
         if (data) {
             setUserId()
         }
+        window.location.href = "/"
     }
 
     const favoriteListing = async (listing_id) => {

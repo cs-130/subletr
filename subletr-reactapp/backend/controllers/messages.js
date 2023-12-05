@@ -1,5 +1,5 @@
 const Customer = require("../models/Customer");
-const Messages = require("../models/Messages");
+const Messages = require("../models/Message");
 
 const getConversations = async (req, res) => {
   try {

@@ -72,7 +72,11 @@ const httpServer = app.listen(variables.BACKEND_PORT, () => {
   console.log(`Server is running on port ${variables.BACKEND_PORT}`);
 });
 
+const Customer = require("./models/Customer");
+const Message = require("./models/Message");
 const io = new Server(httpServer);
-io.on('connection', (socket) => {
+io.on("connection", (socket) => {
   console.log('a user connected to chat');
+  socket.join(socket.userId);
+
 });
