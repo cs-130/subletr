@@ -10,6 +10,7 @@ import { deletelisting as callDeletelisting } from "../api/api";
 import { callSaveMessage} from "../api/api";
 import { getUserConversations} from "../api/api";
 import { getUserMessages} from "../api/api";
+import { callGetUserName} from "../api/api";
 
 /**
  * The context for managing user-related data and functionality.
@@ -111,8 +112,13 @@ export const UserProvider = ({ children }) => {
     }
 
     const saveMessage = async (data) => {
-        const response = await callSaveMessage(data, userId)
+        const response = await callSaveMessage(data)
         return response.message
+    }
+
+    const getUserName = async (data) => {
+        const response = await callGetUserName(data)
+        return response.fullName;
     }
 
     return (
@@ -139,8 +145,10 @@ export const UserProvider = ({ children }) => {
                 saveMessage,
                 getMyConversations,
                 getMyMessages,
+                getUserName,
                 conversationIds,
-                messages
+                messages,
+                setMessages
             }}
         >
             {children}

@@ -20,7 +20,8 @@ const getConversations = async (req, res) => {
         allConversations.add(allMessagesIds[i].to);
       }
     }
-    return res.json(allConversations);
+    const allConversationsArray = Array.from(allConversations);
+    return res.json(allConversationsArray);
   } catch (err) {
     return res
       .status(500)
@@ -38,14 +39,35 @@ const getMessages = async (req, res) => {
     try {
       console.log("entered get messages");
       const allMessages = await Message.find({$or: [{from: req.params.userId}, {to: req.params.userId}]}).lean();
-      return res.json(allMessages);
+      const allMessagesArray = Object.values(allMessages);
+      return res.json(allMessagesArray);
     } catch (err) {
       return res
         .status(500)
         .json({ message: `error in fetching all messages: ${err}` });
     }
   };
-  
+
+  /**
+ * Retrieves all usernames for particular users.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
+  const getUserName = async (req, res) => {
+    try {
+      console.log("entered get usernames");
+      console.log(req.params.userId);
+      const username = await Customer.findOne({_id: req.params.userId}, {fullName: 1}).lean();
+      console.log(username);
+      return res.json(username);
+    } catch (err) {
+      return res
+        .status(500)
+        .json({ message: `error in fetching usernames: ${err}` });
+    }
+  };
+
   /**
  * Saves a message for a particular conversation.
  * @param {Object} req - The request object.
@@ -55,12 +77,14 @@ const getMessages = async (req, res) => {
   const saveMessage = async (req, res) => {
     try {
       console.log("entered save message", req.body);
+      console.log(req.body);
       let newMessage = new Message({
         text: req.body.text,
         from: req.body.from,
         to: req.body.to,
         time: req.body.time
       })
+      console.log(newMessage);
       await newMessage.save();
       return res.json({ message: "success" });
     } catch (err) {
@@ -70,4 +94,4 @@ const getMessages = async (req, res) => {
     }
   };
   
-  module.exports = { saveMessage, getConversations, getMessages };
+  module.exports = { saveMessage, getConversations, getMessages, getUserName };

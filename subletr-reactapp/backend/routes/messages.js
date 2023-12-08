@@ -8,6 +8,8 @@ router.get("/:userId/get-conversations", ensureAuth, MessagesController.getConve
 
 router.get("/:userId/get-messages", ensureAuth, MessagesController.getMessages);
 
+router.get("/:userId/get-username", ensureAuth, MessagesController.getUserName);
+
 router.post("/save-message", ensureAuth, MessagesController.saveMessage);
 
 module.exports = router;

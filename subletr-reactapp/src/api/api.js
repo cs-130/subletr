@@ -221,7 +221,7 @@ export const callSaveMessage = async (data) => {
   try {
     const res = await axios.post(
       "/messages/save-message",
-      { data },
+      {...data},
       { withCredentials: true }
     );
     console.log(data);
@@ -282,6 +282,25 @@ export const getUserMessages = async (userId) => {
     return res.data;
   } catch (err) {
     console.log("Unable to get messages", err);
+    return false;
+  }
+};
+
+
+/**
+ * Calls the API to get usernames.
+ * @param {string} userId - The ID of the user.
+ * @returns {Promise|false} A promise that resolves with the data if successful,
+ *    or false if there was an error.
+ */
+export const callGetUserName = async (userId) => {
+  try {
+    const res = await axios.get(`/messages/${userId}/get-username`, {
+      withCredentials: true,
+    });
+    return res.data;
+  } catch (err) {
+    console.log("Unable to get username", err);
     return false;
   }
 };

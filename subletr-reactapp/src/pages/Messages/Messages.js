@@ -101,9 +101,12 @@ function ChatPage() {
         saveMessage,
         getMyConversations,
         getMyMessages,
+        getUserName,
         conversationIds,
-        messages
+        messages,
+        setMessages
       } = useContext(UserContext)
+      console.log(messages);
 
     useEffect(() => {
     if (!userId) 
@@ -117,68 +120,108 @@ function ChatPage() {
     useEffect(() => {
       getMyMessages();
     }, [getMyMessages]);
+
+    useEffect(() => {
+      async function fetchUserNames() {
+        // Find active conversations
+        let result = [];
+        for (let conversation of conversationIds) {
+          let username = await getUserName(conversation);
+          let entry = {
+            id: conversation,
+            name: username
+          }
+          result.push(entry);
+        }
+        setActiveConversations(result);
+      }
+      fetchUserNames();
+    }, [getUserName, conversationIds])
     
     if (userId)
     {
         socket.userId = userId;
         socket.connect();
     }
+
   // State to track the active conversation
   const [activeConversation, setActiveConversation] = useState(null);
+
+  // State to track the active messages
+  const [activeMessages, setActiveMessages] = useState([]);
+
+  // State to track the active conversations
+  const [activeConversations, setActiveConversations] = useState([]);
 
   // Function to handle clicking on a conversation
   const handleConversationClick = (conversationId) => {
     setActiveConversation(conversationId);
   };
-  // Find active conversations
-  const activeConversations = conversationIds;
-  // Find the messages for the active conversation
-  const activeMessages = fakeConversationData.find(c => c.id === activeConversation)?.messages || [];
+
+  // Update active messages for new conversations or messages
+  useEffect(() => {
+    setActiveMessages(messages.filter(message => message.from === activeConversation || message.to === activeConversation) || []);
+    console.log("update active messages");
+    }, [activeConversation, messages, setMessages])
+
+  console.log(activeConversations);
 
   // Function to send message
   const [message, setMessage] = useState("");
-    const sendMessageOnClick = async (event) => {
-        event.preventDefault();
-        if (message.trim() === "") {
-            return;
-        }
-        socket.emit("message", {
-          text: message,
-          from: socket.userId,
-          to: activeConversation,
-          time: Date.now()
-        })
-        await saveMessage({
-            text: message,
-            from: socket.userId,
-            to: activeConversation,
-            time: Date.now(),
-        });
-        setMessage("");
-      };
-
-    // Receive message
-    socket.on("message", ({ text, from, to, time }) => {
-      for (let i = 0; i < activeConversations; i++) {
-        const user = activeConversations[i];
-        if (user === from) {
-          messages.push({
-            text: text,
-            from: from,
-            to: to,
-            time: time
-          });
-        break;
-        }
-      }
+  const sendMessageOnClick = async (message) => {
+    console.log("entered send message on click")
+    if (message.trim() === "") {
+        return;
+    }
+    socket.emit("message", {
+      text: message,
+      from: socket.userId,
+      to: activeConversation,
+      time: Date.now()
+    })
+    await saveMessage({
+        text: message,
+        from: socket.userId,
+        to: activeConversation,
+        time: Date.now()
     });
+    let newMessages = [...messages];
+    console.log(newMessages);
+    newMessages.push({
+      text: message,
+      from: socket.userId,
+      to: activeConversation,
+      time: Date.now()
+    });
+    setMessages(newMessages);
+    console.log(messages);
+    setMessage("");
+  };
+
+  // Receive message
+  socket.on("message", ({ text, from, to, time }) => {
+    for (let i = 0; i < conversationIds; i++) {
+      const user = conversationIds[i];
+      if (user === from) {
+        let newMessages = [...messages];
+        newMessages.push({
+          text: text,
+          from: from,
+          to: to,
+          time: time
+        });
+        setMessages(newMessages);
+      break;
+      }
+    }
+  });
 
   return (
     <div style={{ position: "relative", height: "90%" }}>
       <MainContainer>
         <Sidebar position="left" scrollable={false}>
           <ConversationList>
-            {fakeConversationData.map(conversation => (
+            {activeConversations.map(conversation => (
               <Conversation
                 key={conversation.id}
                 name={conversation.name}
@@ -192,26 +235,13 @@ function ChatPage() {
 
         <ChatContainer>
           <MessageList>
+            {console.log(activeMessages)}
             {activeMessages.map((message, index) => (
-              <Message key={index} model={{ message: message.text, direction: message.direction }} />
+              <Message key={index} model={{ message: message.text, direction: message.from === userId ? "outgoing" : "incoming" }} />
             ))}
           </MessageList>
-          <MessageInput placeholder="Type message here" >
-            <form onSubmit={(event) => sendMessageOnClick(event)} className="send-message">
-                <label htmlFor="messageInput" hidden>
-                    Enter Message
-                </label>
-                <input
-                    id="messageInput"
-                    name="messageInput"
-                    type="text"
-                    className="form-input__input"
-                    placeholder="type message..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-                <button type="submit">Send</button>
-                </form>
+          <MessageInput value = {message} onChange={setMessage} onSend={sendMessageOnClick} placeholder="Type message here" className='message-input'>
+            
           </MessageInput>
         </ChatContainer>
       </MainContainer>
