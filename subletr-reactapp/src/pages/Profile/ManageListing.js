@@ -30,7 +30,7 @@ const ManageListing = () => {
         editListing,
     } = useContext(ListingsContext)
 
-    let listing_data = listings.find(item => item._id == listing_id)
+    let listing_data = listings.find(item => item._id === listing_id)
 
 
     const handleBack = () => {
@@ -40,7 +40,7 @@ const ManageListing = () => {
     const handleSubmitFinal = async () => {
         console.log("submit");
         let response = await editListing(listing_data._id, formik.values);
-        if (response.message == 'success')
+        if (response.message === 'success')
           Navigate("/manage")
         
     };

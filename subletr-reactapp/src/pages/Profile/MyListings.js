@@ -14,7 +14,7 @@ const MyListings = () => {
 
 
     const handleListingClick = (listingId) => {
-        Navigate(`/manage/${listingId}`)
+        Navigate(`/${listingId}`)
     }
 
     const handleDelete = (listingId) => {

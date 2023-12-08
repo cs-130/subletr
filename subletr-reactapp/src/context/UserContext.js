@@ -1,5 +1,4 @@
-import React, { createContext, useState, useEffect } from "react"
-import { v4 as uuid } from 'uuid';
+import React, { createContext, useState, useEffect, useCallback } from "react"
 import { isLoggedIn } from '../api/api';
 import { logoutCustomer } from '../api/api';
 import { getUserListings } from "../api/api";
@@ -24,21 +23,31 @@ export const UserProvider = ({ children }) => {
     const [conversationIds, setConversationIds] = useState([])
     const [messages, setMessages] = useState([])
 
+    const getMyListings = useCallback(async () => {
+      const listings = await getUserListings(userId);
+      setUserListings(listings);
+    }, [userId]);
 
     useEffect(() => {
-        if (userId)
-            getMyListings()
-    }, [userId])
+        if (userId) {
+            getMyListings();
+        }
+    }, [userId, getMyListings])
 
     const createListing = async (data) => {
         const response = await callCreateListing(data, userId)
         return response.message
     }
 
-    const getMyListings = async () => {
-        const listings = await getUserListings(userId)
-        setUserListings(listings)
-    }
+    // const getMyListings = async () => {
+    //     const listings = await getUserListings(userId)
+    //     setUserListings(listings)
+    // }
+
+    // const getMyListings = useCallback(async () => {
+    //     const listings = await getUserListings(userId)
+    //     setUserListings(listings)
+    // }, [userId])
 
     const getViewedListings = async () => {
         const listings = await callGetViewed(userId)
@@ -69,13 +78,13 @@ export const UserProvider = ({ children }) => {
 
     const favoriteListing = async (listing_id) => {
         if (userId) {
-            const response = await callFavoriteListing(listing_id, userId)
+            await callFavoriteListing(listing_id, userId)
         }
     }
 
     const deleteListing = async (listingId) => {
         const response = await callDeletelisting(listingId)
-        if (response.message == 'success')
+        if (response.message === 'success')
             getMyListings(userId)
     }
 
