@@ -15,6 +15,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import Logo from "../images/logo.png";
 import FilterComponent from "./filter.js";
 import { useState } from "react";
+const BACKEND_DOMAIN = process.env.NODE_ENV == "production" ? "https://subletr-ibif.vercel.app" : "http://localhost:5000";
 
 function HeaderComponent() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -74,7 +75,7 @@ function HeaderComponent() {
             variant="outlined"
             sx={{ borderColor: "green", color: "green" }}
             onClick={() =>
-              (window.location.href = `http://localhost:5000/auth/google`)
+              (window.location.href = `${BACKEND_DOMAIN}/auth/google`)
             }
           >
             Profile
