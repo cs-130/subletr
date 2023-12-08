@@ -1,5 +1,5 @@
 const Customer = require("../models/Customer");
-const Messages = require("../models/Messages");
+const Messages = require("../models/Message");
 
 /**
  * Retrieves all conversations for a particular user.

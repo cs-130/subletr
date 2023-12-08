@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {
   MainContainer,
   ChatContainer,
@@ -97,13 +97,24 @@ const fakeConversationData = [
 
 function ChatPage() {
     const {
+        userId,
         sendMessage,
         getConversations,
         getMessages,
         conversationIds,
         messages
       } = useContext(UserContext)
-    socket.connect();
+
+    useEffect(() => {
+    if (!userId) 
+        window.location.href = `http://localhost:5000/auth/google`
+    }, [])
+    if (userId)
+    {
+        socket.userId = userId;
+        socket.connect();
+        
+    }
   // State to track the active conversation
   const [activeConversation, setActiveConversation] = useState(null);
 
