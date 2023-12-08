@@ -20,6 +20,10 @@ import { useParams } from 'react-router-dom';
 import { ListingsContext } from "../../context/ListingsProvider";
 const steps = ["Basic Info", "Dates & Rent", "Amenities & Photos", "Contact Info", "Review and Submit"];
 
+/**
+ * The ManageListing component. Allows for editing your listings.
+ * @returns {JSX.Element} The JSX element representing the ManageListing component.
+ */
 const ManageListing = () => {
     const { listing_id } = useParams()
 
@@ -30,8 +34,7 @@ const ManageListing = () => {
         editListing,
     } = useContext(ListingsContext)
 
-    let listing_data = listings.find(item => item._id == listing_id)
-
+    let listing_data = listings.find(item => item._id === listing_id)
 
     const handleBack = () => {
         setActiveStep((prevStep) => prevStep - 1);
@@ -40,7 +43,7 @@ const ManageListing = () => {
     const handleSubmitFinal = async () => {
         console.log("submit");
         let response = await editListing(listing_data._id, formik.values);
-        if (response.message == 'success')
+        if (response.message === 'success')
           Navigate("/manage")
         
     };

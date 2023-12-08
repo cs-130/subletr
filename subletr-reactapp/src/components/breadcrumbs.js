@@ -1,12 +1,16 @@
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
 import { useNavigate } from 'react-router-dom'
 
-
+/**
+ * @function
+ * @name IconBreadcrumbs
+ * @description The component that displays the breadcrumbs.
+ * @returns {JSX.Element} The JSX element representing the IconBreadcrumbs component.
+ */
 export default function IconBreadcrumbs() {
   const navigate = useNavigate()
   return (

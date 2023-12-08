@@ -1,7 +1,4 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
 const Container = styled('div')({
@@ -45,23 +42,16 @@ const SmallImage = styled('img')({
 
 });
 
-const SmallImage2 = styled('img')({
-  width: '100%', // full width of parent
-  height: '60%',
-  objectFit: 'cover',
-  borderRadius: '15px',
-
-
-});
-
-const Quote = styled(Paper)({
-  padding: '1rem',
-  height: '33%', // height to fit content
-  borderRadius: '15px',
-
-});
-
-const ImageQuoteCarousel = ({ quotes, images }) => {
+/**
+ * The ImageQuoteCarousel component.
+ * @function
+ * @name ImageQuoteCarousel
+ * @description The component that displays the image quote carousel for the listing page.
+ * @param {object} props - The component props.
+ * @param {Array<string>} props.images - The array of image URLs.
+ * @returns {JSX.Element} The JSX element representing the ImageQuoteCarousel component.
+ */
+const ImageQuoteCarousel = ({ images }) => {
   return (
     <Container>
       <MainImageSection>
@@ -76,7 +66,6 @@ const ImageQuoteCarousel = ({ quotes, images }) => {
           {images.length > 2 ? (
             <SmallImage src={images[2]} alt="Tertiary" />
           ) : null}
-          {/* <SmallImage2 src={images[2]} alt="Tertiary" /> */}
         </Column>
         <Column>
           {images.length > 3 ? (

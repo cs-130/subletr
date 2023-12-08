@@ -1,0 +1,5545 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <title>subletr-reactapp 0.1.0 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>subletr-reactapp</h3>
+          <div class='mb1'><code>0.1.0</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            spellcheck='false'
+            autocapitalize='off'
+            autocorrect='off'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#logoutcustomer'
+                  class="">
+                  logoutCustomer
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getuserlistings'
+                  class="">
+                  getUserListings
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getlistings'
+                  class="">
+                  getListings
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getviewedlistings'
+                  class="">
+                  getViewedListings
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getrentalhistory'
+                  class="">
+                  getRentalHistory
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#callfavoritelisting'
+                  class="">
+                  callFavoriteListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#isloggedin'
+                  class="">
+                  isLoggedIn
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#createlisting'
+                  class="">
+                  createListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#rentandstartpayingforlisting'
+                  class="">
+                  rentAndStartPayingForListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#deletelisting'
+                  class="">
+                  deletelisting
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#editlisting'
+                  class="">
+                  editListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#callsendmessage'
+                  class="">
+                  callSendMessage
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#callgetconversations'
+                  class="">
+                  callGetConversations
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getcustomerdocument'
+                  class="">
+                  getCustomerDocument
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#callgetmessages'
+                  class="">
+                  callGetMessages
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#app'
+                  class="">
+                  App
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#currentheader'
+                  class="">
+                  CurrentHeader
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#google_maps_api_key'
+                  class="">
+                  GOOGLE_MAPS_API_KEY
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#autocompleteservice'
+                  class="">
+                  autocompleteService
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#loadscript'
+                  class="">
+                  loadScript
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#basicinfo'
+                  class="">
+                  BasicInfo
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#twocolumnlayout'
+                  class="">
+                  TwoColumnLayout
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#iconbreadcrumbs'
+                  class="">
+                  IconBreadcrumbs
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#featureinfo'
+                  class="">
+                  FeatureInfo
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#featureinfo'
+                  class="">
+                  FeatureInfo
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#generateflashydescription'
+                  class="">
+                  generateFlashyDescription
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#converttobase64'
+                  class="">
+                  convertToBase64
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handlefileupload'
+                  class="">
+                  handleFileUpload
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handleimagedelete'
+                  class="">
+                  handleImageDelete
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#filtercomponent'
+                  class="">
+                  FilterComponent
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#steps'
+                  class="">
+                  steps
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#form'
+                  class="">
+                  Form
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handleback'
+                  class="">
+                  handleBack
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handlesubmitfinal'
+                  class="">
+                  handleSubmitFinal
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#formcontent'
+                  class="">
+                  formContent
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#headercomponent'
+                  class="">
+                  HeaderComponent
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#headercomponent'
+                  class="">
+                  HeaderComponent
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#togglefilter'
+                  class="">
+                  toggleFilter
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#togglefilter'
+                  class="">
+                  toggleFilter
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#chiparray'
+                  class="">
+                  ChipArray
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#listingheading'
+                  class="">
+                  ListingHeading
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#imagequotecarousel'
+                  class="">
+                  ImageQuoteCarousel
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#listing'
+                  class="">
+                  Listing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handleliketoggle'
+                  class="">
+                  handleLikeToggle
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#moreinfo'
+                  class="">
+                  MoreInfo
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#reviewinfo'
+                  class="">
+                  ReviewInfo
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#listingscontext'
+                  class="">
+                  ListingsContext
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#listingsprovider'
+                  class="">
+                  ListingsProvider
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#usercontext'
+                  class="">
+                  UserContext
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#userprovider'
+                  class="">
+                  UserProvider
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#blankbox'
+                  class="">
+                  BlankBox
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#createlisting-1'
+                  class="">
+                  CreateListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#detailedlisting'
+                  class="">
+                  DetailedListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#homepage'
+                  class="">
+                  HomePage
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handleviewmore'
+                  class="">
+                  handleViewMore
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handlelistingclick'
+                  class="">
+                  handleListingClick
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handlelistingclick'
+                  class="">
+                  handleListingClick
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handlefilterchange'
+                  class="">
+                  handleFilterChange
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#displaylisting'
+                  class="">
+                  displayListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#managelisting'
+                  class="">
+                  ManageListing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#mylistings'
+                  class="">
+                  MyListings
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handledelete'
+                  class="">
+                  handleDelete
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#profile'
+                  class="">
+                  Profile
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#rentalhistory'
+                  class="">
+                  RentalHistory
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='logoutcustomer'>
+      logoutCustomer
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L12-L21'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Logs out the customer.</p>
+
+    <div class='pre p1 fill-light mt0'>logoutCustomer</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>></code>:
+        A promise that resolves to true if the logout is successful, false otherwise.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getuserlistings'>
+      getUserListings
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L29-L39'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets the listings associated with a user.</p>
+
+    <div class='pre p1 fill-light mt0'>getUserListings</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;(<code>false</code> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)></code>:
+        A promise that resolves to an array of listings if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getlistings'>
+      getListings
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L46-L54'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets all the listings.</p>
+
+    <div class='pre p1 fill-light mt0'>getListings</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a> | <code>false</code>)></code>:
+        A promise that resolves to an array of all listings if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getviewedlistings'>
+      getViewedListings
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L62-L72'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets the listings favorited by a user.</p>
+
+    <div class='pre p1 fill-light mt0'>getViewedListings</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a> | <code>false</code>)></code>:
+        A promise that resolves to an array of favorited listings if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getrentalhistory'>
+      getRentalHistory
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L80-L90'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets the rental history of a user.</p>
+
+    <div class='pre p1 fill-light mt0'>getRentalHistory</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a> | <code>false</code>)></code>:
+        A promise that resolves to an array of rental history if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='callfavoritelisting'>
+      callFavoriteListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L99-L111'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Calls the API to favorite a listing for a user.</p>
+
+    <div class='pre p1 fill-light mt0'>callFavoriteListing</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listingId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the listing.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the response object if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isloggedin'>
+      isLoggedIn
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L118-L128'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if the customer is currently logged in.</p>
+
+    <div class='pre p1 fill-light mt0'>isLoggedIn</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the login status (true if logged in, false otherwise)
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='createlisting'>
+      createListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L137-L149'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Creates a new listing.</p>
+
+    <div class='pre p1 fill-light mt0'>createListing</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The listing data.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the created listing if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='rentandstartpayingforlisting'>
+      rentAndStartPayingForListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L157-L172'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Rents a listing and starts paying for it.</p>
+
+    <div class='pre p1 fill-light mt0'>rentAndStartPayingForListing</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listingId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the listing.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the data if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='deletelisting'>
+      deletelisting
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L180-L192'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Deletes a listing.</p>
+
+    <div class='pre p1 fill-light mt0'>deletelisting</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listingId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the listing to delete.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the data if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='editlisting'>
+      editListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L201-L212'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Edits a listing.</p>
+
+    <div class='pre p1 fill-light mt0'>editListing</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listingId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the listing to edit.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listingData</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The updated listing data.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | void)</code>:
+        A promise that resolves with the data if successful,
+otherwise, the function does not return anything.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='callsendmessage'>
+      callSendMessage
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L221-L234'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Calls the API to send a message.</p>
+
+    <div class='pre p1 fill-light mt0'>callSendMessage</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The message data.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the data if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='callgetconversations'>
+      callGetConversations
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L242-L252'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Calls the API to get conversations.</p>
+
+    <div class='pre p1 fill-light mt0'>callGetConversations</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the data if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getcustomerdocument'>
+      getCustomerDocument
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L259-L270'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets the customer document.</p>
+
+    <div class='pre p1 fill-light mt0'>getCustomerDocument</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the document if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='callgetmessages'>
+      callGetMessages
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/api/api.js#L278-L288'>
+      <span>subletr-reactapp/src/api/api.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Calls the API to get messages.</p>
+
+    <div class='pre p1 fill-light mt0'>callGetMessages</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>conversationId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the conversation.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> | <code>false</code>)</code>:
+        A promise that resolves with the data if successful,
+or false if there was an error.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='app'>
+      App
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/App.js#L27-L71'>
+      <span>subletr-reactapp/src/App.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The root component of the application, responsible for rendering different routes and managing user context.</p>
+
+    <div class='pre p1 fill-light mt0'>App(): JSX.element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.element</code>:
+        The JSX to be rendered.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='currentheader'>
+      CurrentHeader
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/App.js#L35-L47'>
+      <span>subletr-reactapp/src/App.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Component that renders the appropriate header based on the current URL path.
+If the path starts with "/listings/create/", or matches "/testing" or "/profile",
+it renders the HeaderNoSearch component. Otherwise, it renders the Header component.</p>
+
+    <div class='pre p1 fill-light mt0'>CurrentHeader</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='google_maps_api_key'>
+      GOOGLE_MAPS_API_KEY
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/BasicInfo.js#L15-L15'>
+      <span>subletr-reactapp/src/components/BasicInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The Google Maps API key.</p>
+
+    <div class='pre p1 fill-light mt0'>GOOGLE_MAPS_API_KEY</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='autocompleteservice'>
+      autocompleteService
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/BasicInfo.js#L21-L21'>
+      <span>subletr-reactapp/src/components/BasicInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The current instance of the autocomplete service.</p>
+
+    <div class='pre p1 fill-light mt0'>autocompleteService</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='loadscript'>
+      loadScript
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/BasicInfo.js#L29-L39'>
+      <span>subletr-reactapp/src/components/BasicInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Loads a script dynamically.</p>
+
+    <div class='pre p1 fill-light mt0'>loadScript(src: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, position: <a href="https://developer.mozilla.org/docs/Web/API/Element">Element</a>, id: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>src</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The source URL of the script.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>position</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">Element</a>)</code>
+	    The position where the script should be inserted.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID attribute for the script element.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='basicinfo'>
+      BasicInfo
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/BasicInfo.js#L49-L224'>
+      <span>subletr-reactapp/src/components/BasicInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the basic information of the listing.</p>
+
+    <div class='pre p1 fill-light mt0'>BasicInfo(props: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the BasicInfo component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='twocolumnlayout'>
+      TwoColumnLayout
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/bottom-detailed-listing.js#L17-L79'>
+      <span>subletr-reactapp/src/components/bottom-detailed-listing.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the two-column layout.</p>
+
+    <div class='pre p1 fill-light mt0'>TwoColumnLayout(description: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, biography: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, startDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, endDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, owner: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, onReserve: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>description</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The description to display in the left column.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>biography</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The biography to display in the right column.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>startDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The start date of the stay.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>endDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The end date of the stay.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>owner</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The owner of the stay.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>onReserve</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    The function to call when the "Reserve your spot" button is clicked.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the TwoColumnLayout component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='iconbreadcrumbs'>
+      IconBreadcrumbs
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/breadcrumbs.js#L14-L58'>
+      <span>subletr-reactapp/src/components/breadcrumbs.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the breadcrumbs.</p>
+
+    <div class='pre p1 fill-light mt0'>IconBreadcrumbs(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the IconBreadcrumbs component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='featureinfo'>
+      FeatureInfo
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/ContactInfo.js#L13-L46'>
+      <span>subletr-reactapp/src/components/ContactInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Component for displaying additional feature information.</p>
+
+    <div class='pre p1 fill-light mt0'>FeatureInfo(props: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.formik</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>The Formik object for form management.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the FeatureInfo component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='featureinfo'>
+      FeatureInfo
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/FeatureInfo.js#L49-L259'>
+      <span>subletr-reactapp/src/components/FeatureInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The FeatureInfo component.</p>
+
+    <div class='pre p1 fill-light mt0'>FeatureInfo</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.formik</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>The Formik object for form management.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the FeatureInfo component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='generateflashydescription'>
+      generateFlashyDescription
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/FeatureInfo.js#L57-L78'>
+      <span>subletr-reactapp/src/components/FeatureInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Generates a flashy description for the place by calling the OpenAI backend route.</p>
+
+    <div class='pre p1 fill-light mt0'>generateFlashyDescription</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+        A promise that resolves when the description is generated.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='converttobase64'>
+      convertToBase64
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/FeatureInfo.js#L85-L96'>
+      <span>subletr-reactapp/src/components/FeatureInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Converts a file to base64 data encoding.</p>
+
+    <div class='pre p1 fill-light mt0'>convertToBase64</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>file</span> <code class='quiet'>(File)</code>
+	    The file to convert.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>:
+        A promise that resolves with the base64 encoded data of the file.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handlefileupload'>
+      handleFileUpload
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/FeatureInfo.js#L102-L111'>
+      <span>subletr-reactapp/src/components/FeatureInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles the file upload event.</p>
+
+    <div class='pre p1 fill-light mt0'>handleFileUpload</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a>)</code>
+	    The file upload event.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handleimagedelete'>
+      handleImageDelete
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/FeatureInfo.js#L117-L122'>
+      <span>subletr-reactapp/src/components/FeatureInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles the deletion of an image from the images array.</p>
+
+    <div class='pre p1 fill-light mt0'>handleImageDelete</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>i</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The index of the image to delete.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='filtercomponent'>
+      FilterComponent
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/filter.js#L19-L194'>
+      <span>subletr-reactapp/src/components/filter.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the filter options.</p>
+
+    <div class='pre p1 fill-light mt0'>FilterComponent(props: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.handleFilterChange</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+  </td>
+  <td class='break-word'><span>The function to call when the filter changes.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the FilterComponent.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='steps'>
+      steps
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/Form.js#L25-L31'>
+      <span>subletr-reactapp/src/components/Form.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The steps of the form.</p>
+
+    <div class='pre p1 fill-light mt0'>steps</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='form'>
+      Form
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/Form.js#L41-L158'>
+      <span>subletr-reactapp/src/components/Form.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the form for creating a listing.</p>
+
+    <div class='pre p1 fill-light mt0'>Form(props: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the Form component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handleback'>
+      handleBack
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/Form.js#L49-L51'>
+      <span>subletr-reactapp/src/components/Form.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles going back to the previous step.</p>
+
+    <div class='pre p1 fill-light mt0'>handleBack</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handlesubmitfinal'>
+      handleSubmitFinal
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/Form.js#L56-L60'>
+      <span>subletr-reactapp/src/components/Form.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles submitting the final form.</p>
+
+    <div class='pre p1 fill-light mt0'>handleSubmitFinal</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='formcontent'>
+      formContent
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/Form.js#L105-L120'>
+      <span>subletr-reactapp/src/components/Form.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the JSX element for the form content based on the current step.</p>
+
+    <div class='pre p1 fill-light mt0'>formContent</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>step</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The current step index.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the form content.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='headercomponent'>
+      HeaderComponent
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/header1.js#L24-L97'>
+      <span>subletr-reactapp/src/components/header1.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the header section for the home listings page.</p>
+
+    <div class='pre p1 fill-light mt0'>HeaderComponent(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the HeaderComponent.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='headercomponent'>
+      HeaderComponent
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/headerNoSearch.js#L13-L58'>
+      <span>subletr-reactapp/src/components/headerNoSearch.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The HeaderComponent component.</p>
+
+    <div class='pre p1 fill-light mt0'>new HeaderComponent(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the HeaderComponent.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='togglefilter'>
+      toggleFilter
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/header1.js#L30-L32'>
+      <span>subletr-reactapp/src/components/header1.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Toggles the filter visibility.</p>
+
+    <div class='pre p1 fill-light mt0'>toggleFilter</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='togglefilter'>
+      toggleFilter
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/HomePage/HomePage.js#L37-L39'>
+      <span>subletr-reactapp/src/pages/HomePage/HomePage.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Toggles the filter visibility.</p>
+
+    <div class='pre p1 fill-light mt0'>toggleFilter</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='chiparray'>
+      ChipArray
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/listing-chips.js#L12-L22'>
+      <span>subletr-reactapp/src/components/listing-chips.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The ChipArray component.</p>
+
+    <div class='pre p1 fill-light mt0'>ChipArray</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.items</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>
+  </td>
+  <td class='break-word'><span>The array of items for the chips.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the ChipArray component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='listingheading'>
+      ListingHeading
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/listing-heading.js#L11-L24'>
+      <span>subletr-reactapp/src/components/listing-heading.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The ListingHeading component.</p>
+
+    <div class='pre p1 fill-light mt0'>ListingHeading</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.title</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>The title of the listing.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.rent</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  </td>
+  <td class='break-word'><span>The rent of the listing.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the ListingHeading component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='imagequotecarousel'>
+      ImageQuoteCarousel
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/listing-image-card.js#L54-L78'>
+      <span>subletr-reactapp/src/components/listing-image-card.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the image quote carousel for the listing page.</p>
+
+    <div class='pre p1 fill-light mt0'>ImageQuoteCarousel(props: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.images</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>
+  </td>
+  <td class='break-word'><span>The array of image URLs.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the ImageQuoteCarousel component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='listing'>
+      Listing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/listing.js#L24-L140'>
+      <span>subletr-reactapp/src/components/listing.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The Listing component.</p>
+
+    <div class='pre p1 fill-light mt0'>new Listing(props: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.data</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>The data object that represents a listing.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.onClick</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+  </td>
+  <td class='break-word'><span>The function called when the listing is clicked.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.favoriteMode</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  
+    (default <code>0</code>)
+  </td>
+  <td class='break-word'><span>The favorite mode for the listing.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.handleDelete</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+  
+    (default <code>null</code>)
+  </td>
+  <td class='break-word'><span>The function called when the listing delete is clicked.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the Listing component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handleliketoggle'>
+      handleLikeToggle
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/listing.js#L33-L41'>
+      <span>subletr-reactapp/src/components/listing.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles toggling the like status of the listing.</p>
+
+    <div class='pre p1 fill-light mt0'>handleLikeToggle</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a>)</code>
+	    The click event.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='moreinfo'>
+      MoreInfo
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/MoreInfo.js#L12-L74'>
+      <span>subletr-reactapp/src/components/MoreInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The MoreInfo component.</p>
+
+    <div class='pre p1 fill-light mt0'>MoreInfo</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.formik</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>The Formik object for form management.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the MoreInfo component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='reviewinfo'>
+      ReviewInfo
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/components/ReviewInfo.js#L9-L84'>
+      <span>subletr-reactapp/src/components/ReviewInfo.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The ReviewInfo component, final page of the Create Listing form.</p>
+
+    <div class='pre p1 fill-light mt0'>ReviewInfo</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.formik</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>The Formik object for form management.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the ReviewInfo component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='listingscontext'>
+      ListingsContext
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/context/ListingsProvider.js#L10-L10'>
+      <span>subletr-reactapp/src/context/ListingsProvider.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The context for managing listings.</p>
+
+    <div class='pre p1 fill-light mt0'>ListingsContext</div>
+  
+    <p>
+      Type:
+      React.Context
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='listingsprovider'>
+      ListingsProvider
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/context/ListingsProvider.js#L18-L88'>
+      <span>subletr-reactapp/src/context/ListingsProvider.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The provider component for the ListingsContext.</p>
+
+    <div class='pre p1 fill-light mt0'>ListingsProvider</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.children</span> <code class='quiet'>React.ReactNode</code>
+  </td>
+  <td class='break-word'><span>The child components wrapped by the provider.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the ListingsProvider component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='usercontext'>
+      UserContext
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/context/UserContext.js#L18-L18'>
+      <span>subletr-reactapp/src/context/UserContext.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The context for managing user-related data and functionality.</p>
+
+    <div class='pre p1 fill-light mt0'>UserContext</div>
+  
+    <p>
+      Type:
+      React.Context
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='userprovider'>
+      UserProvider
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/context/UserContext.js#L26-L136'>
+      <span>subletr-reactapp/src/context/UserContext.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The provider component for the UserContext.</p>
+
+    <div class='pre p1 fill-light mt0'>UserProvider</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.children</span> <code class='quiet'>React.ReactNode</code>
+  </td>
+  <td class='break-word'><span>The child components wrapped by the provider.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the UserProvider component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='blankbox'>
+      BlankBox
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/CreateListing/blankBox.js#L12-L21'>
+      <span>subletr-reactapp/src/pages/CreateListing/blankBox.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The BlankBox component.</p>
+
+    <div class='pre p1 fill-light mt0'>BlankBox</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The component props.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.label</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>The label for the box.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.labelStyle</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>The styles for the label.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.contents</span> <code class='quiet'>React.ReactNode</code>
+  </td>
+  <td class='break-word'><span>The contents of the box.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the BlankBox component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='createlisting-1'>
+      CreateListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/CreateListing/CreateListing.js#L10-L26'>
+      <span>subletr-reactapp/src/pages/CreateListing/CreateListing.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The CreateListing component.</p>
+
+    <div class='pre p1 fill-light mt0'>new CreateListing(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the CreateListing component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='detailedlisting'>
+      DetailedListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/DetailedListing/detailed-listing.js#L19-L75'>
+      <span>subletr-reactapp/src/pages/DetailedListing/detailed-listing.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the detailed view of a listing.</p>
+
+    <div class='pre p1 fill-light mt0'>DetailedListing(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the DetailedListing component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='homepage'>
+      HomePage
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/HomePage/HomePage.js#L19-L187'>
+      <span>subletr-reactapp/src/pages/HomePage/HomePage.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The HomePage component for the application's home page.
+Displays listings and provides filtering options.</p>
+
+    <div class='pre p1 fill-light mt0'>new HomePage(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the HomePage component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handleviewmore'>
+      handleViewMore
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/HomePage/HomePage.js#L47-L49'>
+      <span>subletr-reactapp/src/pages/HomePage/HomePage.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles the "View More" button click.
+Increases the number of displayed listings.</p>
+
+    <div class='pre p1 fill-light mt0'>handleViewMore</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handlelistingclick'>
+      handleListingClick
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/HomePage/HomePage.js#L55-L57'>
+      <span>subletr-reactapp/src/pages/HomePage/HomePage.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles the click event on a listing to navigate to the detailed listing page.</p>
+
+    <div class='pre p1 fill-light mt0'>handleListingClick</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listing_id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the clicked listing.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handlelistingclick'>
+      handleListingClick
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/Profile/MyListings.js#L23-L25'>
+      <span>subletr-reactapp/src/pages/Profile/MyListings.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles the click event when a listing is clicked.
+Navigates to the detailed view of the clicked listing.</p>
+
+    <div class='pre p1 fill-light mt0'>handleListingClick</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listingId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the clicked listing.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handlefilterchange'>
+      handleFilterChange
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/HomePage/HomePage.js#L66-L77'>
+      <span>subletr-reactapp/src/pages/HomePage/HomePage.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles the change event in the filter component and filters the listings accordingly.</p>
+
+    <div class='pre p1 fill-light mt0'>handleFilterChange</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>accommodationType</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The selected accommodation type.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>amenities</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
+	    The selected amenities.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>spots</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The selected number of spots.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>rentRange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+	    The selected rent range.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='displaylisting'>
+      displayListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/HomePage/HomePage.js#L84-L110'>
+      <span>subletr-reactapp/src/pages/HomePage/HomePage.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Determines whether a listing should be displayed based on the filter criteria.</p>
+
+    <div class='pre p1 fill-light mt0'>displayListing</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listing</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The listing object.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        <code>true</code>
+ if the listing should be displayed, 
+<code>false</code>
+ otherwise.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='managelisting'>
+      ManageListing
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/Profile/ManageListing.js#L27-L155'>
+      <span>subletr-reactapp/src/pages/Profile/ManageListing.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The ManageListing component. Allows for editing your listings.</p>
+
+    <div class='pre p1 fill-light mt0'>ManageListing</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the ManageListing component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='mylistings'>
+      MyListings
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/Profile/MyListings.js#L13-L60'>
+      <span>subletr-reactapp/src/pages/Profile/MyListings.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The component that displays the user's listings.</p>
+
+    <div class='pre p1 fill-light mt0'>MyListings(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the MyListings component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handledelete'>
+      handleDelete
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/Profile/MyListings.js#L32-L34'>
+      <span>subletr-reactapp/src/pages/Profile/MyListings.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Handles the delete event when a listing is deleted.
+Calls the deleteListing function to delete the listing.</p>
+
+    <div class='pre p1 fill-light mt0'>handleDelete</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>listingId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ID of the listing to delete.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='profile'>
+      Profile
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/Profile/profile.js#L14-L117'>
+      <span>subletr-reactapp/src/pages/Profile/profile.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The Profile component.</p>
+
+    <div class='pre p1 fill-light mt0'>new Profile(): JSX.Element</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the Profile component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='rentalhistory'>
+      RentalHistory
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cs-130/subletr/blob/e1c8fa8b0da7d4c89c9377d4eea8520e5a89ef86/subletr-reactapp/src/pages/Profile/RentalHistory.js#L12-L45'>
+      <span>subletr-reactapp/src/pages/Profile/RentalHistory.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The RentalHistory component.</p>
+
+    <div class='pre p1 fill-light mt0'>RentalHistory</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>JSX.Element</code>:
+        The JSX element representing the RentalHistory component.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>

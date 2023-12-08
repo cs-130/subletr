@@ -17,6 +17,7 @@
     "autosuggest-highlight": "^3.3.4",
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
+    "documentation": "^14.0.2",
     "dotenv": "^16.3.1",
     "formik": "^2.4.5",
     "passport": "^0.6.0",

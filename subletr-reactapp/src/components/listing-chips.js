@@ -1,9 +1,14 @@
 import React from 'react';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 
+/**
+ * The ChipArray component.
+ * @param {object} props - The component props.
+ * @param {Array<string>} props.items - The array of items for the chips.
+ * @returns {JSX.Element} The JSX element representing the ChipArray component.
+ */
 const ChipArray = ({ items }) => {
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center">
