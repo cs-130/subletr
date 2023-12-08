@@ -79,7 +79,7 @@ The end goal of this user story is to provide a flexible, secure, and user-frien
 1. Open the web application and click on the 'Sign Up' button.
 2. Use the register account with Google option that pops up.
 
-![Login/Registration](/images/Screenshot 2023-12-07 at 5.02.32 PM.png)
+<img width="1240" alt="Screenshot 2023-12-07 at 5 12 37 PM" src="https://github.com/cs-130/subletr/assets/47373615/9ca031c1-9fce-4f27-b6bd-a5751cde0b9f">
 
 ### Searching for Apartments
 
@@ -87,31 +87,26 @@ The end goal of this user story is to provide a flexible, secure, and user-frien
 2. Navigate to the 'Search' tab.
 3. Enter your preferences and search for available apartments.
 
-![Apartment Search](#screenshot-link)
+<img width="1169" alt="Screenshot 2023-12-07 at 5 15 38 PM" src="https://github.com/cs-130/subletr/assets/47373615/f7bf845c-8550-455c-a2ee-0c8da70b9594">
+
 
 ### Listing an Apartment
 
-1. Go to the 'List Apartment' section.
+1. Go to the 'Create a Listing' section.
 2. Fill in the details of your apartment.
 3. Submit the listing for approval.
 
-![Listing Submission](#screenshot-link)
-
-### Managing Listings and Applications
-
-1. Access your dashboard to view and manage your listings and applications.
-2. Approve or reject applications for your listings.
-
-![Dashboard Management](#screenshot-link)
+<img width="1169" alt="Screenshot 2023-12-07 at 5 16 18 PM" src="https://github.com/cs-130/subletr/assets/47373615/0be34a51-b1b8-442b-a77d-716560743f59">
 
 ### Contacting Subletters or Owners
 
 1. Use the in-app messaging system to contact potential subletters or apartment owners.
 2. Arrange meetings or discuss details through the app.
 
-![In-App Messaging](#screenshot-link)
+<img width="1169" alt="Screenshot 2023-12-07 at 5 17 10 PM" src="https://github.com/cs-130/subletr/assets/47373615/0c031a9e-fcc1-477f-9cb1-b13469034108">
 
-## Support and Contact
+## Stripe Payments
 
-For any assistance or queries, please reach out to our support team at [support@example.com](mailto:support@example.com) or visit our [Help Center](#).
+You need to navigate to the "Reserve Listing" on any listing and it will transfer you to our partner Stripe to set up a recurring transaction.
 
+<img width="1169" alt="Screenshot 2023-12-07 at 5 18 20 PM" src="https://github.com/cs-130/subletr/assets/47373615/10092ea6-d5d2-4c03-b681-ef7294639e90">
