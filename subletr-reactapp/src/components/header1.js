@@ -1,11 +1,9 @@
 import React from "react";
 import {
   Box,
-  Typography,
   Button,
   IconButton,
   TextField,
-  Icon,
   InputAdornment,
 } from "@mui/material";
 import Breadcrumbs from "./breadcrumbs.js";
@@ -16,11 +14,20 @@ import Logo from "../images/logo.png";
 import FilterComponent from "./filter.js";
 import { useState } from "react";
 
+/**
+ * The HeaderComponent component.
+ * @function
+ * @name HeaderComponent
+ * @description The component that displays the header section for the home listings page.
+ * @returns {JSX.Element} The JSX element representing the HeaderComponent.
+ */
 function HeaderComponent() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
 
+  /**
+   * Toggles the filter visibility.
+   */
   const toggleFilter = () => {
-    // Toggle filter visibility
     setIsFilterVisible((prevState) => !prevState);
   };
 

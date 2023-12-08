@@ -1,15 +1,18 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext } from 'react';
 import './profile.css'
-import { TextField, Button, Box, Avatar } from '@mui/material';
 import Listing from '../../components/listing';
 import { UserContext } from '../../context/UserContext';
 
+
+/**
+ * The RentalHistory component.
+ * @returns {JSX.Element} The JSX element representing the RentalHistory component.
+ */
 
 const RentalHistory = () => {
     const {
         rentalHistory,
     } = useContext(UserContext)
-
 
     const handleListingClick = () => {
         console.log('click')

@@ -1,6 +1,11 @@
 import { Typography, List, ListItem, ListItemText, Chip } from "@mui/material";
-// import ChipArray from "./listing-chips.js";
 
+/**
+ * The ReviewInfo component, final page of the Create Listing form.
+ * @param {object} props - The component props.
+ * @param {object} props.formik - The Formik object for form management.
+ * @returns {JSX.Element} The JSX element representing the ReviewInfo component.
+ */
 const ReviewInfo = ({ formik }) => {
   const { values } = formik;
   return (
