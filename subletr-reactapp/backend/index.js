@@ -33,7 +33,7 @@ app.use(
 app.use(
   cors({
     // Replace with the frontend port and put that in the .env file.
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "https://subletr.vercel.app"],
     credentials: true,
   })
 );

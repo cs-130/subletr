@@ -3,7 +3,7 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
 const CLIENT_URL =
   process.env.NODE_ENV == "production"
-    ? process.env.REACT_APP_CLIENT_URL
+    ? "https://subletr.vercel.app"
     : "http://localhost:3000";
 const config = {
   CLIENT_URL: CLIENT_URL,
