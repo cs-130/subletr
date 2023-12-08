@@ -3,6 +3,12 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
+/**
+ * The MoreInfo component.
+ * @param {object} props - The component props.
+ * @param {object} props.formik - The Formik object for form management.
+ * @returns {JSX.Element} The JSX element representing the MoreInfo component.
+ */
 const MoreInfo = (props) => {
   const { formik } = props;
 
@@ -24,12 +30,6 @@ const MoreInfo = (props) => {
             onChange={(value) => {
               formik.setFieldValue("startDate", new Date(value));
             }}
-            // slotProps={{
-            //   textField: {
-            //     size: "small",
-            //     margin: "dense",
-            //   },
-            // }}
           />
         </Grid>
         <Grid item xs={12}>
@@ -48,12 +48,6 @@ const MoreInfo = (props) => {
             onChange={(value) => {
               formik.setFieldValue("endDate", new Date(value));
             }}
-            // slotProps={{
-            //   textField: {
-            //     size: "small",
-            //     margin: "dense",
-            //   },
-            // }}
           />
         </Grid>
       </LocalizationProvider>

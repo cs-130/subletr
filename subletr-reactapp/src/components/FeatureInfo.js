@@ -1,12 +1,7 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { TextField, Grid, Autocomplete, Checkbox, Button } from "@mui/material";
-
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { styled } from "@mui/material/styles";
-import { useState } from "react";
 import BlankBox from "../pages/CreateListing/blankBox.js";
 import './styles.css'
 
@@ -42,27 +37,23 @@ const img = {
   height: '100%'
 };
 
-
-
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
-
+/**
+ * The FeatureInfo component.
+ * @param {object} props - The component props.
+ * @param {object} props.formik - The Formik object for form management.
+ * @returns {JSX.Element} The JSX element representing the FeatureInfo component.
+ */
 const FeatureInfo = (props) => {
   const { formik } = props;
   const [showDescription, setShowDescription] = useState(false);
 
+  /**
+   * Generates a flashy description for the place by calling the OpenAI backend route.
+   * @returns {Promise} A promise that resolves when the description is generated.
+   */
   const generateFlashyDescription = async () => {
     // call openai backend route
     try {
@@ -86,6 +77,11 @@ const FeatureInfo = (props) => {
     }
   };
 
+  /**
+   * Converts a file to base64 data encoding.
+   * @param {File} file - The file to convert.
+   * @returns {Promise<string>} A promise that resolves with the base64 encoded data of the file.
+   */
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -98,38 +94,53 @@ const FeatureInfo = (props) => {
       };
     });
   };
-    
 
-
+  /**
+   * Handles the file upload event.
+   * @param {Event} e - The file upload event.
+   */
   const handleFileUpload = async (e) => {
     if (e.target.files.length) {
-      const imgData = []
+      const imgData = [];
       for (let img of e.target.files) {
         const base64 = await convertToBase64(img);
-        imgData.push(base64)
+        imgData.push(base64);
       }
-      formik.setFieldValue("images", [...formik.values.images, ...imgData])
+      formik.setFieldValue("images", [...formik.values.images, ...imgData]);
     }
-  }
+  };
 
-
+  /**
+   * Handles the deletion of an image from the images array.
+   * @param {number} i - The index of the image to delete.
+   */
   const handleImageDelete = (i) => {
-    formik.setFieldValue("images", Array.from(formik.values.images).filter((item, index) => index != i))
-  }
+    formik.setFieldValue(
+      "images",
+      Array.from(formik.values.images).filter((item, index) => index !== i)
+    );
+  };
 
   const thumbs = Array.from(formik.values.images).map((file, i) => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
-        <img
-          src={file}
-          style={img}
-        />
+        <img src={file} style={img} alt="staged listing" />
         <div className="image-close" onClick={() => handleImageDelete(i)}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </div>
-
       </div>
     </div>
   ));
