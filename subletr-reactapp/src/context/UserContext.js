@@ -11,10 +11,19 @@ import { callSendMessage} from "../api/api";
 import { callGetConversations} from "../api/api";
 import { callGetMessages} from "../api/api";
 
+/**
+ * The context for managing user-related data and functionality.
+ * @type {React.Context}
+ */
 export const UserContext = createContext()
 
+/**
+ * The provider component for the UserContext.
+ * @param {object} props - The component props.
+ * @param {React.ReactNode} props.children - The child components wrapped by the provider.
+ * @returns {JSX.Element} The JSX element representing the UserProvider component.
+ */
 export const UserProvider = ({ children }) => {
-
     const [userId, setUserId] = useState();
     const [userListings, setUserListings] = useState([])
     const [viewedListings, setViewedListings] = useState([])
@@ -38,16 +47,6 @@ export const UserProvider = ({ children }) => {
         const response = await callCreateListing(data, userId)
         return response.message
     }
-
-    // const getMyListings = async () => {
-    //     const listings = await getUserListings(userId)
-    //     setUserListings(listings)
-    // }
-
-    // const getMyListings = useCallback(async () => {
-    //     const listings = await getUserListings(userId)
-    //     setUserListings(listings)
-    // }, [userId])
 
     const getViewedListings = async () => {
         const listings = await callGetViewed(userId)
