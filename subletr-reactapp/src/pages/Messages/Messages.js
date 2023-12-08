@@ -98,9 +98,9 @@ const fakeConversationData = [
 function ChatPage() {
     const {
         userId,
-        sendMessage,
-        getConversations,
-        getMessages,
+        saveMessage,
+        getMyConversations,
+        getMyMessages,
         conversationIds,
         messages
       } = useContext(UserContext)
@@ -108,12 +108,20 @@ function ChatPage() {
     useEffect(() => {
     if (!userId) 
         window.location.href = `http://localhost:5000/auth/google`
-    }, [])
+    }, [userId])
+
+    useEffect(() => {
+      getMyConversations();
+    }, [getMyConversations]);
+
+    useEffect(() => {
+      getMyMessages();
+    }, [getMyMessages]);
+    
     if (userId)
     {
         socket.userId = userId;
         socket.connect();
-        
     }
   // State to track the active conversation
   const [activeConversation, setActiveConversation] = useState(null);
@@ -134,14 +142,36 @@ function ChatPage() {
         if (message.trim() === "") {
             return;
         }
-        await sendMessage({
+        socket.emit("message", {
+          text: message,
+          from: socket.userId,
+          to: activeConversation,
+          time: Date.now()
+        })
+        await saveMessage({
             text: message,
-            conversationId: 0,
-            name: "Justin",
+            from: socket.userId,
+            to: activeConversation,
             time: Date.now(),
         });
         setMessage("");
       };
+
+    // Receive message
+    socket.on("message", ({ text, from, to, time }) => {
+      for (let i = 0; i < activeConversations; i++) {
+        const user = activeConversations[i];
+        if (user === from) {
+          messages.push({
+            text: text,
+            from: from,
+            to: to,
+            time: time
+          });
+        break;
+        }
+      }
+    });
 
   return (
     <div style={{ position: "relative", height: "90%" }}>

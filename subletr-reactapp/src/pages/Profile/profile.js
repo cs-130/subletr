@@ -25,7 +25,7 @@ function Profile() {
   useEffect(() => {
     if (!userId) 
         window.location.href = `http://localhost:5000/auth/google`
-  }, [])
+  }, [userId])
 
   useEffect(() => {
     getMyListings();

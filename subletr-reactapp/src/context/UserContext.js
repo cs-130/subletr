@@ -7,9 +7,9 @@ import { getRentalHistory as callGetRental } from "../api/api";
 import { createListing as callCreateListing } from "../api/api";
 import { callFavoriteListing } from "../api/api";
 import { deletelisting as callDeletelisting } from "../api/api";
-import { callSendMessage} from "../api/api";
-import { callGetConversations} from "../api/api";
-import { callGetMessages} from "../api/api";
+import { callSaveMessage} from "../api/api";
+import { getUserConversations} from "../api/api";
+import { getUserMessages} from "../api/api";
 
 /**
  * The context for managing user-related data and functionality.
@@ -42,6 +42,28 @@ export const UserProvider = ({ children }) => {
             getMyListings();
         }
     }, [userId, getMyListings])
+
+    const getMyMessages = useCallback(async () => {
+        const messages = await getUserMessages(userId);
+        setMessages(messages);
+      }, [userId]);
+  
+      useEffect(() => {
+          if (userId) {
+              getMyMessages();
+          }
+      }, [userId, getMyMessages])
+
+      const getMyConversations = useCallback(async () => {
+        const conversations = await getUserConversations(userId);
+        setConversationIds(conversations);
+      }, [userId]);
+  
+      useEffect(() => {
+          if (userId) {
+            getMyConversations();
+          }
+      }, [userId, getMyConversations])
 
     const createListing = async (data) => {
         const response = await callCreateListing(data, userId)
@@ -88,19 +110,9 @@ export const UserProvider = ({ children }) => {
             getMyListings(userId)
     }
 
-    const sendMessage = async (data) => {
-        const response = await callSendMessage(data, userId)
+    const saveMessage = async (data) => {
+        const response = await callSaveMessage(data, userId)
         return response.message
-    }
-
-    const getConversations = async () => {
-        const conversations = await callGetConversations(userId)
-        setConversationIds(conversations)
-    }
-
-    const getMessages = async (conversationId) => {
-        const messages = await callGetMessages(conversationId)
-        setMessages(messages)
     }
 
     return (
@@ -124,9 +136,9 @@ export const UserProvider = ({ children }) => {
                 page,
                 setPage,
                 deleteListing,
-                sendMessage,
-                getConversations,
-                getMessages,
+                saveMessage,
+                getMyConversations,
+                getMyMessages,
                 conversationIds,
                 messages
             }}

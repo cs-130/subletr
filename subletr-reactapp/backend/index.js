@@ -79,4 +79,12 @@ io.on("connection", (socket) => {
   console.log('a user connected to chat');
   socket.join(socket.userId);
 
+  io.on("message", ({ text, from, to, time }) => {
+    socket.to(to).emit("message", {
+      text: text,
+      from: from,
+      to: to,
+      time: time
+    });
+  });
 });

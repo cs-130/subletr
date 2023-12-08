@@ -6,8 +6,8 @@ const { ensureAuth } = require("../middlewares/auth");
 
 router.get("/:userId/get-conversations", ensureAuth, MessagesController.getConversations);
 
-router.get("/:conversationId/get-messages", ensureAuth, MessagesController.getMessages);
+router.get("/:userId/get-messages", ensureAuth, MessagesController.getMessages);
 
-router.post("/send-message", ensureAuth, MessagesController.sendMessage);
+router.post("/save-message", ensureAuth, MessagesController.saveMessage);
 
 module.exports = router;

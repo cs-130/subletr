@@ -214,21 +214,20 @@ export const editListing = async (listingId, listingData) => {
 /**
  * Calls the API to send a message.
  * @param {object} data - The message data.
- * @param {string} userId - The ID of the user.
  * @returns {Promise|false} A promise that resolves with the data if successful,
  *    or false if there was an error.
  */
-export const callSendMessage = async (data, userId) => {
+export const callSaveMessage = async (data) => {
   try {
     const res = await axios.post(
-      "/messages/send-message",
-      { ...data, userId: userId },
+      "/messages/save-message",
+      { data },
       { withCredentials: true }
     );
     console.log(data);
     return res.data;
   } catch (err) {
-    console.log("Error sending message", err);
+    console.log("Error saving message", err);
     return false;
   }
 };
@@ -239,7 +238,7 @@ export const callSendMessage = async (data, userId) => {
  * @returns {Promise|false} A promise that resolves with the data if successful,
  *    or false if there was an error.
  */
-export const callGetConversations = async (userId) => {
+export const getUserConversations = async (userId) => {
   try {
     const res = await axios.get(`/messages/${userId}/get-conversations`, {
       withCredentials: true,
@@ -271,13 +270,13 @@ export const getCustomerDocument = async () => {
 
 /**
  * Calls the API to get messages.
- * @param {string} conversationId - The ID of the conversation.
+ * @param {string} userId - The ID of the user.
  * @returns {Promise|false} A promise that resolves with the data if successful,
  *    or false if there was an error.
  */
-export const callGetMessages = async (conversationId) => {
+export const getUserMessages = async (userId) => {
   try {
-    const res = await axios.get(`/messages/${conversationId}/get-messages`, {
+    const res = await axios.get(`/messages/${userId}/get-messages`, {
       withCredentials: true,
     });
     return res.data;
