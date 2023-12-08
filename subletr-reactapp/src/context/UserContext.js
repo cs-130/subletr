@@ -10,7 +10,8 @@ import { callFavoriteListing } from "../api/api";
 import { deletelisting as callDeletelisting } from "../api/api";
 import { callSendMessage} from "../api/api";
 import { callGetConversations} from "../api/api";
-import { callGetMessages} from "../api/api";
+import { callGetMessages } from "../api/api";
+import { getListings } from "../api/api";
 
 export const UserContext = createContext()
 
@@ -32,6 +33,7 @@ export const UserProvider = ({ children }) => {
 
     const createListing = async (data) => {
         const response = await callCreateListing(data, userId)
+        getListings()
         return response.message
     }
 
