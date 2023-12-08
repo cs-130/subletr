@@ -140,8 +140,8 @@ function ChatPage() {
     
     if (userId)
     {
-        socket.userId = userId;
-        socket.connect();
+      socket.connect();
+      socket.emit("session", userId);
     }
 
   // State to track the active conversation
@@ -175,13 +175,13 @@ function ChatPage() {
     }
     socket.emit("message", {
       text: message,
-      from: socket.userId,
+      from: userId,
       to: activeConversation,
       time: Date.now()
-    })
+    });
     await saveMessage({
         text: message,
-        from: socket.userId,
+        from: userId,
         to: activeConversation,
         time: Date.now()
     });
@@ -189,7 +189,7 @@ function ChatPage() {
     console.log(newMessages);
     newMessages.push({
       text: message,
-      from: socket.userId,
+      from: userId,
       to: activeConversation,
       time: Date.now()
     });
@@ -200,20 +200,15 @@ function ChatPage() {
 
   // Receive message
   socket.on("message", ({ text, from, to, time }) => {
-    for (let i = 0; i < conversationIds; i++) {
-      const user = conversationIds[i];
-      if (user === from) {
-        let newMessages = [...messages];
-        newMessages.push({
-          text: text,
-          from: from,
-          to: to,
-          time: time
-        });
-        setMessages(newMessages);
-      break;
-      }
-    }
+    console.log("received message");
+    let newMessages = [...messages];
+    newMessages.push({
+      text: text,
+      from: from,
+      to: to,
+      time: time
+    });
+    setMessages(newMessages);
   });
 
   return (

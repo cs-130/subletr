@@ -57,9 +57,7 @@ const getMessages = async (req, res) => {
   const getUserName = async (req, res) => {
     try {
       console.log("entered get usernames");
-      console.log(req.params.userId);
       const username = await Customer.findOne({_id: req.params.userId}, {fullName: 1}).lean();
-      console.log(username);
       return res.json(username);
     } catch (err) {
       return res
@@ -76,15 +74,13 @@ const getMessages = async (req, res) => {
  */
   const saveMessage = async (req, res) => {
     try {
-      console.log("entered save message", req.body);
-      console.log(req.body);
+      console.log("entered save message");
       let newMessage = new Message({
         text: req.body.text,
         from: req.body.from,
         to: req.body.to,
         time: req.body.time
       })
-      console.log(newMessage);
       await newMessage.save();
       return res.json({ message: "success" });
     } catch (err) {

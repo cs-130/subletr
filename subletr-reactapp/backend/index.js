@@ -77,9 +77,12 @@ const Message = require("./models/Message");
 const io = new Server(httpServer);
 io.on("connection", (socket) => {
   console.log('a user connected to chat');
-  socket.join(socket.userId);
+  socket.on("session", userId => {
+    socket.join(userId);
+  });
 
-  io.on("message", ({ text, from, to, time }) => {
+  socket.on("message", ({ text, from, to, time}) => {
+    console.log("server got message");
     socket.to(to).emit("message", {
       text: text,
       from: from,
