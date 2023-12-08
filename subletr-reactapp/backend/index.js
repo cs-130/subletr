@@ -77,4 +77,4 @@ io.on('connection', (socket) => {
   console.log('a user connected to chat');
 });
 
-module.exports(app)
+module.exports = app
