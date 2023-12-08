@@ -30,6 +30,9 @@ function App() {
     return <Header />;
   };
 
+  console.log(process.env.NODE_ENV)
+
+
   useEffect(() => {
     isUserLoggedIn()
   }, [])

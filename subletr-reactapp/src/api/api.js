@@ -3,8 +3,6 @@ import axios from "axios";
 // move to .env
 const BACKEND_DOMAIN = process.env.NODE_ENV == "production" ? "https://subletr-ibif.vercel.app" : "http://localhost:5000";
 
-console.log(process.env.NODE_ENV)
-
 axios.defaults.baseURL = BACKEND_DOMAIN;
 
 export const logoutCustomer = async () => {
