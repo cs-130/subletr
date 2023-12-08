@@ -147,6 +147,7 @@ export const UserProvider = ({ children }) => {
                 getMyMessages,
                 getUserName,
                 conversationIds,
+                setConversationIds,
                 messages,
                 setMessages
             }}

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from '../context/UserContext';
 import { Grid, Paper, Typography, Button } from "@mui/material";
 
 /**
@@ -22,6 +23,10 @@ const TwoColumnLayout = ({
   owner,
   onReserve,
 }) => {
+  const {
+    conversationIds,
+    setConversationIds
+  } = useContext(UserContext)
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={7}>
@@ -62,6 +67,7 @@ const TwoColumnLayout = ({
             variant="contained"
             color="primary"
             style={{ margin: "8px" }}
+            //onClick={() => conversationIds.includes(ownerId) ? setConversationIds(conversationIds.push(ownerId)) : null}
             href="/messages"
           >
             Chat with {owner}
