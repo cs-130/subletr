@@ -77,4 +77,8 @@ io.on('connection', (socket) => {
   console.log('a user connected to chat');
 });
 
+app.get('/', (req, res) => {
+  res.status(200).json('Welcome, your app is working well');
+})
+
 module.exports = app
