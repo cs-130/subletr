@@ -20,6 +20,10 @@ import { useParams } from 'react-router-dom';
 import { ListingsContext } from "../../context/ListingsProvider";
 const steps = ["Basic Info", "Dates & Rent", "Amenities & Photos", "Contact Info", "Review and Submit"];
 
+/**
+ * The ManageListing component. Allows for editing your listings.
+ * @returns {JSX.Element} The JSX element representing the ManageListing component.
+ */
 const ManageListing = () => {
     const { listing_id } = useParams()
 
@@ -31,7 +35,6 @@ const ManageListing = () => {
     } = useContext(ListingsContext)
 
     let listing_data = listings.find(item => item._id === listing_id)
-
 
     const handleBack = () => {
         setActiveStep((prevStep) => prevStep - 1);
