@@ -1,6 +1,12 @@
 const Customer = require("../models/Customer");
 const Messages = require("../models/Messages");
 
+/**
+ * Retrieves all conversations for a particular user.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const getConversations = async (req, res) => {
   try {
     console.log("entered get all messages");
@@ -13,6 +19,12 @@ const getConversations = async (req, res) => {
   }
 };
 
+/**
+ * Retrieves all messages for a particular conversation.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const getMessages = async (req, res) => {
     try {
       console.log("entered get all messages");
@@ -25,6 +37,12 @@ const getMessages = async (req, res) => {
     }
   };
   
+  /**
+ * Sends a message for a particular conversation.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
   const sendMessage = async (req, res) => {
     try {
       console.log("entered send message", req.body);

@@ -4,9 +4,14 @@ const { sendAwsEmail } = require("../utils/notifications");
 const ActiveLeases = require("../models/ActiveLeases");
 const Listing = require("../models/Listing");
 
-const { default: mongoose } = require("mongoose");
 const Customer = require("../models/Customer");
 
+/**
+ * Creates a webhook endpoint to process Stripe events.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const createWebhook = async (req, res) => {
   const sig = req.headers["stripe-signature"];
   let event;
