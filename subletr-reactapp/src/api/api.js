@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // move to .env
-const BACKEND_DOMAIN = "http://localhost:5000";
+const BACKEND_DOMAIN = process.env.NODE_ENV == "production" ? "https://subletr-ibif.vercel.app" : "http://localhost:5000";
 
 axios.defaults.baseURL = BACKEND_DOMAIN;
 

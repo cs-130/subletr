@@ -9,7 +9,8 @@ import { callFavoriteListing } from "../api/api";
 import { deletelisting as callDeletelisting } from "../api/api";
 import { callSendMessage} from "../api/api";
 import { callGetConversations} from "../api/api";
-import { callGetMessages} from "../api/api";
+import { callGetMessages } from "../api/api";
+import { getListings } from "../api/api";
 
 /**
  * The context for managing user-related data and functionality.
@@ -45,6 +46,7 @@ export const UserProvider = ({ children }) => {
 
     const createListing = async (data) => {
         const response = await callCreateListing(data, userId)
+        getListings()
         return response.message
     }
 

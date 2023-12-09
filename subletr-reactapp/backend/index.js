@@ -33,7 +33,7 @@ app.use(
 app.use(
   cors({
     // Replace with the frontend port and put that in the .env file.
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "https://subletr.vercel.app"],
     credentials: true,
   })
 );
@@ -76,3 +76,9 @@ const io = new Server(httpServer);
 io.on('connection', (socket) => {
   console.log('a user connected to chat');
 });
+
+app.get('/', (req, res) => {
+  res.status(200).json('Welcome, your app is working well');
+})
+
+module.exports = app

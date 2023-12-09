@@ -9,9 +9,9 @@ module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(
       {
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "/auth/google/callback",
+        clientID: process.env.SERVER_ENV == 'production' ? process.env.GOOGLE_PROD_CLIENT_ID : process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.SERVER_ENV == 'production' ? process.env.GOOGLE_PROD_CLIENT_SECRET : process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: process.env.SERVER_ENV == 'production' ? "https://subletr-ibif.vercel.app/auth/google/callback" : "http://localhost:500/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
 

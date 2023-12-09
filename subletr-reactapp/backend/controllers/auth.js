@@ -27,7 +27,7 @@ const handleAuthentication = async (req, res, customer) => {
         // sameSite: "strict",
         // secure: process.env.NODE_ENV === "production",
         path: "/",
-        domain: process.env.NODE_ENV === "production" ? `subletr.com` : null,
+        domain: process.env.NODE_ENV === "production" ? `subletr.vercel.app` : null,
         // crossDomain: true,
       })
       .redirect(`${config.CLIENT_URL}/`);
