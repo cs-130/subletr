@@ -1,3 +1,14 @@
+## Welcome to Subletr!
+
+This is the root directory README.
+
+If you would like information on how to run the frontend or its API documentation, please open the README file in the subletr-reactapp folder
+
+If you would like information on how to run the backend server or its API documentation, please open the README file in the subletr-reactapp/backend folder
+
+
+
+
 # Repository Template
 
 [![Build Status](https://app.travis-ci.com/melaasar/cs130-template.svg?branch=master)](https://app.travis-ci.com/github/melaasar/cs130-template)

@@ -26,9 +26,7 @@ const RentalHistory = () => {
                 {rentalHistory.length ? rentalHistory.map((listing, index) => (
                 <Listing
                     key={index}
-                    title={listing.description}
-                    description={listing.description}
-                    price={`$${listing.price}/month`}
+                    data={listing}
                     onClick={() => handleListingClick(listing.id)}
                 />
                     ))
