@@ -18,6 +18,10 @@ This will start the application at [http://localhost:3000](http://localhost:3000
 
 `cd` into the `backend` directory and run `npm start`. This will start the backend application at [http://localhost:5000](http://localhost:5000)
 
+## CI/CD
+
+The CI/CD pipeline with Vercel is triggered when commit(s) are successfully pushed to the main branch. Vercel will handle the testing, building, and deployment.
+
 
 ## API
 
