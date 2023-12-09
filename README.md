@@ -2,9 +2,9 @@
 
 This is the root directory README.
 
-If you would like information on how to run the frontend, please open the README file in the subletr-reactapp folder
+If you would like information on how to run the frontend or its API documentation, please open the README file in the subletr-reactapp folder
 
-If you would like information on how to run the backend server, please open the README file in the subletr-reactapp/backend folder
+If you would like information on how to run the backend server or its API documentation, please open the README file in the subletr-reactapp/backend folder
 
 
 
