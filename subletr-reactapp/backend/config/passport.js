@@ -1,6 +1,10 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const Customer = require("../models/Customer");
 
+/**
+ * Configuration for the Google authentication strategy.
+ * @param {Object} passport - The passport instance to use for authentication.
+ */
 module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(

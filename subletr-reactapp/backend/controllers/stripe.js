@@ -3,7 +3,13 @@ const Listing = require("../models/Listing");
 const config = require("../config/variables");
 const stripe = require("stripe")(config.STRIPE_SECRET_KEY);
 
-// accepts listingId as req.body.listingId
+/**
+ * Creates a rent subscription in Stripe.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {String} req.body.listingId - The listing id, accepted as req.body.listingId
+ * @returns {Object} The response object.
+ */
 const createRentSubscription = async (req, res) => {
   try {
     const connectedAccountId = config.STRIPE_CONNECTED_ACCOUNT_ID;

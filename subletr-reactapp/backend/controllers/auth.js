@@ -2,6 +2,13 @@ const { generateToken, verifyToken } = require("../utils/jwt");
 const config = require("../config/variables");
 const Customer = require("../models/Customer");
 
+/**
+ * Handles the authentication process for the customer.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Object} customer - The customer object.
+ * @returns {Object} The response object.
+ */
 const handleAuthentication = async (req, res, customer) => {
   try {
     console.log("handle auth: ", customer);
@@ -30,6 +37,12 @@ const handleAuthentication = async (req, res, customer) => {
   }
 };
 
+/**
+ * Updates the customer information.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const updateCustomer = async (req, res) => {
   try {
     const updatedCustomer = await Customer.findByIdAndUpdate(

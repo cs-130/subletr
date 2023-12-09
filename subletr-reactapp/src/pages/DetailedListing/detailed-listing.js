@@ -9,6 +9,13 @@ import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { ListingsContext } from '../../context/ListingsProvider.js';
 
+/**
+ * The DetailedListing component.
+ * @function
+ * @name DetailedListing
+ * @description The component that displays the detailed view of a listing.
+ * @returns {JSX.Element} The JSX element representing the DetailedListing component.
+ */
 export default function DetailedListing() {
     const {
         listings,
@@ -17,12 +24,7 @@ export default function DetailedListing() {
 
     const { listing_id } = useParams()
     
-    let listing_data = listings.find(item => item._id == listing_id)
-
-    const quotes = [
-        { text: "Amazing place to stay for short term lease...", author: "Jane Doe" },
-        { text: "Amazing place to stay for short term lease...", author: "Jane Doe" }
-    ];
+    let listing_data = listings.find(item => item._id === listing_id)
     
     const images = [defaultImage, defaultImage, defaultImage, defaultImage];
 
@@ -35,16 +37,12 @@ export default function DetailedListing() {
               ", " +
               listing_data.address.split(",")[1]
             }
-            // rating={4.8}
-            // reviewCount={28}
             rent={listing_data.rent}
-            // reviewLink="#reviews"
           />
         </div>
 
         <div className="wrapper-image">
           <ListingImageCard
-            quotes={quotes}
             images={
               listing_data.listingPictures &&
               listing_data.listingPictures.length

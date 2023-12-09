@@ -1,5 +1,4 @@
-import React, { createContext, useState, useEffect } from "react"
-import { v4 as uuid } from 'uuid';
+import React, { createContext, useState, useEffect, useCallback } from "react"
 import { isLoggedIn } from '../api/api';
 import { logoutCustomer } from '../api/api';
 import { getUserListings } from "../api/api";
@@ -13,10 +12,19 @@ import { callGetConversations} from "../api/api";
 import { callGetMessages } from "../api/api";
 import { getListings } from "../api/api";
 
+/**
+ * The context for managing user-related data and functionality.
+ * @type {React.Context}
+ */
 export const UserContext = createContext()
 
+/**
+ * The provider component for the UserContext.
+ * @param {object} props - The component props.
+ * @param {React.ReactNode} props.children - The child components wrapped by the provider.
+ * @returns {JSX.Element} The JSX element representing the UserProvider component.
+ */
 export const UserProvider = ({ children }) => {
-
     const [userId, setUserId] = useState();
     const [userListings, setUserListings] = useState([])
     const [viewedListings, setViewedListings] = useState([])
@@ -25,21 +33,21 @@ export const UserProvider = ({ children }) => {
     const [conversationIds, setConversationIds] = useState([])
     const [messages, setMessages] = useState([])
 
+    const getMyListings = useCallback(async () => {
+      const listings = await getUserListings(userId);
+      setUserListings(listings);
+    }, [userId]);
 
     useEffect(() => {
-        if (userId)
-            getMyListings()
-    }, [userId])
+        if (userId) {
+            getMyListings();
+        }
+    }, [userId, getMyListings])
 
     const createListing = async (data) => {
         const response = await callCreateListing(data, userId)
         getListings()
         return response.message
-    }
-
-    const getMyListings = async () => {
-        const listings = await getUserListings(userId)
-        setUserListings(listings)
     }
 
     const getViewedListings = async () => {
@@ -71,13 +79,13 @@ export const UserProvider = ({ children }) => {
 
     const favoriteListing = async (listing_id) => {
         if (userId) {
-            const response = await callFavoriteListing(listing_id, userId)
+            await callFavoriteListing(listing_id, userId)
         }
     }
 
     const deleteListing = async (listingId) => {
         const response = await callDeletelisting(listingId)
-        if (response.message == 'success')
+        if (response.message === 'success')
             getMyListings(userId)
     }
 

@@ -8,10 +8,24 @@ import Typography from "@mui/material/Typography";
 import parse from "autosuggest-highlight/parse";
 import { debounce } from "@mui/material/utils";
 
+/**
+ * The Google Maps API key.
+ * @type {string}
+ */
 const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
+/**
+ * The current instance of the autocomplete service.
+ * @type {{ current: null|Window.google.maps.places.AutocompleteService }}
+ */
 const autocompleteService = { current: null };
 
+/**
+ * Loads a script dynamically.
+ * @param {string} src - The source URL of the script.
+ * @param {Element} position - The position where the script should be inserted.
+ * @param {string} id - The ID attribute for the script element.
+ */
 function loadScript(src, position, id) {
   if (!position) {
     return;
@@ -24,6 +38,14 @@ function loadScript(src, position, id) {
   position.appendChild(script);
 }
 
+/**
+ * The BasicInfo component.
+ * @function
+ * @name BasicInfo
+ * @description The component that displays the basic information of the listing.
+ * @param {object} props - The component props.
+ * @returns {JSX.Element} The JSX element representing the BasicInfo component.
+ */
 const BasicInfo = (props) => {
   const { formik } = props;
 
