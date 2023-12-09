@@ -1,8 +1,8 @@
 const OpenAI = require("openai");
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// const openai = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
 
 const BASE_PROMPT = "The following is a user provided description of a house or apartment. Make it more descriptive and appealing to potential subletters. Try to limit it to 300 words\n\nDescription: ";
 
