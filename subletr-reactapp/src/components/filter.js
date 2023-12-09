@@ -2,12 +2,20 @@ import React, { useState } from 'react';
 import { 
     Box, 
     Typography, 
-    IconButton, 
     Slider, 
     Button 
 } from '@mui/material';
 import { listingFeatures } from "./FeatureInfo.js";
 
+/**
+ * The FilterComponent component.
+ * @function
+ * @name FilterComponent
+ * @description The component that displays the filter options.
+ * @param {object} props - The component props.
+ * @param {Function} props.handleFilterChange - The function to call when the filter changes.
+ * @returns {JSX.Element} The JSX element representing the FilterComponent.
+ */
 function FilterComponent(props) {
     const [accommodation, setAccommodation] = useState('All');
     const [spots, setSpots] = useState(1);

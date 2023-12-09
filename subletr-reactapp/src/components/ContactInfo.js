@@ -1,7 +1,15 @@
 import * as React from "react";
 import { TextField, Grid } from "@mui/material";
 
-
+/**
+ * FeatureInfo component.
+ * @function
+ * @name FeatureInfo
+ * @description Component for displaying additional feature information.
+ * @param {object} props - The component props.
+ * @param {object} props.formik - The Formik object for form management.
+ * @returns {JSX.Element} The JSX element representing the FeatureInfo component.
+ */
 const FeatureInfo = (props) => {
   const { formik } = props;
 
@@ -38,13 +46,3 @@ const FeatureInfo = (props) => {
 };
 
 export default FeatureInfo;
-
-const listingFeatures = [
-  "Air Conditioning",
-  "Balcony",
-  "In Unit Laundry",
-  "Parking",
-  "Furnished",
-  "Pet Friendly",
-  "Dishwasher",
-];

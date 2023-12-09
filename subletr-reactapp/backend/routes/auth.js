@@ -29,12 +29,9 @@ router.get("/google/callback", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  req.logout();
-  res
-    .clearCookie("jwt_auth", {
-      domain: process.env.NODE_ENV === "production" ? `fribe.com` : null,
-    })
-    .json({ message: "success" });
+  // req.logout();
+  res.cookie("jwt_auth", "", { expires: new Date(0) });
+  return res.json({ message: "success" });
 });
 
 // Update any field for customer

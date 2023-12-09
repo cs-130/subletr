@@ -1,13 +1,17 @@
-const { time } = require("console");
 const Customer = require("../models/Customer");
 const Listing = require("../models/Listing");
 const { sendAwsEmail } = require("../utils/notifications");
 const ListingViewLog = require("../models/ListingViewLog");
-const RentalHistory = require("../models/RentalHistory")
 const ActiveLeases = require("../models/ActiveLeases");
 
 const mongoose = require("mongoose");
 
+/**
+ * Retrieves all listings.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const getAllListings = async (req, res) => {
   try {
     // console.log("entered get all listings");
@@ -20,7 +24,12 @@ const getAllListings = async (req, res) => {
   }
 };
 
-
+/**
+ * Creates a new listing.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const createListing = async (req, res) => {
   try {
     let newListing = new Listing({
@@ -46,6 +55,12 @@ const createListing = async (req, res) => {
   }
 };
 
+/**
+ * Accepts a listing request.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const acceptListing = async (req, res) => {
   try {
     const { acceptorId, ownerId } = req.body;
@@ -88,6 +103,12 @@ const acceptListing = async (req, res) => {
   }
 };
 
+/**
+ * Retrieves the listings created by a specific user.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const getUserListings = async (req, res) => {
   try {
     const allListings = await Listing.find({userId: req.params.userId}).lean();
@@ -99,6 +120,12 @@ const getUserListings = async (req, res) => {
   }
 };
 
+/**
+ * Retrieves the favorited listings for a particular user.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const getFavoritedListings = async (req, res) => {
   try {
     const favoritedListings = await ListingViewLog.find({ userId: req.params.userId }).lean();
@@ -116,6 +143,12 @@ const getFavoritedListings = async (req, res) => {
   }
 };
 
+/**
+ * Retrieves the rental history for a particular user.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const getRentalHistory = async (req, res) => {
   try {
     const rentedListings = await ActiveLeases.find({renterId: req.params.userId}).lean();
@@ -127,6 +160,12 @@ const getRentalHistory = async (req, res) => {
   }
 };
 
+/**
+ * Logs a favorite action for a listing.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const logListingFavorite = async (req, res) => {
   try {
     let favoriteLog = new ListingViewLog({
@@ -143,6 +182,12 @@ const logListingFavorite = async (req, res) => {
   }
 };
 
+/**
+ * Deletes a listing.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const deleteListing = async (req, res) => {
   try {
     await Listing.deleteOne({_id: mongoose.Types.ObjectId(req.body.listing_id)})
@@ -154,6 +199,12 @@ const deleteListing = async (req, res) => {
   }
 };
 
+/**
+ * Edits a listing.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object.
+ */
 const editListing = async (req, res) => {
   try {
     await Listing.findOneAndUpdate({ _id: mongoose.Types.ObjectId(req.body.listing_id) }, {
@@ -176,6 +227,5 @@ const editListing = async (req, res) => {
       .json({ message: `error in fetching rented listings: ${err}` });
   }
 };
-
 
 module.exports = { getAllListings, createListing, getUserListings, getFavoritedListings, getRentalHistory, logListingFavorite, acceptListing, deleteListing, editListing };

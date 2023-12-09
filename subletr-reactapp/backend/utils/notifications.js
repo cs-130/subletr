@@ -7,6 +7,14 @@ const SESConfig = {
   region: config.AWS_REGION,
 };
 
+/**
+ * Sends an email using AWS SES.
+ * @param {string} from - The email address of the sender.
+ * @param {string} to - The email address of the recipient.
+ * @param {string} subject - The subject of the email.
+ * @param {string} content - The content of the email.
+ * @returns {Promise<Object>} A promise that resolves to the response object.
+ */
 const sendAwsEmail = (from, to, subject, content) => {
   const params = {
     Source: from,

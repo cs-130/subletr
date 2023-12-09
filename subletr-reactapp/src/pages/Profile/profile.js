@@ -1,15 +1,17 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './profile.css'
-import { TextField, Button, Box, Avatar } from '@mui/material';
-import Listing from '../../components/listing';
+import { Button, Box } from '@mui/material';
 import { UserContext } from '../../context/UserContext';
 import MyListings from './MyListings';
 import ViewedListings from './ViewedListings';
 import RentalHistory from './RentalHistory';
 import Messages from "../Messages/Messages";
 
+/**
+ * The Profile component.
+ * @returns {JSX.Element} The JSX element representing the Profile component.
+ */
 function Profile() {
-
   const {
     viewedListings,
     getMyListings,
@@ -19,10 +21,9 @@ function Profile() {
     setPage,
   } = useContext(UserContext)
 
-
   useEffect(() => {
-    getMyListings()
-  }, [])
+    getMyListings();
+  }, [getMyListings]);
 
   const handleMenuClick = (i) => {
     setPage(i)
@@ -36,23 +37,26 @@ function Profile() {
       case 2:
         getRentalHistory()
         break
+      case 3:
+        // do nothing
+        break
     }
-
   }
 
   const PageData = () => {
-    if (page == 0) {
+    if (page === 0) {
       return <MyListings/>
     }
-    if (page == 1) {
+    if (page === 1) {
       return <ViewedListings/>
     }
-    if (page == 2) {
+    if (page === 2) {
       return <RentalHistory/>
     }
-    if (page == 3) {
+    if (page === 3) {
       return <Messages/>
     }
+    return <div>Page not found</div>
   }
 
   return (
@@ -102,7 +106,6 @@ function Profile() {
           >
             Messages
           </Button>
-          {/* <Button variant="contained" sx={{ width: '110%'}}>Legal</Button>  */}
         </Box>
       </div>
 
