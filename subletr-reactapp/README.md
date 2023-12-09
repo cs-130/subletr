@@ -14,6 +14,9 @@ This will install all the required modules for subletr
 
 This will start the application at [http://localhost:3000](http://localhost:3000), where you can browse the application!
 
+## How to run the Backend
+
+`cd` into the `backend` directory and run `npm start`. This will start the backend application at [http://localhost:5000](http://localhost:5000)
 
 
 ## API
